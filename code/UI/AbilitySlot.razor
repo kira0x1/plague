@@ -1,0 +1,43 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using Kira;
+
+<root class="slot" id="slot-@SlotIndex">
+    @* <div class="slot-cooldown" style="height:@GetCooldown()"> *@
+    @* </div> *@
+
+    @if (HasAbility)
+    {
+        <div class="slot-icon" style="background: url(@SlotIcon())">
+        </div>
+    }
+
+    @* <div class="slot-text"> *@
+    @*     @SlotText() *@
+    @* </div> *@
+</root>
+
+@code
+{
+    private string SlotText()
+    {
+        return $"{SlotIndex + 1}";
+    }
+
+    private string SlotIcon()
+    {
+        return Ability.Icon;
+    }
+
+    private string GetCooldown()
+    {
+        if (!HasAbility) return "0px";
+        var timeLeft = Ability.CooldownTimeUntil.Relative;
+        Log.Info(timeLeft);
+        return $"{timeLeft * 100}%";
+    }
+
+    private bool HasAbility => Ability is not null;
+    public IAbility Ability { get; set; }
+    public int SlotIndex { get; set; }
+}

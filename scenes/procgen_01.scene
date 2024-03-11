@@ -1,0 +1,207 @@
+{
+  "Id": "5e3cf76f-7d94-46ae-b041-1c1326f038c7",
+  "GameObjects": [
+    {
+      "Id": "d68f76f9-6545-472b-a3c6-1607fb7bba86",
+      "Name": "noise",
+      "Position": "-512,-576,-64",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "NoiseGenerator",
+          "ClampValues": true,
+          "Intensity": 2.18,
+          "MapSize": 2,
+          "NoiseType": "Perlin",
+          "Octaves": 4,
+          "Scale": 1.64,
+          "UseRenderer": false
+        },
+        {
+          "__type": "NoiseRenderer",
+          "__enabled": false,
+          "Resolution": 1,
+          "SpriteSize": 153
+        },
+        {
+          "__type": "SpriteRenderer",
+          "__enabled": false,
+          "Additive": false,
+          "CastShadows": false,
+          "Color": "1,1,1,1",
+          "DepthFeather": 0,
+          "FogStrength": 0,
+          "Opaque": true,
+          "Size": "153,153",
+          "Texture": null
+        },
+        {
+          "__type": "LevelGenerator",
+          "BlocksRes": 35,
+          "ClampValues": false,
+          "grassColor": "0.52314,0.74884,0.37268,1",
+          "groundColor": "0.8186,0.58762,0.28556,1",
+          "Offset": 0,
+          "VoxelSize": 1,
+          "waterColor": "0.50698,0.89318,1,1"
+        }
+      ]
+    },
+    {
+      "Id": "cfa8f229-bca6-4df8-a857-00317d6961cd",
+      "Name": "2D Skybox",
+      "Tags": "skybox",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "SkyBox2D",
+          "SkyMaterial": "materials/skybox/light_test_sky_sunny03.vmat",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "EnvmapProbe",
+          "Bounds": {
+            "Mins": "-512,-512,-512",
+            "Maxs": "512,512,512"
+          },
+          "Feathering": 0.02,
+          "Projection": "Sphere",
+          "Texture": "textures/cubemaps/default2.vtex",
+          "TintColor": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "Id": "a94a480c-1f1c-4b80-9be4-43d21cd9223a",
+      "Name": "Sun",
+      "Position": "0,0,307.6504",
+      "Rotation": "-0.0729315,0.4822396,0.1305433,0.8631827",
+      "Tags": "light_directional,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "DirectionalLight",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.94419,0.97767,1,1",
+          "Shadows": true,
+          "SkyColor": "0.2532,0.32006,0.35349,1"
+        }
+      ]
+    },
+    {
+      "Id": "6c4a6efc-bc84-4525-aa47-c3302a8602d0",
+      "Name": "Plane",
+      "Scale": "10,10,5",
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": "materials/default.vmat",
+          "Model": "models/dev/plane.vmdl",
+          "RenderType": "On",
+          "Tint": "0.38674,0.59772,0.82326,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,-5",
+          "IsTrigger": false,
+          "Scale": "100,100,10",
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "8f2908c4-7516-48a9-a07c-7f8ea8b8f57f",
+      "Name": "Camera",
+      "Position": "-447.4052,-546.9193,789.7915",
+      "Rotation": "-0.1456968,0.2876799,0.4276787,0.8444549",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "CameraComponent",
+          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "ClearFlags": "All",
+          "FieldOfView": 60,
+          "IsMainCamera": true,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 10000,
+          "ZNear": 10
+        },
+        {
+          "__type": "Bloom",
+          "BloomColor": {
+            "color": [
+              {
+                "c": "1,1,1,1"
+              },
+              {
+                "t": 1,
+                "c": "1,1,1,1"
+              }
+            ],
+            "alpha": []
+          },
+          "BloomCurve": [
+            {
+              "y": 0.5
+            },
+            {
+              "x": 1,
+              "y": 1
+            }
+          ],
+          "Mode": "Additive",
+          "Strength": 0.5,
+          "Threshold": 0.5,
+          "ThresholdWidth": 0.5
+        },
+        {
+          "__type": "Tonemapping",
+          "ExposureCompensation": 0,
+          "MaximumExposure": 2,
+          "MinimumExposure": 1,
+          "Rate": 1
+        },
+        {
+          "__type": "Sharpen",
+          "__enabled": false,
+          "Scale": 0.2
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "procgen_01",
+  "Description": "",
+  "LastSaved": "2024-03-09T20:25:17.3491485\u002B00:00",
+  "__references": []
+}

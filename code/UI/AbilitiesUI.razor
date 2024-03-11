@@ -1,0 +1,31 @@
+@using Sandbox;
+@using Kira;
+@inherits PanelComponent
+
+<root>
+    <div class="hotbar">
+        @for (var i = 0; i < 4; i++)
+        {
+            if (i < PlayerAbilities.Abilities.Count)
+            {
+                IAbility ability = PlayerAbilities.Abilities[i];
+                <AbilitySlot SlotIndex=@i Ability=@ability></AbilitySlot>
+            }
+            else
+            {
+                <AbilitySlot SlotIndex=@i></AbilitySlot>
+            }
+        }
+    </div>
+</root>
+
+@code
+{
+    [Property]
+    public PlayerAbilities PlayerAbilities { get; set; }
+
+    /// <summary>
+    /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+    /// </summary>
+    protected override int BuildHash() => System.HashCode.Combine(PlayerAbilities.Abilities);
+}

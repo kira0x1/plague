@@ -1,0 +1,24 @@
+{
+  "BaseDamage": 15,
+  "AbilityName": "ability",
+  "CooldownTime": 0.3,
+  "WindUpTime": 0.1,
+  "Icon": "textures/bow_128.png",
+  "ElementType": "Normal",
+  "SpellType": "Projectile",
+  "ProjectilePrefab": {
+    "_type": "gameobject",
+    "prefab": "prefabs/projectile_prefab.prefab"
+  },
+  "ProjectileSpeed": 450,
+  "ProjectileMode": "DestroyOnHit",
+  "SpawnNorth": true,
+  "SpawnNorthWest": false,
+  "SpawnNorthEast": false,
+  "SpawnSouth": false,
+  "SpawnSouthEast": false,
+  "SpawnSouthWest": false,
+  "SpawnEast": true,
+  "SpawnWest": true,
+  "__references": []
+}

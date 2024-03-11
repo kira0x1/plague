@@ -1,0 +1,32 @@
+{
+  "RootObject": {
+    "Id": "e90825a8-c7e4-4f75-b07e-fda0010ac600",
+    "Name": "projectile_prefab",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Projectile"
+      }
+    ],
+    "Children": [
+      {
+        "Id": "e885339a-9371-46b4-b314-7a37e36a72a7",
+        "Name": "Arrow",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/editor/arrow.vmdl",
+            "RenderType": "On",
+            "Tint": "0.91628,0.49767,1,1"
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}
