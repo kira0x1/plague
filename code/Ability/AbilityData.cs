@@ -10,19 +10,26 @@ public enum ProjectileModes
 [GameResource("Ability Data", "ability", "Data for Abilities")]
 public partial class AbilityData : GameResource, IAbilityFactory
 {
-    public float BaseDamage { get; set; } = 10;
     public string AbilityName { get; set; }
-
-    public float CooldownTime { get; set; } = 0.5f;
-    public float WindUpTime { get; set; } = 0.1f;
 
     [ResourceType("jpg")]
     public string Icon { get; set; }
 
+    public float CooldownTime { get; set; } = 0.5f;
+    public float WindUpTime { get; set; } = 0.1f;
+    public float LifeTime { get; set; } = 10f;
+
+    [Group("Damage")]
+    public float BaseDamage { get; set; } = 10;
+    [Group("Damage")]
+    public float BaseCritChance { get; set; } = 1f;
+    [Group("Damage")]
+    public float BaseCritDamage { get; set; } = 1f;
+
     public SpellElementTypes ElementType { get; set; }
     public SpellTypes SpellType { get; set; }
 
-    [Group("Projectile"), ShowIf(nameof(SpellType), SpellTypes.Projectile)]
+    [Group("Projectile"), ResourceType("prefab"), ShowIf(nameof(SpellType), SpellTypes.Projectile)]
     public GameObject ProjectilePrefab { get; set; }
 
     [Group("Projectile"), ShowIf(nameof(SpellType), SpellTypes.Projectile)]
@@ -31,8 +38,10 @@ public partial class AbilityData : GameResource, IAbilityFactory
     [Group("Projectile"), ShowIf(nameof(SpellType), SpellTypes.Projectile)]
     public ProjectileModes ProjectileMode { get; set; } = ProjectileModes.DestroyOnHit;
 
+    #region Spawns
+
     [Group("Projectile Direction"), ShowIf(nameof(SpellType), SpellTypes.Projectile)]
-    public bool SpawnNorth { get; set; }
+    public bool SpawnNorth { get; set; } = true;
     [Group("Projectile Direction"), ShowIf(nameof(SpellType), SpellTypes.Projectile)]
     public bool SpawnNorthWest { get; set; }
     [Group("Projectile Direction"), ShowIf(nameof(SpellType), SpellTypes.Projectile)]
@@ -47,6 +56,8 @@ public partial class AbilityData : GameResource, IAbilityFactory
     public bool SpawnEast { get; set; }
     [Group("Projectile Direction"), ShowIf(nameof(SpellType), SpellTypes.Projectile)]
     public bool SpawnWest { get; set; }
+
+    #endregion
 
     public IAbility CreateAbility(PlayerAbilities caster)
     {

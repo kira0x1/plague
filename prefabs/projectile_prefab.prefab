@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "Id": "e90825a8-c7e4-4f75-b07e-fda0010ac600",
+    "Id": "4d9cf4c2-2ecf-4e5d-875d-04828f6f1ba4",
     "Name": "projectile_prefab",
     "Enabled": true,
     "Components": [
@@ -10,8 +10,9 @@
     ],
     "Children": [
       {
-        "Id": "e885339a-9371-46b4-b314-7a37e36a72a7",
+        "Id": "7c0235de-b26e-4340-9012-8f6e59e8a703",
         "Name": "Arrow",
+        "Scale": "1.5,1.5,1.5",
         "Enabled": true,
         "Components": [
           {

@@ -17,6 +17,7 @@ public sealed class Projectile : Component
     public void Init(AbilityData data, ProjectileAbility ability)
     {
         Speed = data.ProjectileSpeed;
+        projectileModes = data.ProjectileMode;
         Ability = ability;
         spawnTimeSince = 0;
     }
@@ -38,9 +39,7 @@ public sealed class Projectile : Component
             var mob = tr.GameObject.Components.Get<Mob>();
             if (!mob.IsValid()) return;
 
-
             mob.OnHit(Ability);
-            Log.Info($"hit: {tr.GameObject.Name}");
 
             if (projectileModes == ProjectileModes.DestroyOnHit)
             {

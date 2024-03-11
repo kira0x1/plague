@@ -17,7 +17,7 @@ public class MobVitals : Component
             return;
 
         Health -= damage;
-        
+
         if (Health <= 0)
         {
             OnDeathEvent?.Invoke();

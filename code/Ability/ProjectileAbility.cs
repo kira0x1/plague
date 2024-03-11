@@ -57,6 +57,7 @@ public class ProjectileAbility : BaseAbility
 
     private void SpawnProjectile(GameTransform transform)
     {
+        //TODO: pooling system
         var prj = ProjectilePrefab.Clone(transform.Position, transform.Rotation);
         prj.Components.Get<Projectile>().Init(Data, this);
     }

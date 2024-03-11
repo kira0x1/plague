@@ -131,6 +131,7 @@ public sealed class Mob : Component
     public void OnHit(BaseAbility ability)
     {
         Anim.ProceduralHitReaction(new DamageInfo(), 150f, -Transform.Local.Forward * 100f);
+
         //TODO: replace this with a better damage text system
         damageNumbersTest.Add(new DamageNumberText(Transform.Position + Transform.Local.Up * 60, ability.Damage));
         OnHitEvent?.Invoke(ability.Damage);
