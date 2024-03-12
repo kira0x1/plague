@@ -1,0 +1,8 @@
+{
+  "DropChance": 0.1,
+  "LootPrefab": {
+    "_type": "gameobject",
+    "prefab": "prefabs/loottest_prefab.prefab"
+  },
+  "__references": []
+}

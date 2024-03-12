@@ -1,0 +1,43 @@
+{
+  "RootObject": {
+    "Id": "f883133e-378c-4c14-9e8d-489c35ca5035",
+    "Name": "Loot Test",
+    "Position": "0,0,32",
+    "Tags": "loot",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "Components": [
+      {
+        "__type": "BoxCollider",
+        "Center": "0,0,0",
+        "IsTrigger": true,
+        "Scale": "15,15,15",
+        "Static": false
+      }
+    ],
+    "Children": [
+      {
+        "Id": "383e5f1c-ab54-4967-9a92-fe48fe73e1a0",
+        "Name": "Model",
+        "Position": "0,0,0",
+        "Scale": "0.2,0.2,0.2",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "BodyGroups": 18446744073709551615,
+            "MaterialOverride": "materials/dev/bright_100.vmat",
+            "Model": "models/dev/sphere.vmdl",
+            "RenderType": "On",
+            "Tint": "0.07048,0.84186,0.07048,1"
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}

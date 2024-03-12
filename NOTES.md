@@ -13,6 +13,10 @@
 ## Abilities
 
 - [x] Ability Container
+- [ ] Ability Reloads
+    - [x] Ability Magazine Count
+    - [x] Ability Reload Clip
+    - [ ] Reload Sound
 
 
 - [x] Test Ability
