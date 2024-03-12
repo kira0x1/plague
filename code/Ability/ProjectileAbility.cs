@@ -2,7 +2,7 @@
 
 namespace Kira;
 
-public enum ShootMode
+public enum TargetModes
 {
     ShootAny, // Shoots all the time
     ShootClosest,
@@ -33,10 +33,8 @@ public class ProjectileAbility : BaseAbility
 {
     public GameObject ProjectilePrefab { get; set; }
 
-    public override void CastSpell()
+    protected override void OnCastSpell()
     {
-        base.CastSpell();
-
         if (!ProjectilePrefab.IsValid())
         {
             Log.Warning("Projectile Prefab is Null!");

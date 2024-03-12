@@ -59,7 +59,9 @@ public class PlayerAbilities : Component
     {
         foreach (IAbility ability in Abilities)
         {
-            if (ability.CooldownTimeUntil > ability.CooldownTime)
+            bool canCastSpell = ability.CooldownTimeUntil > ability.CooldownTime;
+
+            if (canCastSpell)
             {
                 ability.CastSpell();
             }

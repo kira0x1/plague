@@ -89,7 +89,7 @@ public sealed class Mob : Component
             case MobStates.Dead:
                 Anim.HoldType = CitizenAnimationHelper.HoldTypes.None;
                 Anim.WithVelocity(RgBody.Velocity);
-                Anim.WithWishVelocity(Vector3.Zero);
+                Anim.WithWishVelocity(RgBody.AngularVelocity);
                 break;
         }
     }
@@ -140,17 +140,14 @@ public sealed class Mob : Component
     private void OnDeath()
     {
         MobState = MobStates.Dead;
+        Components.GetAll<BoxCollider>().FirstOrDefault()!.Enabled = false;
         ModelCol.Enabled = true;
         RgBody.Enabled = true;
         Agent.Enabled = false;
+        Anim.Enabled = false;
 
         GameObject.Tags.Add("ragdoll");
 
-        Vector3 dir = Vector3.One + Vector3.Random * 500f;
-        Anim.ProceduralHitReaction(new DamageInfo(), 1000f, dir * 600f);
-
-        Anim.LookAt = Player;
-        Anim.LookAtEnabled = true;
-        Components.GetAll<BoxCollider>().FirstOrDefault()!.Enabled = false;
+        RgBody.ApplyForceAt(Transform.Position + Vector3.Up * 45, -Transform.Local.Forward * 1500);
     }
 }

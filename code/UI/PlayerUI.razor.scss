@@ -1,0 +1,15 @@
+PlayerUI {
+  //justify-content: center;
+  align-items: flex-start;
+  font-weight: bold;
+  padding: 10px;
+
+  .health {
+    border-radius: 20px;
+    padding: 20px;
+    background-color: rgba(50, 50, 50, 0.5);
+    font-size: 25px;
+    font-family: Poppins;
+    color: #fff;
+  }
+}

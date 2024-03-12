@@ -1,6 +1,6 @@
 ﻿namespace Kira;
 
-public enum ProjectileModes
+public enum ProjectileDestroyModes
 {
     DestroyOnHit, // destroyed on first hit
     Penetrate, // can penetrate x number of mobs
@@ -11,12 +11,12 @@ public enum ProjectileModes
 public partial class AbilityData : GameResource, IAbilityFactory
 {
     public string AbilityName { get; set; }
-
-    [ResourceType("jpg")]
     public string Icon { get; set; }
 
     public float CooldownTime { get; set; } = 0.5f;
-    public float WindUpTime { get; set; } = 0.1f;
+    public float ReloadTime { get; set; } = 0.1f;
+    public int MagazineCapacity { get; set; } = 6;
+
     public float LifeTime { get; set; } = 10f;
 
     [Group("Damage")]
@@ -29,6 +29,9 @@ public partial class AbilityData : GameResource, IAbilityFactory
     public SpellElementTypes ElementType { get; set; }
     public SpellTypes SpellType { get; set; }
 
+    public ShootDirectionMode ShootDirection { get; set; }
+    public TargetModes TargetMode { get; set; }
+
     [Group("Projectile"), ResourceType("prefab"), ShowIf(nameof(SpellType), SpellTypes.Projectile)]
     public GameObject ProjectilePrefab { get; set; }
 
@@ -36,7 +39,7 @@ public partial class AbilityData : GameResource, IAbilityFactory
     public float ProjectileSpeed { get; set; } = 100f;
 
     [Group("Projectile"), ShowIf(nameof(SpellType), SpellTypes.Projectile)]
-    public ProjectileModes ProjectileMode { get; set; } = ProjectileModes.DestroyOnHit;
+    public ProjectileDestroyModes ProjectileDestroyMode { get; set; } = ProjectileDestroyModes.DestroyOnHit;
 
     #region Spawns
 

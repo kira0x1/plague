@@ -9,7 +9,7 @@
             if (i < PlayerAbilities.Abilities.Count)
             {
                 IAbility ability = PlayerAbilities.Abilities[i];
-                <AbilitySlot SlotIndex=@i Ability=@ability></AbilitySlot>
+                <AbilitySlot @ref=Slots[i] SlotIndex=@i Ability=@ability></AbilitySlot>
             }
             else
             {
@@ -23,6 +23,9 @@
 {
     [Property]
     public PlayerAbilities PlayerAbilities { get; set; }
+
+    public AbilitySlot[] Slots { get; set; } = new AbilitySlot[4];
+
 
     /// <summary>
     /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt

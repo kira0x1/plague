@@ -8,18 +8,19 @@ public sealed class Projectile : Component
 
     public ProjectileAbility Ability { get; set; }
 
-    private const float lifeTime = 12;
+    private float lifeTime = 12;
     private TimeSince spawnTimeSince;
 
-    public ProjectileModes projectileModes;
+    public ProjectileDestroyModes projectileDestroyModes;
     public Dictionary<Guid, TimeUntil> HitObjectRecords = new Dictionary<Guid, TimeUntil>();
 
     public void Init(AbilityData data, ProjectileAbility ability)
     {
         Speed = data.ProjectileSpeed;
-        projectileModes = data.ProjectileMode;
+        projectileDestroyModes = data.ProjectileDestroyMode;
         Ability = ability;
         spawnTimeSince = 0;
+        lifeTime = data.LifeTime;
     }
 
     //TODO: might be more optimal to handle this in a gameobject system
@@ -39,12 +40,28 @@ public sealed class Projectile : Component
             var mob = tr.GameObject.Components.Get<Mob>();
             if (!mob.IsValid()) return;
 
-            mob.OnHit(Ability);
 
-            if (projectileModes == ProjectileModes.DestroyOnHit)
+            if (projectileDestroyModes == ProjectileDestroyModes.DestroyOnHit)
             {
+                mob.OnHit(Ability);
                 GameObject.Destroy();
                 // TODO: spawn on hit effect
+            }
+            else
+            {
+                bool hasMob = HitObjectRecords.TryGetValue(tr.GameObject.Id, out TimeUntil mobHitTimeUntil);
+                if (hasMob)
+                {
+                    if (mobHitTimeUntil)
+                    {
+                        mob.OnHit(Ability);
+                    }
+                }
+                else
+                {
+                    HitObjectRecords.Add(tr.GameObject.Id, 5f);
+                    mob.OnHit(Ability);
+                }
             }
         }
     }

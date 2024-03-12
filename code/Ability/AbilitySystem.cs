@@ -23,9 +23,11 @@ public class AbilitySystem : GameObjectSystem
             }
         }
 
-        if (hasAlive)
+        if (!hasAlive)
         {
-            Scene.Components.GetAll<PlayerAbilities>().FirstOrDefault()!.UpdateAbilities();
+            return;
         }
+
+        Scene.Components.GetAll<PlayerAbilities>().FirstOrDefault()!.UpdateAbilities();
     }
 }

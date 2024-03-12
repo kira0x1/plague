@@ -12,16 +12,17 @@
         </div>
     }
 
-    @* <div class="slot-text"> *@
-    @*     @SlotText() *@
-    @* </div> *@
+    <div class="slot-text">
+        @SlotText()
+    </div>
 </root>
 
 @code
 {
     private string SlotText()
     {
-        return $"{SlotIndex + 1}";
+        if (!HasAbility) return "";
+        return $"{Ability.AmmoCount} / {Ability.MagazineCapacity}";
     }
 
     private string SlotIcon()
@@ -40,4 +41,6 @@
     private bool HasAbility => Ability is not null;
     public IAbility Ability { get; set; }
     public int SlotIndex { get; set; }
+
+    protected override int BuildHash() => System.HashCode.Combine(Ability?.AmmoCount);
 }
