@@ -1,0 +1,24 @@
+{
+  "publish": {
+    "Allowed": true,
+    "Enabled": false,
+    "ProjectConfig": {
+      "Title": "basic_outdoor_map",
+      "Type": "map",
+      "Org": "local",
+      "Ident": "basic_outdoor_map",
+      "Tags": null,
+      "Schema": 0,
+      "HasAssets": false,
+      "AssetsPath": null,
+      "Resources": null,
+      "HasCode": false,
+      "CodePath": null,
+      "PackageReferences": [],
+      "EditorReferences": [],
+      "Metadata": {
+        "SingleAssetSource": "maps/basic_outdoor_map.vmap"
+      }
+    }
+  }
+}

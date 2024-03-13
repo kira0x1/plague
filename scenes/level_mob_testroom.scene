@@ -65,6 +65,7 @@
     {
       "Id": "8d8cc8ba-e798-4bbc-8138-b2b7e8e16514",
       "Name": "Level",
+      "Tags": "solid",
       "Enabled": true,
       "NetworkMode": 2,
       "Children": [
@@ -369,22 +370,11 @@
       ]
     },
     {
-      "Id": "c7093921-bcbc-463e-839f-bc741a56ce66",
-      "Name": "Mob",
-      "Position": "0,128,0",
-      "Rotation": "0,0,-0.7933533,0.6087615",
-      "Tags": "enemy",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "__Prefab": "prefabs/mobknight.prefab"
-    },
-    {
       "Id": "ebf313d9-80aa-43ed-bed7-81efcf3d54e4",
       "Name": "Mob (2)",
       "Position": "-99.87535,11.30601,0",
       "Rotation": "0,0,-0.6375826,0.7703822",
       "Tags": "enemy",
-      "Enabled": true,
       "NetworkMode": 2,
       "Components": [
         {
@@ -455,6 +445,7 @@
               "LinearDamping": 0,
               "Locking": {},
               "MassOverride": 0,
+              "MotionEnabled": true,
               "RigidbodyFlags": 0,
               "StartAsleep": false
             },
@@ -784,7 +775,7 @@
                                         {
                                           "Id": "2c98465d-ac70-4707-a65d-97c2892a7a58",
                                           "Name": "arm_lower_L_twist0",
-                                          "Position": "0.000007010831,0.000007611152,-0.00006476043",
+                                          "Position": "0,0,0",
                                           "Enabled": true,
                                           "NetworkMode": 2
                                         },
@@ -798,7 +789,7 @@
                                         {
                                           "Id": "3ae1062f-05dd-44f4-aaeb-9ff540d7317f",
                                           "Name": "arm_elbow_helper_L",
-                                          "Position": "-0.000007896426,0.000003000863,-0.00005959919",
+                                          "Position": "0,0,0",
                                           "Rotation": "0.0000003576279,-0.0000000372529,-0.7577644,0.6525283",
                                           "Enabled": true,
                                           "NetworkMode": 2
@@ -808,7 +799,7 @@
                                     {
                                       "Id": "05b6c32e-e289-4815-a3e5-fb4ebf6ec81b",
                                       "Name": "arm_upper_L_twist0",
-                                      "Position": "0.00001413404,0.00001339609,-0.00002629158",
+                                      "Position": "0,0,0",
                                       "Enabled": true,
                                       "NetworkMode": 2
                                     },
@@ -1025,14 +1016,14 @@
                                         {
                                           "Id": "cb68d49f-61e5-486e-92db-09f80dfd9b4e",
                                           "Name": "arm_lower_R_twist0",
-                                          "Position": "-0.00001441,0.0000253098,-0.00004294029",
+                                          "Position": "0,0,0",
                                           "Enabled": true,
                                           "NetworkMode": 2,
                                           "Children": [
                                             {
                                               "Id": "07aaef28-7c15-41f4-8899-721e874d1a9e",
                                               "Name": "arm_elbow_helper_R",
-                                              "Position": "-0.000003620888,0.00003055155,-0.00005177407",
+                                              "Position": "0,0,0",
                                               "Rotation": "0.0000008046627,-0.0000001974404,-0.7577677,0.6525243",
                                               "Enabled": true,
                                               "NetworkMode": 2
@@ -1044,7 +1035,7 @@
                                     {
                                       "Id": "005f8b27-489d-4536-8d40-f0a92e6f686d",
                                       "Name": "arm_upper_R_twist0",
-                                      "Position": "-0.000008485607,0.0000178289,-0.0000569921",
+                                      "Position": "0,0,0",
                                       "Enabled": true,
                                       "NetworkMode": 2
                                     },
@@ -1117,14 +1108,14 @@
                         {
                           "Id": "b787348d-ab8d-4b70-92e9-efeaa0304e22",
                           "Name": "leg_lower_R_twist0",
-                          "Position": "-0.000005873094,0.000004025086,-0.000006959911",
+                          "Position": "0,0,0",
                           "Enabled": true,
                           "NetworkMode": 2
                         },
                         {
                           "Id": "c4b46210-f98e-4c30-8684-071383a8b569",
                           "Name": "leg_knee_helper_R",
-                          "Position": "0.000001751199,0.000004304012,-0.000006959875",
+                          "Position": "0,0,0",
                           "Rotation": "-0.0000009536743,0.000001311302,-0.7135269,-0.7006279",
                           "Enabled": true,
                           "NetworkMode": 2
@@ -1141,7 +1132,7 @@
                     {
                       "Id": "69164547-63ac-4653-8216-77c88b56b35b",
                       "Name": "leg_upper_R_twist0",
-                      "Position": "0.000007629433,0.000005663647,-0.0000144547",
+                      "Position": "0,0,0",
                       "Rotation": "-0.00000006705523,-0.00000004842877,0.000003065914,1",
                       "Enabled": true,
                       "NetworkMode": 2
@@ -1149,7 +1140,7 @@
                     {
                       "Id": "c3229bb8-03df-4c34-a089-90b8b0beddd2",
                       "Name": "leg_glute_helper_R",
-                      "Position": "0.00002098087,0.00000472684,-0.00001463296",
+                      "Position": "0,0,0",
                       "Rotation": "-0.000001043081,-0.000000551343,-0.7071052,0.7071085",
                       "Enabled": true,
                       "NetworkMode": 2
@@ -1200,14 +1191,14 @@
                         {
                           "Id": "27ce1601-0913-46dd-89c7-4bf659838e3d",
                           "Name": "leg_lower_L_twist0",
-                          "Position": "-0.000007710673,0.0000020829,-0.000007316546",
+                          "Position": "0,0,0",
                           "Enabled": true,
                           "NetworkMode": 2
                         },
                         {
                           "Id": "29cb3b59-3a4b-42e4-9546-be300b0b2f63",
                           "Name": "leg_knee_helper_L",
-                          "Position": "-0.00001533497,0.000001803953,-0.000007316579",
+                          "Position": "0,0,0",
                           "Rotation": "0.000003010035,0.00000166893,-0.7135277,-0.700627",
                           "Enabled": true,
                           "NetworkMode": 2
@@ -1224,14 +1215,14 @@
                     {
                       "Id": "0151ca98-5cce-49e7-ad92-70fcde56b4e2",
                       "Name": "leg_upper_L_twist0",
-                      "Position": "0.00000762939,0.000008921397,-0.000006068279",
+                      "Position": "0,0,0",
                       "Enabled": true,
                       "NetworkMode": 2
                     },
                     {
                       "Id": "cda933f7-9a45-4a0f-8aa7-67d249bbb56a",
                       "Name": "leg_glute_helper_L",
-                      "Position": "0.00001907348,0.000008921439,-0.000006068225",
+                      "Position": "0,0,0",
                       "Rotation": "-0.0000008642673,-0.0000007301569,-0.7071055,0.7071081",
                       "Enabled": true,
                       "NetworkMode": 2
@@ -1313,26 +1304,7 @@
       "Name": "target",
       "Position": "0,-107.3204,30.94509",
       "Enabled": true,
-      "NetworkMode": 2,
-      "Children": [
-        {
-          "Id": "1a7ca1f2-fcdf-40ed-8e31-ad28f4ce4cc2",
-          "Name": "Sphere",
-          "Position": "0,0,0",
-          "Scale": "0.3632709,0.3632709,0.3632709",
-          "Enabled": true,
-          "NetworkMode": 2,
-          "Components": [
-            {
-              "__type": "ModelRenderer",
-              "BodyGroups": 18446744073709551615,
-              "Model": "models/dev/sphere.vmdl",
-              "RenderType": "On",
-              "Tint": "1,1,1,1"
-            }
-          ]
-        }
-      ]
+      "NetworkMode": 2
     },
     {
       "Id": "a8b1ebe6-fcf9-4ee2-b4b8-60a5ae41f370",
@@ -1395,7 +1367,7 @@
           "Bounciness": 0.3,
           "GroundAngle": 45,
           "Height": 64,
-          "IgnoreLayers": "ragdoll",
+          "IgnoreLayers": "ragdoll,loot",
           "Radius": 16,
           "StepHeight": 18
         },
@@ -1464,12 +1436,16 @@
             "go": "0e49edd2-0e85-4771-9b0f-87924628293a"
           },
           "StartAbilities": [
-            "data/abilities/projectile_ability_test.ability"
+            "data/abilities/projectile_ability.ability"
           ],
           "West": {
             "_type": "gameobject",
             "go": "9759c598-433f-43ff-bf8c-d7a893d389d1"
           }
+        },
+        {
+          "__type": "PlayerInventory",
+          "LootRadius": 200
         },
         {
           "__type": "PlayerVitals",
@@ -1676,6 +1652,14 @@
             "go": "c5cad837-0ca5-494e-93cd-ac742be9d455",
             "component_type": "PlayerVitals"
           }
+        },
+        {
+          "__type": "DevDisplay",
+          "Spawner": {
+            "_type": "component",
+            "go": "c3ee659e-7351-48e1-9742-5f4dbe490480",
+            "component_type": "MobSpawner"
+          }
         }
       ]
     },
@@ -1687,13 +1671,14 @@
       "Components": [
         {
           "__type": "MobSpawner",
+          "MaxEnemiesAlive": 10,
           "MobPrefabs": [
             {
               "_type": "gameobject",
               "prefab": "prefabs/mobknight.prefab"
             }
           ],
-          "SpawnRate": 3
+          "SpawnRate": 1
         }
       ],
       "Children": [
@@ -1702,6 +1687,48 @@
           "Name": "Spawn Point",
           "Position": "429.1389,279.2559,0",
           "Rotation": "0,0,0.9586871,-0.2844629",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "SpawnPoint",
+              "Color": "0.8902,0.31765,0.05098,1"
+            }
+          ]
+        },
+        {
+          "Id": "8b3f0bb2-1274-4678-84ad-16f7315c064e",
+          "Name": "Spawn Point",
+          "Position": "-379.0825,6.445068,0",
+          "Rotation": "0,0,0.3579322,-0.9337476",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "SpawnPoint",
+              "Color": "0.8902,0.31765,0.05098,1"
+            }
+          ]
+        },
+        {
+          "Id": "a6983358-8a36-4ddc-bbe0-192ef94ab6c6",
+          "Name": "Spawn Point",
+          "Position": "-379.0825,-725.2366,0",
+          "Rotation": "0,0,-0.2844627,-0.9586871",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "SpawnPoint",
+              "Color": "0.8902,0.31765,0.05098,1"
+            }
+          ]
+        },
+        {
+          "Id": "096f7632-f0b0-4c5f-af72-903d3eedd9a3",
+          "Name": "Spawn Point",
+          "Position": "290.988,-725.2366,0",
+          "Rotation": "0,0,-0.8790396,-0.4767488",
           "Enabled": true,
           "NetworkMode": 2,
           "Components": [
@@ -1735,8 +1762,8 @@
       "IncludedBodies": ""
     }
   },
-  "Title": "mob_testroom_01",
-  "Description": "",
-  "LastSaved": "2024-03-12T06:45:39.5411601\u002B00:00",
+  "Title": "level_mob_testroom_01",
+  "Description": "level",
+  "LastSaved": "2024-03-13T04:25:41.7343822\u002B00:00",
   "__references": []
 }

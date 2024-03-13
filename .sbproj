@@ -1,14 +1,13 @@
 {
   "Title": "plague",
   "Type": "game",
-  "Org": "local",
+  "Org": "cloth",
   "Ident": "plague",
-  "Tags": null,
+  "Tags": "bullethell roguelite roguelike survivors wave",
   "Schema": 1,
   "HasAssets": true,
   "AssetsPath": "",
   "Resources": null,
-  "MenuResources": "*",
   "HasCode": true,
   "CodePath": "/code/",
   "PackageReferences": [],
@@ -35,7 +34,8 @@
         "ladder": "Ignore",
         "water": "Trigger",
         "ragdoll": "Collide",
-        "player": "Collide"
+        "player": "Collide",
+        "loot": "Trigger"
       },
       "Pairs": [
         {
@@ -71,6 +71,11 @@
           "a": "ragdoll",
           "b": "player",
           "r": "Ignore"
+        },
+        {
+          "a": "solid",
+          "b": "loot",
+          "r": "Collide"
         }
       ]
     }

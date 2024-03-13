@@ -31,7 +31,7 @@ public sealed class Projectile : Component
 
         var from = Transform.Position;
         var to = from + Transform.Local.Forward * 50;
-        SceneTraceResult tr = Scene.Trace.FromTo(from, to).WithTag("enemy").Radius(5f).Run();
+        SceneTraceResult tr = Scene.Trace.FromTo(from, to).WithTag("enemy").HitTriggersOnly().Radius(5f).Run();
 
         // Gizmo.Draw.Arrow(tr.StartPosition, tr.EndPosition);
 

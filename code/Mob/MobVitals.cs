@@ -9,7 +9,7 @@ public class MobVitals : Component
     [Property] public float MaxHealth { get; set; } = 100;
 
     public bool IsDead { get; set; } = false;
-    public Action OnDeathEvent;
+    public Action<GameObject> OnDeathEvent;
 
     public void OnHit(float damage)
     {
@@ -20,7 +20,7 @@ public class MobVitals : Component
 
         if (Health <= 0)
         {
-            OnDeathEvent?.Invoke();
+            OnDeathEvent?.Invoke(GameObject);
             Health = 0;
             IsDead = true;
         }

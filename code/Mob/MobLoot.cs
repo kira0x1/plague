@@ -3,10 +3,19 @@ using Kira;
 
 namespace Sandbox;
 
+public struct LootTableData
+{
+    [Property]
+    public GameObject LootPrefab { get; set; }
+    [Property, Range(0, 1)]
+    public float DropChance { get; set; }
+}
+
 [Category("Kira/Mob")]
 public class MobLoot : Component
 {
-    [Property] private List<LootData> LootTable { get; set; } = new List<LootData>();
+    // ReSharper disable once CollectionNeverUpdated.Local
+    [Property] private List<LootTableData> LootTable { get; set; } = new List<LootTableData>();
 
     protected override void OnStart()
     {
@@ -16,13 +25,13 @@ public class MobLoot : Component
         vitals.OnDeathEvent += OnDeath;
     }
 
-    public void OnDeath()
+    public void OnDeath(GameObject mob)
     {
-        foreach (LootData lootData in LootTable)
+        foreach (LootTableData lootData in LootTable)
         {
             float rand = Random.Shared.Float(0, 1);
-            Log.Info($"rand: {rand:F2}");
-            if (rand >= lootData.DropChance)
+
+            if (rand > lootData.DropChance)
             {
                 continue;
             }

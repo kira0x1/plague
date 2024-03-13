@@ -7,16 +7,34 @@
     <div class="health">
         @HealthText
     </div>
+    <div class="level">
+        <div class="level-text">
+            @LevelText
+        </div>
+        <div class="xp">
+            <div class="xp-bar">
+                <div class="xp-fill" style=@($"width: {ExpFill * 100}%")>
+                </div>
+                <div class="xp-text">
+                    @ExpText
+                </div>
+            </div>
+        </div>
+    </div>
 </root>
 
 @code
 {
     [Property] public PlayerVitals Vitals { get; set; }
+    [Property] public PlayerInventory Inventory { get; set; }
 
     public string HealthText => $"{Vitals.Health:F0} / {Vitals.MaxHealth:F0}";
+    public string LevelText => $"Level: {Inventory.Level}";
+    public string ExpText => $"{Inventory.CurExp} / {Inventory.MaxExp}";
+    public float ExpFill => Inventory.CurExp * 1f / Inventory.MaxExp;
 
     /// <summary>
     /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
     /// </summary>
-    protected override int BuildHash() => System.HashCode.Combine(Vitals.Health, Vitals.MaxHealth);
+    protected override int BuildHash() => System.HashCode.Combine(Vitals.Health, Vitals.MaxHealth, Inventory.Level, Inventory.CurExp, Inventory.MaxExp);
 }

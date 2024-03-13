@@ -4,35 +4,6 @@ namespace Kira;
 
 using Sandbox.Citizen;
 
-public class DamageNumberText
-{
-    public Transform transform;
-    public TimeUntil shouldDestroy;
-    private RealTimeSince numbersTextUpdateSince;
-
-    private readonly float damage;
-    private const float textUpdateFrequency = 0.05f;
-    private const float StopTime = 2f;
-
-    public DamageNumberText(Vector3 Position, float Damage)
-    {
-        this.damage = Damage;
-        this.transform = new Transform(Position);
-        Gizmo.Draw.Text($"{damage}", transform);
-        numbersTextUpdateSince = 0;
-        shouldDestroy = StopTime;
-    }
-
-    public void Update()
-    {
-        Gizmo.Draw.Text($"{damage}", transform);
-        if (numbersTextUpdateSince > textUpdateFrequency)
-        {
-            numbersTextUpdateSince = 0;
-        }
-    }
-}
-
 public sealed class Mob : Component
 {
     [Property]
@@ -41,13 +12,18 @@ public sealed class Mob : Component
     public MobVitals Vitals { get; set; }
     public Action<float> OnHitEvent;
 
-    private GameObject Player { get; set; }
+    private PlayerVitals Player { get; set; }
     private NavMeshAgent Agent { get; set; }
     private SkinnedModelRenderer Target { get; set; }
     private CitizenAnimationHelper Anim { get; set; }
     private Rigidbody RgBody { get; set; }
-    private ModelCollider ModelCol { get; set; }
     private List<DamageNumberText> damageNumbersTest = new List<DamageNumberText>();
+    private ModelPhysics ModelPhys { get; set; }
+
+    private bool HasRemovedPhys { get; set; }
+    private bool HasRemovedBodyPhys { get; set; }
+    private TimeUntil removePhysTime;
+    private TimeUntil removeBodyPhysTime;
 
     public enum MobStates
     {
@@ -62,13 +38,14 @@ public sealed class Mob : Component
     {
         base.OnAwake();
 
-        RgBody = Components.GetInDescendants<Rigidbody>(true);
-        ModelCol = Components.GetInDescendants<ModelCollider>(true);
+        RgBody = Components.Get<Rigidbody>(true);
+        ModelPhys = Components.Get<ModelPhysics>(true);
 
         Agent = Components.Get<NavMeshAgent>();
         Target = Components.GetInDescendantsOrSelf<SkinnedModelRenderer>();
         Anim = Components.Get<CitizenAnimationHelper>();
-        Player = Scene.Directory.FindByName("target").FirstOrDefault();
+        Player = Scene.Components.GetAll<PlayerVitals>().FirstOrDefault();
+
 
         Vitals = Components.Get<MobVitals>();
         Vitals.OnDeathEvent += OnDeath;
@@ -87,9 +64,20 @@ public sealed class Mob : Component
                 UpdateText();
                 break;
             case MobStates.Dead:
-                Anim.HoldType = CitizenAnimationHelper.HoldTypes.None;
-                Anim.WithVelocity(RgBody.Velocity);
-                Anim.WithWishVelocity(RgBody.AngularVelocity);
+                if (!HasRemovedPhys && removePhysTime)
+                {
+                    RgBody.MotionEnabled = false;
+                    RgBody.Destroy();
+                    HasRemovedPhys = true;
+                }
+
+                if (!HasRemovedBodyPhys && removeBodyPhysTime)
+                {
+                    ModelPhys.Renderer.Enabled = false;
+                    ModelPhys.Enabled = false;
+                    HasRemovedBodyPhys = true;
+                }
+
                 break;
         }
     }
@@ -130,6 +118,7 @@ public sealed class Mob : Component
 
     public void OnHit(BaseAbility ability)
     {
+        if (MobState == MobStates.Dead) return;
         Anim.ProceduralHitReaction(new DamageInfo(), 150f, -Transform.Local.Forward * 100f);
 
         //TODO: replace this with a better damage text system
@@ -137,17 +126,22 @@ public sealed class Mob : Component
         OnHitEvent?.Invoke(ability.Damage);
     }
 
-    private void OnDeath()
+    private void OnDeath(GameObject mob)
     {
         MobState = MobStates.Dead;
+        removePhysTime = 1;
+        removeBodyPhysTime = 1.2f;
+
         Components.GetAll<BoxCollider>().FirstOrDefault()!.Enabled = false;
-        ModelCol.Enabled = true;
         RgBody.Enabled = true;
+        ModelPhys.Enabled = true;
+
+        Agent.Stop();
         Agent.Enabled = false;
         Anim.Enabled = false;
 
         GameObject.Tags.Add("ragdoll");
 
-        RgBody.ApplyForceAt(Transform.Position + Vector3.Up * 45, -Transform.Local.Forward * 1500);
+        // RgBody.ApplyForceAt(Transform.Position + Vector3.Up * 45, -Transform.Local.Forward * 1500);
     }
 }

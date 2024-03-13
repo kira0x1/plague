@@ -13,7 +13,15 @@ public sealed class MobSpawner : Component
     public TimeSince TimeUntilSpawn { get; set; } = 0;
 
     [Property]
+    public int MaxEnemiesAlive { get; set; } = 5;
+
+    [Property]
     public float SpawnRate { get; set; } = 3f;
+
+    public int TotalEnemiesSpawned { get; private set; }
+    public int CurEnemiesAlive { get; private set; }
+
+    private Dictionary<GameObject, TimeUntil> DespawnTimers { get; set; } = new Dictionary<GameObject, TimeUntil>();
 
     protected override void OnStart()
     {
@@ -25,11 +33,41 @@ public sealed class MobSpawner : Component
     {
         base.OnUpdate();
 
-        if (TimeUntilSpawn < SpawnRate) return;
+        if (TimeUntilSpawn > SpawnRate && CurEnemiesAlive < MaxEnemiesAlive)
+        {
+            SpawnMob();
+        }
+
+
+        foreach (KeyValuePair<GameObject, TimeUntil> despawnTimer in DespawnTimers)
+        {
+            if (despawnTimer.Value)
+            {
+                despawnTimer.Key.Destroy();
+            }
+        }
+    }
+
+    private void SpawnMob()
+    {
+        var mobGo = GetRandomMob().Clone(GetRandomSpawnPoint().Transform.Position);
+        mobGo.BreakFromPrefab();
+        var mobVitals = mobGo.Components.Get<MobVitals>();
+
+        if (mobVitals.IsValid())
+        {
+            CurEnemiesAlive++;
+            TotalEnemiesSpawned++;
+            mobVitals.OnDeathEvent += OnMobDeath;
+        }
 
         TimeUntilSpawn = 0;
+    }
 
-        GetRandomMob().Clone(GetRandomSpawnPoint().Transform.Position);
+    private void OnMobDeath(GameObject mob)
+    {
+        CurEnemiesAlive--;
+        DespawnTimers.Add(mob, 20);
     }
 
     private SpawnPoint GetRandomSpawnPoint()

@@ -1,8 +1,7 @@
 {
   "RootObject": {
-    "Id": "f883133e-378c-4c14-9e8d-489c35ca5035",
-    "Name": "Loot Test",
-    "Position": "0,0,32",
+    "Id": "453757a9-3eca-4ef0-b0d4-cc1c045c349a",
+    "Name": "loottest_prefab",
     "Tags": "loot",
     "Enabled": true,
     "NetworkMode": 2,
@@ -13,14 +12,36 @@
         "IsTrigger": true,
         "Scale": "15,15,15",
         "Static": false
+      },
+      {
+        "__type": "SphereCollider",
+        "Center": "0,0,0",
+        "IsTrigger": false,
+        "Radius": 5.2,
+        "Static": false,
+        "Surface": "surfaces/default.surface"
+      },
+      {
+        "__type": "Rigidbody",
+        "AngularDamping": 0,
+        "Gravity": true,
+        "LinearDamping": 0,
+        "Locking": {},
+        "MassOverride": 0,
+        "RigidbodyFlags": 0,
+        "StartAsleep": false
+      },
+      {
+        "__type": "Loot",
+        "gold": 0,
+        "xp": 1
       }
     ],
     "Children": [
       {
-        "Id": "383e5f1c-ab54-4967-9a92-fe48fe73e1a0",
+        "Id": "af914165-b075-4df6-ae98-a78b579d0d80",
         "Name": "Model",
-        "Position": "0,0,0",
-        "Scale": "0.2,0.2,0.2",
+        "Scale": "0.15,0.15,0.15",
         "Enabled": true,
         "NetworkMode": 2,
         "Components": [

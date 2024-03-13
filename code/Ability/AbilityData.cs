@@ -7,7 +7,7 @@ public enum ProjectileDestroyModes
     Phase // can phase through mobs
 }
 
-[GameResource("Ability Data", "ability", "Data for Abilities")]
+[GameResource("Ability Data", "ability", "Data for Abilities", Icon = "🏹")]
 public partial class AbilityData : GameResource, IAbilityFactory
 {
     public string AbilityName { get; set; }

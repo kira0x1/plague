@@ -1,0 +1,500 @@
+{
+  "Id": "ade22751-3704-4411-a7c3-0a5c18720ab1",
+  "GameObjects": [
+    {
+      "Id": "d018eb32-218a-4c8e-8c6f-9ac606c9ff33",
+      "Name": "Camera",
+      "Position": "-309.46,256,81.02",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "CameraComponent",
+          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "ClearFlags": "All",
+          "FieldOfView": 60,
+          "IsMainCamera": true,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 10000,
+          "ZNear": 10
+        },
+        {
+          "__type": "Bloom",
+          "BloomColor": {
+            "color": [
+              {
+                "c": "1,1,1,1"
+              },
+              {
+                "t": 1,
+                "c": "1,1,1,1"
+              }
+            ],
+            "alpha": []
+          },
+          "BloomCurve": [
+            {
+              "y": 0.5
+            },
+            {
+              "x": 1,
+              "y": 1
+            }
+          ],
+          "Mode": "Additive",
+          "Strength": 0.61,
+          "Threshold": 0.42,
+          "ThresholdWidth": 0.45
+        },
+        {
+          "__type": "Tonemapping",
+          "ExposureCompensation": 0.09,
+          "MaximumExposure": 2,
+          "MinimumExposure": 1,
+          "Rate": 1
+        },
+        {
+          "__type": "Sharpen",
+          "__enabled": false,
+          "Scale": 0.2
+        }
+      ]
+    },
+    {
+      "Id": "5383b441-55e2-4dbe-b231-4e97fde90162",
+      "Name": "Player",
+      "Position": "192,256,0",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "CharacterController",
+          "Acceleration": 10,
+          "Bounciness": 0.3,
+          "GroundAngle": 45,
+          "Height": 64,
+          "IgnoreLayers": "ragdoll,loot",
+          "Radius": 16,
+          "StepHeight": 18
+        },
+        {
+          "__type": "CitizenAnimationHelper",
+          "BodyWeight": 1,
+          "EyesWeight": 1,
+          "HeadWeight": 1,
+          "Height": 1,
+          "LookAtEnabled": false,
+          "Target": {
+            "_type": "component",
+            "go": "96186d36-46c2-4588-8c8a-61b14bd5b3b6",
+            "component_type": "SkinnedModelRenderer"
+          }
+        },
+        {
+          "__type": "TPSController",
+          "Body": {
+            "_type": "gameobject",
+            "go": "96186d36-46c2-4588-8c8a-61b14bd5b3b6"
+          },
+          "BodyTurnSpeed": 3,
+          "DistanceOffset": 501.46,
+          "Eye": {
+            "_type": "gameobject",
+            "go": "9033ddbc-366e-4585-b19a-c9f612202d9a"
+          },
+          "Gravity": "0,0,800",
+          "HeightOffset": 81.02,
+          "MaxDistance": 800,
+          "MinBodyTurnDifference": 50,
+          "MinBodyTurnVelocity": 10,
+          "MinDistance": 180,
+          "RunSpeed": 320,
+          "WalkSpeed": 110
+        },
+        {
+          "__type": "PlayerAbilities",
+          "East": {
+            "_type": "gameobject",
+            "go": "3a2b7e94-6932-443b-9571-5d81daac2b72"
+          },
+          "North": {
+            "_type": "gameobject",
+            "go": "23130996-1fa8-4a34-9732-915cfa6388df"
+          },
+          "NorthEast": {
+            "_type": "gameobject",
+            "go": "d769991d-6be7-4b49-86cc-5b66f0ba24db"
+          },
+          "NorthWest": {
+            "_type": "gameobject",
+            "go": "068da755-a801-49f6-8dc4-8f218babcc01"
+          },
+          "South": {
+            "_type": "gameobject",
+            "go": "cefa7362-684e-4fe7-ac03-4e1da6e40b60"
+          },
+          "SouthEast": {
+            "_type": "gameobject",
+            "go": "78abb291-18be-407c-997d-0d3d02f8b800"
+          },
+          "SouthWest": {
+            "_type": "gameobject",
+            "go": "728d5bbd-b0e4-4a6b-9ca5-b59f75822a3e"
+          },
+          "StartAbilities": [
+            "data/abilities/projectile_ability.ability"
+          ],
+          "West": {
+            "_type": "gameobject",
+            "go": "c51e9d92-be78-4227-a506-1fd602a0e659"
+          }
+        },
+        {
+          "__type": "PlayerInventory",
+          "LootRadius": 200
+        },
+        {
+          "__type": "PlayerVitals",
+          "Health": 100,
+          "MaxHealth": 100
+        }
+      ],
+      "Children": [
+        {
+          "Id": "96186d36-46c2-4588-8c8a-61b14bd5b3b6",
+          "Name": "Model",
+          "Position": "0,0,0",
+          "Rotation": "0,0,0,-1",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "SkinnedModelRenderer",
+              "BodyGroups": 321,
+              "CreateBoneObjects": false,
+              "Model": "models/citizen/citizen.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ],
+          "Children": [
+            {
+              "Id": "284c86f2-eaf7-4338-8419-bde5ccf773f3",
+              "Name": "Spawns",
+              "Position": "0,0,32",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Children": [
+                {
+                  "Id": "23130996-1fa8-4a34-9732-915cfa6388df",
+                  "Name": "North",
+                  "Position": "15,-0.000005722046,0",
+                  "Enabled": true,
+                  "NetworkMode": 2
+                },
+                {
+                  "Id": "d769991d-6be7-4b49-86cc-5b66f0ba24db",
+                  "Name": "North East",
+                  "Position": "15,5,0",
+                  "Rotation": "0,0,0.1736482,0.9848077",
+                  "Enabled": true,
+                  "NetworkMode": 2
+                },
+                {
+                  "Id": "068da755-a801-49f6-8dc4-8f218babcc01",
+                  "Name": "North West",
+                  "Position": "15,-5,0",
+                  "Rotation": "0,-0,-0.1736482,0.9848077",
+                  "Enabled": true,
+                  "NetworkMode": 2
+                },
+                {
+                  "Id": "c51e9d92-be78-4227-a506-1fd602a0e659",
+                  "Name": "West",
+                  "Position": "0,-20,0",
+                  "Rotation": "0,0,-0.7071068,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2
+                },
+                {
+                  "Id": "3a2b7e94-6932-443b-9571-5d81daac2b72",
+                  "Name": "East",
+                  "Position": "-0.00000000005820766,20,0",
+                  "Rotation": "0,0,0.7071068,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2
+                },
+                {
+                  "Id": "cefa7362-684e-4fe7-ac03-4e1da6e40b60",
+                  "Name": "South",
+                  "Position": "-20,-0.00003385544,0",
+                  "Rotation": "0,0,1,-0.00000004371139",
+                  "Enabled": true,
+                  "NetworkMode": 2
+                },
+                {
+                  "Id": "78abb291-18be-407c-997d-0d3d02f8b800",
+                  "Name": "South East",
+                  "Position": "-20,20,0",
+                  "Rotation": "-0,0,-0.9238796,-0.3826834",
+                  "Enabled": true,
+                  "NetworkMode": 2
+                },
+                {
+                  "Id": "728d5bbd-b0e4-4a6b-9ca5-b59f75822a3e",
+                  "Name": "South West",
+                  "Position": "-20,-20,0",
+                  "Rotation": "-0.03224293,-0.01335546,-0.9233167,0.3824503",
+                  "Enabled": true,
+                  "NetworkMode": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "9033ddbc-366e-4585-b19a-c9f612202d9a",
+          "Name": "Eye",
+          "Position": "0,0,64",
+          "Enabled": true,
+          "NetworkMode": 2
+        },
+        {
+          "Id": "687e0b48-91d9-4ee4-8dee-f53b4c1007a9",
+          "Name": "Chest",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "SkinnedModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": {
+                "_type": "component",
+                "go": "96186d36-46c2-4588-8c8a-61b14bd5b3b6",
+                "component_type": "SkinnedModelRenderer"
+              },
+              "CreateBoneObjects": false,
+              "Model": "models/citizen_clothes/shirt/buttoned_shirt/models/buttoned_shirt.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "Id": "304ebb93-d2b6-4957-9c72-b155abe8d72c",
+          "Name": "Legs",
+          "Position": "0,0,0",
+          "Rotation": "0,0,-0.09441879,-0.9955326",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "SkinnedModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": {
+                "_type": "component",
+                "go": "96186d36-46c2-4588-8c8a-61b14bd5b3b6",
+                "component_type": "SkinnedModelRenderer"
+              },
+              "CreateBoneObjects": false,
+              "Model": "models/citizen_clothes/jacket/longsleeve/models/jeans.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "Id": "bea6360d-b14a-47f9-9b6f-b9028c791bb4",
+          "Name": "Head",
+          "Position": "0,0,0",
+          "Rotation": "0,0,0.187994,0.9821702",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "SkinnedModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": {
+                "_type": "component",
+                "go": "96186d36-46c2-4588-8c8a-61b14bd5b3b6",
+                "component_type": "SkinnedModelRenderer"
+              },
+              "CreateBoneObjects": false,
+              "Model": "models/citizen_clothes/hat/fedora/models/fedora_brown.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Id": "b6e08098-4b95-4bec-bdc7-adfecb0de9d1",
+      "Name": "Map",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "MapInstance",
+          "MapName": "basic_outdoor_map",
+          "UseMapFromLaunch": false
+        }
+      ],
+      "Children": []
+    },
+    {
+      "Id": "b31bea47-f5cd-4f06-8cf9-33de6d4f5bf5",
+      "Name": "UI - Screen",
+      "Position": "311.4469,-531.6439,255.5486",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "ScreenPanel",
+          "AutoScreenScale": true,
+          "Opacity": 1,
+          "Scale": 1,
+          "ZIndex": 100
+        },
+        {
+          "__type": "AbilitiesUI",
+          "PlayerAbilities": {
+            "_type": "component",
+            "go": "5383b441-55e2-4dbe-b231-4e97fde90162",
+            "component_type": "PlayerAbilities"
+          }
+        },
+        {
+          "__type": "PlayerUI",
+          "Inventory": {
+            "_type": "component",
+            "go": "5383b441-55e2-4dbe-b231-4e97fde90162",
+            "component_type": "PlayerInventory"
+          },
+          "Vitals": {
+            "_type": "component",
+            "go": "5383b441-55e2-4dbe-b231-4e97fde90162",
+            "component_type": "PlayerVitals"
+          }
+        },
+        {
+          "__type": "DevDisplay",
+          "Spawner": {
+            "_type": "component",
+            "go": "474f7b57-1cb1-4b68-8f6b-0f91f294428d",
+            "component_type": "MobSpawner"
+          }
+        }
+      ]
+    },
+    {
+      "Id": "474f7b57-1cb1-4b68-8f6b-0f91f294428d",
+      "Name": "Mob Spawner",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "MobSpawner",
+          "MaxEnemiesAlive": 10,
+          "MobPrefabs": [
+            {
+              "_type": "gameobject",
+              "prefab": "prefabs/mobknight.prefab"
+            }
+          ],
+          "SpawnRate": 1
+        }
+      ],
+      "Children": [
+        {
+          "Id": "e89da9ba-1b28-4802-ab1e-e98544d8182e",
+          "Name": "Spawn Point",
+          "Position": "429.1389,279.2559,0",
+          "Rotation": "0,0,0.9586871,-0.2844629",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "SpawnPoint",
+              "Color": "0.8902,0.31765,0.05098,1"
+            }
+          ]
+        },
+        {
+          "Id": "f7bc3f23-b1c3-4cb0-b216-30dff710d2d0",
+          "Name": "Spawn Point",
+          "Position": "-379.0825,6.445068,0",
+          "Rotation": "0,0,0.3579322,-0.9337476",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "SpawnPoint",
+              "Color": "0.8902,0.31765,0.05098,1"
+            }
+          ]
+        },
+        {
+          "Id": "b2a24bae-1128-4bce-a8cf-8aef4961cc58",
+          "Name": "Spawn Point",
+          "Position": "-379.0825,-725.2366,0",
+          "Rotation": "0,0,-0.2844627,-0.9586871",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "SpawnPoint",
+              "Color": "0.8902,0.31765,0.05098,1"
+            }
+          ]
+        },
+        {
+          "Id": "70b62a44-712e-4b37-938e-207de59a6106",
+          "Name": "Spawn Point",
+          "Position": "290.988,-725.2366,0",
+          "Rotation": "0,0,-0.8790396,-0.4767488",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "SpawnPoint",
+              "Color": "0.8902,0.31765,0.05098,1"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": true,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "outdoor_map_testroom",
+  "Description": "",
+  "LastSaved": "2024-03-13T04:38:24.5654073\u002B00:00",
+  "__references": []
+}
