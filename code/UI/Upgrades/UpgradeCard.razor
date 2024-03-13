@@ -1,0 +1,33 @@
+﻿@using Sandbox;
+@using Sandbox.UI;
+@using Kira;
+
+<root class="upgrade-card" id="card-@CardIndex">
+
+    @if (HasUpgrade)
+    {
+        <div class="card-icon" style="background: url(@UpgradeIcon())">
+        </div>
+    }
+    <div class="card-text">
+        @UpgradeText()
+    </div>
+</root>
+
+@code
+{
+    private string UpgradeText()
+    {
+        if (!HasUpgrade) return "";
+        return Upgrade.Description;
+    }
+
+    private string UpgradeIcon()
+    {
+        return Upgrade.Icon;
+    }
+
+    private bool HasUpgrade => Upgrade is not null;
+    public UpgradeInstance Upgrade { get; set; }
+    public int CardIndex { get; set; }
+}

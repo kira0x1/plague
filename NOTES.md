@@ -5,10 +5,9 @@
 - [ ] Player Vitals
     - [ ] Player Health
 
-
 - [ ] level up upgrades
 - [ ] stats
-- [ ] enemy drops
+- [x] enemy drops
 
 ## Abilities
 
@@ -38,7 +37,10 @@
 
 ## UI
 
+- [ ] Main Menu
+- [ ] In Game Pause Screen
+- [ ] Stats Display
 - [x] Ability Slots
 - [ ] Cooldown Fill
 - [ ] Upgrades Modal
-- [ ] XP Bar
+- [x] XP Bar

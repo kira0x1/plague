@@ -148,7 +148,25 @@
             "go": "728d5bbd-b0e4-4a6b-9ca5-b59f75822a3e"
           },
           "StartAbilities": [
-            "data/abilities/projectile_ability.ability"
+            {
+              "AbilityName": "Projectile",
+              "Icon": "textures/bow_128.png",
+              "CooldownTime": 0.5,
+              "ReloadTime": 0.1,
+              "MagazineCapacity": 6,
+              "LifeTime": 10,
+              "BaseDamage": 10,
+              "BaseCritChance": 1,
+              "BaseCritDamage": 1,
+              "ProjectilePrefab": {
+                "_type": "gameobject",
+                "prefab": "prefabs/projectile_prefab.prefab"
+              },
+              "ProjectileSpeed": 350,
+              "SpawnNorth": true,
+              "SpawnNorthWest": true,
+              "SpawnNorthEast": true
+            }
           ],
           "West": {
             "_type": "gameobject",
@@ -163,6 +181,15 @@
           "__type": "PlayerVitals",
           "Health": 100,
           "MaxHealth": 100
+        },
+        {
+          "__type": "CharacterFootsteps",
+          "ModelRenderer": {
+            "_type": "component",
+            "go": "96186d36-46c2-4588-8c8a-61b14bd5b3b6",
+            "component_type": "SkinnedModelRenderer"
+          },
+          "VolumeBoost": 1
         }
       ],
       "Children": [
@@ -395,6 +422,29 @@
       ]
     },
     {
+      "Id": "01630a87-ea44-43de-9cde-e46d322c67b7",
+      "Name": "UI - Modal",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "ScreenPanel",
+          "AutoScreenScale": true,
+          "Opacity": 1,
+          "Scale": 1,
+          "ZIndex": 110
+        },
+        {
+          "__type": "UpgradeModalUI",
+          "Inventory": {
+            "_type": "component",
+            "go": "5383b441-55e2-4dbe-b231-4e97fde90162",
+            "component_type": "PlayerInventory"
+          }
+        }
+      ]
+    },
+    {
       "Id": "474f7b57-1cb1-4b68-8f6b-0f91f294428d",
       "Name": "Mob Spawner",
       "Enabled": true,
@@ -495,6 +545,6 @@
   },
   "Title": "outdoor_map_testroom",
   "Description": "",
-  "LastSaved": "2024-03-13T04:38:24.5654073\u002B00:00",
+  "LastSaved": "2024-03-13T06:38:41.1518792\u002B00:00",
   "__references": []
 }

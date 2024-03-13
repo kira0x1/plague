@@ -1,0 +1,17 @@
+{
+  "UI": false,
+  "Volume": "3.00,1.00,0",
+  "Pitch": "1.00,1.00,0",
+  "Decibels": 100,
+  "SelectionMode": "Random",
+  "Sounds": [
+    "sounds/guns/mp5/reload/mp5.mag.vsnd"
+  ],
+  "Occlusion": true,
+  "Reflections": false,
+  "OcclusionRadius": 64,
+  "DistanceAttenuation": true,
+  "__references": [
+    "facepunch.arena"
+  ]
+}

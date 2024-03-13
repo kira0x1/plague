@@ -1,0 +1,27 @@
+@using Kira
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+
+<root>
+    @if (!ShouldShowUpgrades) return;
+    <div class="upgrade-modal">
+        <div class="content"></div>
+    </div>
+</root>
+
+@code
+{
+    [Property] public PlayerInventory Inventory { get; set; }
+    public bool ShouldShowUpgrades => Inventory.ShouldShowUpgrades;
+    public int UpgradesToSpawn { get; set; } = 3;
+
+    public void ShowUpgrades(List<UpgradeData> upgrades)
+    {
+    }
+
+    /// <summary>
+    /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+    /// </summary>
+    protected override int BuildHash() => System.HashCode.Combine(Inventory.ShouldShowUpgrades);
+}

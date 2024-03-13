@@ -25,7 +25,7 @@
     "PerMapRanking": false,
     "LeaderboardType": "None",
     "CsProjName": "plague",
-    "StartupScene": "scenes/minimal.scene",
+    "StartupScene": "scenes/outdoor_map_testroom.scene",
     "ProjectTemplate": null,
     "Collision": {
       "Defaults": {
@@ -78,6 +78,8 @@
           "r": "Collide"
         }
       ]
-    }
+    },
+    "MapStartupScene": null,
+    "LaunchMode": "Normal"
   }
 }

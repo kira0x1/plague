@@ -60,7 +60,7 @@ public class ProjectileAbility : BaseAbility
         prj.Components.Get<Projectile>().Init(Data, this);
     }
 
-    public ProjectileAbility(AbilityData data, PlayerAbilities caster) : base(data, caster)
+    public ProjectileAbility(AbilityInstance data, PlayerAbilities caster) : base(data, caster)
     {
         this.ProjectilePrefab = data.ProjectilePrefab;
     }

@@ -6,6 +6,10 @@ public sealed class PlayerInventory : Component
     public int Level { get; set; } = 1;
     public int CurExp { get; set; } = 0;
     public int MaxExp { get; set; } = 10;
+
+    public bool ShouldShowUpgrades { get; set; }
+
+
     [Property]
     public float LootRadius { get; set; } = 20f;
 

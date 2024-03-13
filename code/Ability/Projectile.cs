@@ -14,7 +14,7 @@ public sealed class Projectile : Component
     public ProjectileDestroyModes projectileDestroyModes;
     public Dictionary<Guid, TimeUntil> HitObjectRecords = new Dictionary<Guid, TimeUntil>();
 
-    public void Init(AbilityData data, ProjectileAbility ability)
+    public void Init(AbilityInstance data, ProjectileAbility ability)
     {
         Speed = data.ProjectileSpeed;
         projectileDestroyModes = data.ProjectileDestroyMode;

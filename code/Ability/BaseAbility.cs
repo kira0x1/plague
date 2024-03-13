@@ -20,9 +20,10 @@ public abstract class BaseAbility : IAbility
     public bool IsReloading { get; set; }
     public TimeSince ReloadTimeUntil { get; set; }
 
-    protected AbilityData Data { get; set; }
+    protected AbilityInstance Data { get; set; }
 
-    protected BaseAbility(AbilityData data, PlayerAbilities caster)
+
+    protected BaseAbility(AbilityInstance data, PlayerAbilities caster)
     {
         this.AbiltiyName = data.AbilityName;
         this.Damage = data.BaseDamage;
@@ -38,9 +39,10 @@ public abstract class BaseAbility : IAbility
         this.ReloadTimeUntil = 0;
 
         this.Caster = caster;
-        this.Data = data;
         this.ShootDirection = data.ShootDirection;
         this.TargetMode = data.TargetMode;
+
+        this.Data = data;
     }
 
     public void CastSpell()
@@ -59,6 +61,7 @@ public abstract class BaseAbility : IAbility
 
         AmmoCount--;
         OnCastSpell();
+        Sound.Play("ability_01", Caster.Transform.Position);
         this.CooldownTimeUntil = 0;
     }
 
@@ -66,10 +69,10 @@ public abstract class BaseAbility : IAbility
 
     public void DoReload()
     {
-        //TODO play reload noise
         //TODO do reload upgrades I.E explode on reload etc
 
         IsReloading = true;
+        Sound.Play("reload", Caster.Transform.Position);
 
         GameTask.DelaySeconds(ReloadTime).ContinueWith(_ =>
         {

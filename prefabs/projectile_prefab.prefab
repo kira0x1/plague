@@ -3,6 +3,7 @@
     "Id": "4d9cf4c2-2ecf-4e5d-875d-04828f6f1ba4",
     "Name": "projectile_prefab",
     "Enabled": true,
+    "NetworkMode": 2,
     "Components": [
       {
         "__type": "Projectile"
@@ -14,6 +15,7 @@
         "Name": "Arrow",
         "Scale": "1.5,1.5,1.5",
         "Enabled": true,
+        "NetworkMode": 2,
         "Components": [
           {
             "__type": "ModelRenderer",

@@ -1,14 +1,6 @@
 ﻿namespace Kira;
 
-public enum ProjectileDestroyModes
-{
-    DestroyOnHit, // destroyed on first hit
-    Penetrate, // can penetrate x number of mobs
-    Phase // can phase through mobs
-}
-
-[GameResource("Ability Data", "ability", "Data for Abilities", Icon = "🏹")]
-public partial class AbilityData : GameResource
+public class AbilityInstance
 {
     public string AbilityName { get; set; }
     public string Icon { get; set; }
@@ -61,4 +53,9 @@ public partial class AbilityData : GameResource
     public bool SpawnWest { get; set; }
 
     #endregion
+
+    public IAbility CreateAbility(PlayerAbilities caster)
+    {
+        return new ProjectileAbility(this, caster);
+    }
 }

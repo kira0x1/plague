@@ -26,7 +26,7 @@ public class PlayerAbilities : Component
 
     [Property]
     // ReSharper disable once CollectionNeverUpdated.Global
-    public List<AbilityData> StartAbilities { get; set; } = new List<AbilityData>();
+    public List<AbilityInstance> StartAbilities { get; set; } = new List<AbilityInstance>();
     public List<IAbility> Abilities { get; set; } = new List<IAbility>();
 
     public Dictionary<SpawnDirection, GameObject> SpawnDirections = new Dictionary<SpawnDirection, GameObject>();
@@ -49,9 +49,11 @@ public class PlayerAbilities : Component
     {
         base.OnStart();
 
-        foreach (AbilityData startAbility in StartAbilities)
+        Abilities = new List<IAbility>();
+        foreach (AbilityInstance startAbility in StartAbilities)
         {
-            Abilities.Add(startAbility.CreateAbility(this));
+            var instance = startAbility.CreateAbility(this);
+            Abilities.Add(instance);
         }
     }
 
