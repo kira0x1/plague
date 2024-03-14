@@ -32,7 +32,7 @@ public class AbilitySystem : GameObjectSystem
                     continue;
                 }
 
-                lootDrop.Transform.Position = Vector3.Lerp(lootDrop.Transform.Position, lootPos, 50 * RealTime.SmoothDelta, true);
+                lootDrop.Transform.Position = Vector3.Lerp(lootDrop.Transform.Position, lootPos, 50 * RealTime.Delta, true);
             }
             else if (distance <= playerInventory.LootRadius)
             {

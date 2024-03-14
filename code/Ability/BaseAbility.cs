@@ -13,6 +13,7 @@ public abstract class BaseAbility : IAbility
 
     public ShootDirectionMode ShootDirection { get; set; }
     public TargetModes TargetMode { get; set; }
+    public bool AbilityEnabled { get; set; } = true;
 
     public float ReloadTime { get; set; }
     public int MagazineCapacity { get; set; }
@@ -47,6 +48,8 @@ public abstract class BaseAbility : IAbility
 
     public void CastSpell()
     {
+        if (!AbilityEnabled) return;
+
         if (IsReloading)
         {
             return;

@@ -6,22 +6,46 @@
 <root>
     @if (!ShouldShowUpgrades) return;
     <div class="upgrade-modal">
-        <div class="content"></div>
+        <div class="content">
+            @for (int i = 0; i < UpgradesToSpawn.Count; i++)
+            {
+                <UpgradeCard Upgrade=@UpgradesToSpawn[i] UpgradeModal=@this @ref="Cards[i]">
+                </UpgradeCard>
+            }
+        </div>
     </div>
 </root>
 
 @code
 {
     [Property] public PlayerInventory Inventory { get; set; }
-    public bool ShouldShowUpgrades => Inventory.ShouldShowUpgrades;
-    public int UpgradesToSpawn { get; set; } = 3;
+    [Property] public UpgradeManager UpgradeMng { get; set; }
 
-    public void ShowUpgrades(List<UpgradeData> upgrades)
+    public bool ShouldShowUpgrades { get; set; } = false;
+    public List<UpgradeInstance> UpgradesToSpawn = new List<UpgradeInstance>();
+    private UpgradeCard[] Cards { get; set; } = new UpgradeCard[4];
+
+    protected override void OnAwake()
     {
+        UpgradeMng.OnShowUpgradesEvent += ShowUpgrades;
+    }
+
+    public void ShowUpgrades(List<UpgradeInstance> upgrades)
+    {
+        ShouldShowUpgrades = true;
+        Game.IsPaused = true;
+        UpgradesToSpawn = upgrades;
+    }
+
+    public void OnCardClicked(int cardIndex)
+    {
+        ShouldShowUpgrades = false;
+        Game.IsPaused = false;
+        UpgradeMng.OnUpgradeObtained(Cards[cardIndex].Upgrade);
     }
 
     /// <summary>
     /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
     /// </summary>
-    protected override int BuildHash() => System.HashCode.Combine(Inventory.ShouldShowUpgrades);
+    protected override int BuildHash() => System.HashCode.Combine(ShouldShowUpgrades);
 }

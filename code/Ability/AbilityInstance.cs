@@ -24,7 +24,7 @@ public class AbilityInstance
     public ShootDirectionMode ShootDirection { get; set; }
     public TargetModes TargetMode { get; set; }
 
-    [Group("Projectile"), ResourceType("prefab"), ShowIf(nameof(SpellType), SpellTypes.Projectile)]
+    [Group("Projectile"), ResourceType("prefab")]
     public GameObject ProjectilePrefab { get; set; }
 
     [Group("Projectile"), ShowIf(nameof(SpellType), SpellTypes.Projectile)]
@@ -54,8 +54,18 @@ public class AbilityInstance
 
     #endregion
 
+    [Group("Orbit"), ShowIf(nameof(SpellType), SpellTypes.Orbit)]
+    public float OrbitRadius { get; set; } = 30f;
+    [Group("Orbit"), ShowIf(nameof(SpellType), SpellTypes.Orbit)]
+    public float OrbitSpeed { get; set; } = 100f;
+
     public IAbility CreateAbility(PlayerAbilities caster)
     {
-        return new ProjectileAbility(this, caster);
+        return SpellType switch
+        {
+            SpellTypes.Projectile => new ProjectileAbility(this, caster),
+            SpellTypes.Orbit => new OrbitAbility(this, caster),
+            _ => new ProjectileAbility(this, caster)
+        };
     }
 }

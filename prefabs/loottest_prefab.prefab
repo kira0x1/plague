@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "Id": "453757a9-3eca-4ef0-b0d4-cc1c045c349a",
+    "__guid": "db6e0c7b-ee31-4f81-a712-95615bac55c1",
     "Name": "loottest_prefab",
     "Tags": "loot",
     "Enabled": true,
@@ -8,6 +8,7 @@
     "Components": [
       {
         "__type": "BoxCollider",
+        "__guid": "9a2a2bb8-f696-4ff4-87b1-756c2d369ecc",
         "Center": "0,0,0",
         "IsTrigger": true,
         "Scale": "15,15,15",
@@ -15,6 +16,7 @@
       },
       {
         "__type": "SphereCollider",
+        "__guid": "8de41677-f714-4ea2-be76-75e0e7afc9d3",
         "Center": "0,0,0",
         "IsTrigger": false,
         "Radius": 5.2,
@@ -23,23 +25,26 @@
       },
       {
         "__type": "Rigidbody",
+        "__guid": "f5843db0-d508-4975-ac3b-16ea8851865b",
         "AngularDamping": 0,
         "Gravity": true,
         "LinearDamping": 0,
         "Locking": {},
         "MassOverride": 0,
+        "MotionEnabled": true,
         "RigidbodyFlags": 0,
         "StartAsleep": false
       },
       {
         "__type": "Loot",
+        "__guid": "0ce50c76-b10a-456e-a7c5-bfee05c88078",
         "gold": 0,
-        "xp": 1
+        "xp": 5
       }
     ],
     "Children": [
       {
-        "Id": "af914165-b075-4df6-ae98-a78b579d0d80",
+        "__guid": "de3369ae-c0ba-4e22-9f53-04bf030af0d3",
         "Name": "Model",
         "Scale": "0.15,0.15,0.15",
         "Enabled": true,
@@ -47,6 +52,7 @@
         "Components": [
           {
             "__type": "ModelRenderer",
+            "__guid": "130c6c4e-242c-4892-8146-27b3055b29fd",
             "BodyGroups": 18446744073709551615,
             "MaterialOverride": "materials/dev/bright_100.vmat",
             "Model": "models/dev/sphere.vmdl",

@@ -12,7 +12,8 @@ public enum SpellElementTypes
 public enum SpellTypes
 {
     Projectile,
-    Shield
+    Shield,
+    Orbit
 }
 
 public interface IAbilityFactory
@@ -33,6 +34,8 @@ public interface IAbility
     public PlayerAbilities Caster { get; set; }
     public ShootDirectionMode ShootDirection { get; set; }
     public TargetModes TargetMode { get; set; }
+    public bool AbilityEnabled { get; set; }
+
     public void CastSpell();
 
     public RealTimeSince CooldownTimeUntil { get; set; }

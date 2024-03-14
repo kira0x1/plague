@@ -1,10 +1,9 @@
 UpgradeModalUI {
   .upgrade-modal {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: all;
+
     background-color: rgba(#111, 0.9);
     justify-content: center;
     align-items: center;
@@ -12,9 +11,11 @@ UpgradeModalUI {
 
     .content {
       border-radius: 20px;
-      background-color: rgba(#333, 0.96);
+      background-color: rgba(#333, 1);
       width: 90%;
       height: 90%;
+      color: white;
+      padding: 30px;
     }
   }
 
@@ -22,5 +23,70 @@ UpgradeModalUI {
     font-size: 25px;
     font-family: Poppins;
     color: #fff;
+  }
+
+  .upgrade-card {
+    border-radius: 20px;
+    width: 25%;
+    height: 95%;
+    margin: auto;
+    padding: 30px;
+    background-color: #fff;
+    flex-direction: column;
+    transition: all 150ms, ease-in-out;
+    gap: 20%;
+
+    .card-title {
+      font-family: Poppins;
+      font-weight: bold;
+      font-size: 20%;
+      color: #252525;
+      min-height: 2vh;
+      max-height: 5vh;
+      //margin-top: 20px;
+      //width: 100%;
+      height: 10%;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .card-description {
+      color: #aaa;
+      border-radius: 20px;
+      background-color: #182229;
+      font-size: 32px;
+      padding: 25px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .card-icon {
+      border-radius: 20px;
+      height: 65%;
+      padding: 35px;
+      margin: 0 auto;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: #182229;
+
+      justify-content: center;
+      align-content: center;
+
+      .icon {
+        //background-color: red;
+        //width: 100%;
+        min-width: 10vw;
+        max-width: 100vw;
+        font-size: 10vw;
+        margin: auto;
+      }
+    }
+  }
+
+  .upgrade-card:hover {
+    width: 28%;
+    height: 100%;
+    //padding: 10px;
   }
 }

@@ -139,7 +139,6 @@ public sealed class Mob : Component
         Agent.Stop();
         Agent.Enabled = false;
         Anim.Enabled = false;
-
         GameObject.Tags.Add("ragdoll");
 
         // RgBody.ApplyForceAt(Transform.Position + Vector3.Up * 45, -Transform.Local.Forward * 1500);

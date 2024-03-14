@@ -15,6 +15,14 @@ public enum SpawnDirection
 [Category("Kira")]
 public class PlayerAbilities : Component
 {
+    [Property]
+    public List<bool> AbilitiesEnabled { get; set; } = new List<bool> { true, true, true, true };
+
+    [Property]
+    // ReSharper disable once CollectionNeverUpdated.Global
+    public List<AbilityInstance> StartAbilities { get; set; } = new List<AbilityInstance>();
+    public List<IAbility> Abilities { get; set; } = new List<IAbility>();
+
     [Property, Group("Spawns")] public GameObject North { get; set; }
     [Property, Group("Spawns")] public GameObject NorthWest { get; set; }
     [Property, Group("Spawns")] public GameObject NorthEast { get; set; }
@@ -23,11 +31,6 @@ public class PlayerAbilities : Component
     [Property, Group("Spawns")] public GameObject SouthEast { get; set; }
     [Property, Group("Spawns")] public GameObject West { get; set; }
     [Property, Group("Spawns")] public GameObject East { get; set; }
-
-    [Property]
-    // ReSharper disable once CollectionNeverUpdated.Global
-    public List<AbilityInstance> StartAbilities { get; set; } = new List<AbilityInstance>();
-    public List<IAbility> Abilities { get; set; } = new List<IAbility>();
 
     public Dictionary<SpawnDirection, GameObject> SpawnDirections = new Dictionary<SpawnDirection, GameObject>();
 
@@ -54,6 +57,13 @@ public class PlayerAbilities : Component
         {
             var instance = startAbility.CreateAbility(this);
             Abilities.Add(instance);
+        }
+
+        for (int i = 0; i < Abilities.Count && i < AbilitiesEnabled.Count; i++)
+        {
+            var isAbilityEnabled = AbilitiesEnabled[i];
+            var ability = Abilities[i];
+            ability.AbilityEnabled = isAbilityEnabled;
         }
     }
 

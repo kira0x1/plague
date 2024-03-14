@@ -1,33 +1,43 @@
-﻿@using Sandbox;
-@using Sandbox.UI;
-@using Kira;
-
+﻿@using Kira
 <root class="upgrade-card" id="card-@CardIndex">
 
-    @if (HasUpgrade)
+    @if (!HasUpgrade) return;
+
+    <div class="card-title">
+        @Upgrade.Title
+    </div>
+
+    <div class="card-description">
+        @Upgrade.Description()
+    </div>
+
+    @if (Upgrade.IsIconAsset)
     {
-        <div class="card-icon" style="background: url(@UpgradeIcon())">
+        <div class="card-icon" style="background: url(@UpgradeIcon())" onclick=@OnUpgradeClicked>
         </div>
     }
-    <div class="card-text">
-        @UpgradeText()
-    </div>
+    else
+    {
+        <div class="card-icon" onclick=@OnUpgradeClicked>
+            <i class="icon">@UpgradeIcon()</i>
+        </div>
+    }
 </root>
 
 @code
 {
-    private string UpgradeText()
-    {
-        if (!HasUpgrade) return "";
-        return Upgrade.Description;
-    }
-
     private string UpgradeIcon()
     {
         return Upgrade.Icon;
     }
 
+    public void OnUpgradeClicked()
+    {
+        UpgradeModal.OnCardClicked(CardIndex);
+    }
+
     private bool HasUpgrade => Upgrade is not null;
     public UpgradeInstance Upgrade { get; set; }
+    public UpgradeModalUI UpgradeModal { get; set; }
     public int CardIndex { get; set; }
 }

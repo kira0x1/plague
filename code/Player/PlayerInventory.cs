@@ -1,4 +1,6 @@
-﻿namespace Kira;
+﻿using System;
+
+namespace Kira;
 
 [Category("Kira")]
 public sealed class PlayerInventory : Component
@@ -9,9 +11,10 @@ public sealed class PlayerInventory : Component
 
     public bool ShouldShowUpgrades { get; set; }
 
-
     [Property]
     public float LootRadius { get; set; } = 20f;
+
+    public Action OnLevelUpEvent;
 
     public void Loot(int xp, int gold)
     {
@@ -48,5 +51,6 @@ public sealed class PlayerInventory : Component
         Level++;
         CurExp = 0;
         MaxExp = CalculateMaxExp();
+        OnLevelUpEvent?.Invoke();
     }
 }

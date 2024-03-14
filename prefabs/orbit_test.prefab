@@ -1,0 +1,29 @@
+{
+  "RootObject": {
+    "__guid": "76d1cd67-2942-4d93-90cf-fe9fe208abde",
+    "Name": "orbit_test",
+    "Scale": "0.35,0.35,0.35",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "Components": [
+      {
+        "__type": "ModelRenderer",
+        "__guid": "52bdb1ea-fcc9-484e-88fe-140650d79a27",
+        "BodyGroups": 18446744073709551615,
+        "MaterialOverride": "dev/func_monitor.vmat",
+        "Model": "models/dev/sphere.vmdl",
+        "RenderType": "Off",
+        "Tint": "1,1,1,1"
+      },
+      {
+        "__type": "OrbitController",
+        "__guid": "1d81342f-1249-435d-a905-fe00f5fbb3c3"
+      }
+    ],
+    "Children": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}

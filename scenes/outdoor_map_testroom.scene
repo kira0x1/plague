@@ -2,14 +2,15 @@
   "Id": "ade22751-3704-4411-a7c3-0a5c18720ab1",
   "GameObjects": [
     {
-      "Id": "d018eb32-218a-4c8e-8c6f-9ac606c9ff33",
+      "__guid": "d018eb32-218a-4c8e-8c6f-9ac606c9ff33",
       "Name": "Camera",
-      "Position": "-309.46,256,81.02",
+      "Position": "-591.46,736,81.02",
       "Enabled": true,
       "NetworkMode": 2,
       "Components": [
         {
           "__type": "CameraComponent",
+          "__guid": "0ef776c4-7536-4bd6-b3b5-0e5d3b9bd438",
           "BackgroundColor": "0.33333,0.46275,0.52157,1",
           "ClearFlags": "All",
           "FieldOfView": 60,
@@ -26,6 +27,7 @@
         },
         {
           "__type": "Bloom",
+          "__guid": "3637b3b6-af7e-40d3-b184-3a62a6c24469",
           "BloomColor": {
             "color": [
               {
@@ -54,6 +56,7 @@
         },
         {
           "__type": "Tonemapping",
+          "__guid": "b6a34199-bac1-47a8-a513-742dd58cd258",
           "ExposureCompensation": 0.09,
           "MaximumExposure": 2,
           "MinimumExposure": 1,
@@ -61,20 +64,22 @@
         },
         {
           "__type": "Sharpen",
+          "__guid": "3dfae907-e8a8-46e3-883b-cfded1ac91a3",
           "__enabled": false,
           "Scale": 0.2
         }
       ]
     },
     {
-      "Id": "5383b441-55e2-4dbe-b231-4e97fde90162",
+      "__guid": "5383b441-55e2-4dbe-b231-4e97fde90162",
       "Name": "Player",
-      "Position": "192,256,0",
+      "Position": "0,736,0",
       "Enabled": true,
       "NetworkMode": 2,
       "Components": [
         {
           "__type": "CharacterController",
+          "__guid": "bca53a01-767b-4154-b4fd-fd65276848ce",
           "Acceleration": 10,
           "Bounciness": 0.3,
           "GroundAngle": 45,
@@ -85,6 +90,7 @@
         },
         {
           "__type": "CitizenAnimationHelper",
+          "__guid": "96a7cd9c-7712-4506-8ddb-c22ec891498e",
           "BodyWeight": 1,
           "EyesWeight": 1,
           "HeadWeight": 1,
@@ -92,18 +98,20 @@
           "LookAtEnabled": false,
           "Target": {
             "_type": "component",
+            "component_id": "10832111-4472-46fc-ab34-ce534f426c37",
             "go": "96186d36-46c2-4588-8c8a-61b14bd5b3b6",
             "component_type": "SkinnedModelRenderer"
           }
         },
         {
           "__type": "TPSController",
+          "__guid": "e3d0e0d9-a3e8-4ee4-8b03-482fa9681a10",
           "Body": {
             "_type": "gameobject",
             "go": "96186d36-46c2-4588-8c8a-61b14bd5b3b6"
           },
           "BodyTurnSpeed": 3,
-          "DistanceOffset": 501.46,
+          "DistanceOffset": 591.45996,
           "Eye": {
             "_type": "gameobject",
             "go": "9033ddbc-366e-4585-b19a-c9f612202d9a"
@@ -119,6 +127,13 @@
         },
         {
           "__type": "PlayerAbilities",
+          "__guid": "52bdd6bd-92df-4604-8156-2feaf70228b7",
+          "AbilitiesEnabled": [
+            false,
+            true,
+            true,
+            true
+          ],
           "East": {
             "_type": "gameobject",
             "go": "3a2b7e94-6932-443b-9571-5d81daac2b72"
@@ -165,7 +180,29 @@
               "ProjectileSpeed": 350,
               "SpawnNorth": true,
               "SpawnNorthWest": true,
-              "SpawnNorthEast": true
+              "SpawnNorthEast": true,
+              "OrbitRadius": 30,
+              "OrbitSpeed": 100
+            },
+            {
+              "AbilityName": "Orbit",
+              "Icon": "textures/bow_128.png",
+              "CooldownTime": 1,
+              "ReloadTime": 14,
+              "MagazineCapacity": 1,
+              "LifeTime": 10,
+              "BaseDamage": 10,
+              "BaseCritChance": 1,
+              "BaseCritDamage": 1,
+              "SpellType": "Orbit",
+              "ProjectilePrefab": {
+                "_type": "gameobject",
+                "prefab": "prefabs/orbit_test.prefab"
+              },
+              "ProjectileSpeed": 100,
+              "SpawnNorth": true,
+              "OrbitRadius": 80,
+              "OrbitSpeed": 360
             }
           ],
           "West": {
@@ -175,17 +212,21 @@
         },
         {
           "__type": "PlayerInventory",
+          "__guid": "dd1d2cb7-41bc-4b73-98ad-41b1312a07c7",
           "LootRadius": 200
         },
         {
           "__type": "PlayerVitals",
+          "__guid": "4562819e-807c-4350-a29f-0766a36965b6",
           "Health": 100,
           "MaxHealth": 100
         },
         {
           "__type": "CharacterFootsteps",
+          "__guid": "0625370d-22f9-4b6a-8758-388ae07a7098",
           "ModelRenderer": {
             "_type": "component",
+            "component_id": "10832111-4472-46fc-ab34-ce534f426c37",
             "go": "96186d36-46c2-4588-8c8a-61b14bd5b3b6",
             "component_type": "SkinnedModelRenderer"
           },
@@ -194,7 +235,7 @@
       ],
       "Children": [
         {
-          "Id": "96186d36-46c2-4588-8c8a-61b14bd5b3b6",
+          "__guid": "96186d36-46c2-4588-8c8a-61b14bd5b3b6",
           "Name": "Model",
           "Position": "0,0,0",
           "Rotation": "0,0,0,-1",
@@ -203,6 +244,7 @@
           "Components": [
             {
               "__type": "SkinnedModelRenderer",
+              "__guid": "10832111-4472-46fc-ab34-ce534f426c37",
               "BodyGroups": 321,
               "CreateBoneObjects": false,
               "Model": "models/citizen/citizen.vmdl",
@@ -212,21 +254,21 @@
           ],
           "Children": [
             {
-              "Id": "284c86f2-eaf7-4338-8419-bde5ccf773f3",
+              "__guid": "284c86f2-eaf7-4338-8419-bde5ccf773f3",
               "Name": "Spawns",
               "Position": "0,0,32",
               "Enabled": true,
               "NetworkMode": 2,
               "Children": [
                 {
-                  "Id": "23130996-1fa8-4a34-9732-915cfa6388df",
+                  "__guid": "23130996-1fa8-4a34-9732-915cfa6388df",
                   "Name": "North",
                   "Position": "15,-0.000005722046,0",
                   "Enabled": true,
                   "NetworkMode": 2
                 },
                 {
-                  "Id": "d769991d-6be7-4b49-86cc-5b66f0ba24db",
+                  "__guid": "d769991d-6be7-4b49-86cc-5b66f0ba24db",
                   "Name": "North East",
                   "Position": "15,5,0",
                   "Rotation": "0,0,0.1736482,0.9848077",
@@ -234,7 +276,7 @@
                   "NetworkMode": 2
                 },
                 {
-                  "Id": "068da755-a801-49f6-8dc4-8f218babcc01",
+                  "__guid": "068da755-a801-49f6-8dc4-8f218babcc01",
                   "Name": "North West",
                   "Position": "15,-5,0",
                   "Rotation": "0,-0,-0.1736482,0.9848077",
@@ -242,7 +284,7 @@
                   "NetworkMode": 2
                 },
                 {
-                  "Id": "c51e9d92-be78-4227-a506-1fd602a0e659",
+                  "__guid": "c51e9d92-be78-4227-a506-1fd602a0e659",
                   "Name": "West",
                   "Position": "0,-20,0",
                   "Rotation": "0,0,-0.7071068,0.7071068",
@@ -250,7 +292,7 @@
                   "NetworkMode": 2
                 },
                 {
-                  "Id": "3a2b7e94-6932-443b-9571-5d81daac2b72",
+                  "__guid": "3a2b7e94-6932-443b-9571-5d81daac2b72",
                   "Name": "East",
                   "Position": "-0.00000000005820766,20,0",
                   "Rotation": "0,0,0.7071068,0.7071068",
@@ -258,7 +300,7 @@
                   "NetworkMode": 2
                 },
                 {
-                  "Id": "cefa7362-684e-4fe7-ac03-4e1da6e40b60",
+                  "__guid": "cefa7362-684e-4fe7-ac03-4e1da6e40b60",
                   "Name": "South",
                   "Position": "-20,-0.00003385544,0",
                   "Rotation": "0,0,1,-0.00000004371139",
@@ -266,7 +308,7 @@
                   "NetworkMode": 2
                 },
                 {
-                  "Id": "78abb291-18be-407c-997d-0d3d02f8b800",
+                  "__guid": "78abb291-18be-407c-997d-0d3d02f8b800",
                   "Name": "South East",
                   "Position": "-20,20,0",
                   "Rotation": "-0,0,-0.9238796,-0.3826834",
@@ -274,7 +316,7 @@
                   "NetworkMode": 2
                 },
                 {
-                  "Id": "728d5bbd-b0e4-4a6b-9ca5-b59f75822a3e",
+                  "__guid": "728d5bbd-b0e4-4a6b-9ca5-b59f75822a3e",
                   "Name": "South West",
                   "Position": "-20,-20,0",
                   "Rotation": "-0.03224293,-0.01335546,-0.9233167,0.3824503",
@@ -286,14 +328,14 @@
           ]
         },
         {
-          "Id": "9033ddbc-366e-4585-b19a-c9f612202d9a",
+          "__guid": "9033ddbc-366e-4585-b19a-c9f612202d9a",
           "Name": "Eye",
           "Position": "0,0,64",
           "Enabled": true,
           "NetworkMode": 2
         },
         {
-          "Id": "687e0b48-91d9-4ee4-8dee-f53b4c1007a9",
+          "__guid": "687e0b48-91d9-4ee4-8dee-f53b4c1007a9",
           "Name": "Chest",
           "Position": "0,0,0",
           "Enabled": true,
@@ -301,9 +343,11 @@
           "Components": [
             {
               "__type": "SkinnedModelRenderer",
+              "__guid": "1f3e2eea-089e-4885-be09-36a7efc22e6b",
               "BodyGroups": 18446744073709551615,
               "BoneMergeTarget": {
                 "_type": "component",
+                "component_id": "10832111-4472-46fc-ab34-ce534f426c37",
                 "go": "96186d36-46c2-4588-8c8a-61b14bd5b3b6",
                 "component_type": "SkinnedModelRenderer"
               },
@@ -315,7 +359,7 @@
           ]
         },
         {
-          "Id": "304ebb93-d2b6-4957-9c72-b155abe8d72c",
+          "__guid": "304ebb93-d2b6-4957-9c72-b155abe8d72c",
           "Name": "Legs",
           "Position": "0,0,0",
           "Rotation": "0,0,-0.09441879,-0.9955326",
@@ -324,9 +368,11 @@
           "Components": [
             {
               "__type": "SkinnedModelRenderer",
+              "__guid": "d4c20a45-bf21-4c50-adfb-ae172c9243d8",
               "BodyGroups": 18446744073709551615,
               "BoneMergeTarget": {
                 "_type": "component",
+                "component_id": "10832111-4472-46fc-ab34-ce534f426c37",
                 "go": "96186d36-46c2-4588-8c8a-61b14bd5b3b6",
                 "component_type": "SkinnedModelRenderer"
               },
@@ -338,7 +384,7 @@
           ]
         },
         {
-          "Id": "bea6360d-b14a-47f9-9b6f-b9028c791bb4",
+          "__guid": "bea6360d-b14a-47f9-9b6f-b9028c791bb4",
           "Name": "Head",
           "Position": "0,0,0",
           "Rotation": "0,0,0.187994,0.9821702",
@@ -347,9 +393,11 @@
           "Components": [
             {
               "__type": "SkinnedModelRenderer",
+              "__guid": "217bc980-3963-42cf-bf71-8a7c70f45c0a",
               "BodyGroups": 18446744073709551615,
               "BoneMergeTarget": {
                 "_type": "component",
+                "component_id": "10832111-4472-46fc-ab34-ce534f426c37",
                 "go": "96186d36-46c2-4588-8c8a-61b14bd5b3b6",
                 "component_type": "SkinnedModelRenderer"
               },
@@ -359,17 +407,59 @@
               "Tint": "1,1,1,1"
             }
           ]
+        },
+        {
+          "__guid": "4ddf9f55-c439-4b03-89e6-8f990cd0ce81",
+          "Name": "Point Light",
+          "Position": "61.65635,0,64.92725",
+          "Tags": "light_point,light",
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "PointLight",
+              "__guid": "d10bcf95-b4a5-4e0c-adcb-b5aa3f4a3bda",
+              "Attenuation": 1.13,
+              "FogMode": "Enabled",
+              "FogStrength": 1,
+              "LightColor": "2,2,2,1",
+              "Radius": 430.50027,
+              "Shadows": false
+            }
+          ]
+        },
+        {
+          "__guid": "10509e15-421a-49bc-b189-c32807612b10",
+          "Name": "Spot Light",
+          "Position": "0.0002034842,0,352.0001",
+          "Rotation": "0,0.7071068,0,0.7071069",
+          "Tags": "light_spot,light",
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "SpotLight",
+              "__guid": "f5ce571e-7efb-49da-b0d5-2f140e024ea1",
+              "Attenuation": 1.42,
+              "ConeInner": 37.12,
+              "ConeOuter": 41.72,
+              "FogMode": "Enabled",
+              "FogStrength": 1,
+              "LightColor": "1,0.67302,0.46977,1",
+              "Radius": 614.80115,
+              "Shadows": false
+            }
+          ]
         }
       ]
     },
     {
-      "Id": "b6e08098-4b95-4bec-bdc7-adfecb0de9d1",
+      "__guid": "b6e08098-4b95-4bec-bdc7-adfecb0de9d1",
       "Name": "Map",
       "Enabled": true,
       "NetworkMode": 2,
       "Components": [
         {
           "__type": "MapInstance",
+          "__guid": "3a2ca30a-99fc-4afb-9c93-fa10478ac552",
           "MapName": "basic_outdoor_map",
           "UseMapFromLaunch": false
         }
@@ -377,14 +467,15 @@
       "Children": []
     },
     {
-      "Id": "b31bea47-f5cd-4f06-8cf9-33de6d4f5bf5",
+      "__guid": "b31bea47-f5cd-4f06-8cf9-33de6d4f5bf5",
       "Name": "UI - Screen",
-      "Position": "311.4469,-531.6439,255.5486",
+      "Position": "311.4469,352,255.5486",
       "Enabled": true,
       "NetworkMode": 2,
       "Components": [
         {
           "__type": "ScreenPanel",
+          "__guid": "e35163b8-3a62-4421-ac73-938bb3b75eb6",
           "AutoScreenScale": true,
           "Opacity": 1,
           "Scale": 1,
@@ -392,29 +483,36 @@
         },
         {
           "__type": "AbilitiesUI",
+          "__guid": "914e2b66-790a-45d7-abb0-485d0a292637",
           "PlayerAbilities": {
             "_type": "component",
+            "component_id": "52bdd6bd-92df-4604-8156-2feaf70228b7",
             "go": "5383b441-55e2-4dbe-b231-4e97fde90162",
             "component_type": "PlayerAbilities"
           }
         },
         {
           "__type": "PlayerUI",
+          "__guid": "326449f9-0ae3-4aa8-9673-40529c3ba5dd",
           "Inventory": {
             "_type": "component",
+            "component_id": "dd1d2cb7-41bc-4b73-98ad-41b1312a07c7",
             "go": "5383b441-55e2-4dbe-b231-4e97fde90162",
             "component_type": "PlayerInventory"
           },
           "Vitals": {
             "_type": "component",
+            "component_id": "4562819e-807c-4350-a29f-0766a36965b6",
             "go": "5383b441-55e2-4dbe-b231-4e97fde90162",
             "component_type": "PlayerVitals"
           }
         },
         {
           "__type": "DevDisplay",
+          "__guid": "86c3c066-0905-45c9-b0a6-c792aa9be8cc",
           "Spawner": {
             "_type": "component",
+            "component_id": "a993cc47-a3cf-45fb-82cd-875245d32622",
             "go": "474f7b57-1cb1-4b68-8f6b-0f91f294428d",
             "component_type": "MobSpawner"
           }
@@ -422,36 +520,47 @@
       ]
     },
     {
-      "Id": "01630a87-ea44-43de-9cde-e46d322c67b7",
+      "__guid": "01630a87-ea44-43de-9cde-e46d322c67b7",
       "Name": "UI - Modal",
       "Enabled": true,
       "NetworkMode": 2,
       "Components": [
         {
           "__type": "ScreenPanel",
+          "__guid": "88d1dbe2-8bb6-4412-915b-d8ebbf5ddac6",
           "AutoScreenScale": true,
           "Opacity": 1,
           "Scale": 1,
-          "ZIndex": 110
+          "ZIndex": 57
         },
         {
           "__type": "UpgradeModalUI",
+          "__guid": "ea269481-71a7-44de-875e-7c0f7fd985d0",
           "Inventory": {
             "_type": "component",
+            "component_id": "dd1d2cb7-41bc-4b73-98ad-41b1312a07c7",
             "go": "5383b441-55e2-4dbe-b231-4e97fde90162",
             "component_type": "PlayerInventory"
+          },
+          "UpgradeMng": {
+            "_type": "component",
+            "component_id": "8ecf9f52-94ca-4aff-804e-c756b9de5cd9",
+            "go": "bfbc6d00-0264-4102-b13f-85172feb62e4",
+            "component_type": "UpgradeManager"
           }
         }
       ]
     },
     {
-      "Id": "474f7b57-1cb1-4b68-8f6b-0f91f294428d",
+      "__guid": "474f7b57-1cb1-4b68-8f6b-0f91f294428d",
       "Name": "Mob Spawner",
+      "Position": "0,896,0",
       "Enabled": true,
       "NetworkMode": 2,
       "Components": [
         {
           "__type": "MobSpawner",
+          "__guid": "a993cc47-a3cf-45fb-82cd-875245d32622",
           "MaxEnemiesAlive": 10,
           "MobPrefabs": [
             {
@@ -464,7 +573,7 @@
       ],
       "Children": [
         {
-          "Id": "e89da9ba-1b28-4802-ab1e-e98544d8182e",
+          "__guid": "e89da9ba-1b28-4802-ab1e-e98544d8182e",
           "Name": "Spawn Point",
           "Position": "429.1389,279.2559,0",
           "Rotation": "0,0,0.9586871,-0.2844629",
@@ -473,12 +582,13 @@
           "Components": [
             {
               "__type": "SpawnPoint",
+              "__guid": "06c83db6-3a3e-4d26-992c-20add5311b74",
               "Color": "0.8902,0.31765,0.05098,1"
             }
           ]
         },
         {
-          "Id": "f7bc3f23-b1c3-4cb0-b216-30dff710d2d0",
+          "__guid": "f7bc3f23-b1c3-4cb0-b216-30dff710d2d0",
           "Name": "Spawn Point",
           "Position": "-379.0825,6.445068,0",
           "Rotation": "0,0,0.3579322,-0.9337476",
@@ -487,12 +597,13 @@
           "Components": [
             {
               "__type": "SpawnPoint",
+              "__guid": "ce7b8629-9b29-4edf-91ab-3642af67839f",
               "Color": "0.8902,0.31765,0.05098,1"
             }
           ]
         },
         {
-          "Id": "b2a24bae-1128-4bce-a8cf-8aef4961cc58",
+          "__guid": "b2a24bae-1128-4bce-a8cf-8aef4961cc58",
           "Name": "Spawn Point",
           "Position": "-379.0825,-725.2366,0",
           "Rotation": "0,0,-0.2844627,-0.9586871",
@@ -501,12 +612,13 @@
           "Components": [
             {
               "__type": "SpawnPoint",
+              "__guid": "c1f1cb72-4e2e-48a1-bd2f-44166bc6b450",
               "Color": "0.8902,0.31765,0.05098,1"
             }
           ]
         },
         {
-          "Id": "70b62a44-712e-4b37-938e-207de59a6106",
+          "__guid": "70b62a44-712e-4b37-938e-207de59a6106",
           "Name": "Spawn Point",
           "Position": "290.988,-725.2366,0",
           "Rotation": "0,0,-0.8790396,-0.4767488",
@@ -515,7 +627,54 @@
           "Components": [
             {
               "__type": "SpawnPoint",
+              "__guid": "d97da2d3-10bb-4df2-9195-0700097b5dd1",
               "Color": "0.8902,0.31765,0.05098,1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "36b21eb8-1ff0-4420-8e17-91f6d9c642e9",
+      "Name": "Sun",
+      "Position": "-432.9104,-553.3989,384",
+      "Rotation": "-0.101662,0.1760837,0.4895557,0.8479354",
+      "Tags": "light_directional,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "DirectionalLight",
+          "__guid": "ce842739-94df-4037-a3f4-8f306e4421f8",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.01947,0.02048,0.02326,1",
+          "Shadows": true,
+          "SkyColor": "0.1478,0.23841,0.28372,1"
+        }
+      ]
+    },
+    {
+      "__guid": "bfbc6d00-0264-4102-b13f-85172feb62e4",
+      "Name": "Manager",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "UpgradeManager",
+          "__guid": "8ecf9f52-94ca-4aff-804e-c756b9de5cd9",
+          "GlobalUpgrades": [
+            {
+              "Title": "Move Speed",
+              "Amount": 5,
+              "Icon": "directions_run",
+              "IsPercentage": true
+            },
+            {
+              "GlobalUpgrade": "MaxHealth",
+              "Title": "Health",
+              "Amount": 40,
+              "Icon": "favorite"
             }
           ]
         }
@@ -545,6 +704,6 @@
   },
   "Title": "outdoor_map_testroom",
   "Description": "",
-  "LastSaved": "2024-03-13T06:38:41.1518792\u002B00:00",
+  "LastSaved": "2024-03-14T08:34:56.4499308\u002B00:00",
   "__references": []
 }
