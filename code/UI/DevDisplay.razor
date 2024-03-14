@@ -4,6 +4,14 @@
 @inherits PanelComponent
 
 <root>
+    <div class="stats-display">
+        <div class="display-li">
+            @($"Base Speed: {BaseMoveSpeed}")
+        </div>
+        <div class="display-li">
+            @($"Current Speed: {CurMoveSpeed}")
+        </div>
+    </div>
     <div class="mob-display">
         <div class="display-li">
             @($"Mobs Alive: {MobsAlive}")
@@ -18,12 +26,16 @@
 {
     [Property]
     private MobSpawner Spawner { get; set; }
+    [Property]
+    private PlayerVitals Vitals { get; set; }
 
     private int MobsAlive => Spawner.CurEnemiesAlive;
     private int TotalMobsSpawned => Spawner.TotalEnemiesSpawned;
+    private float CurMoveSpeed => Vitals.CurMoveSpeed;
+    private float BaseMoveSpeed => Vitals.BaseMoveSpeed;
 
     /// <summary>
     /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
     /// </summary>
-    protected override int BuildHash() => System.HashCode.Combine(MobsAlive, TotalMobsSpawned);
+    protected override int BuildHash() => System.HashCode.Combine(MobsAlive, TotalMobsSpawned, CurMoveSpeed, BaseMoveSpeed);
 }

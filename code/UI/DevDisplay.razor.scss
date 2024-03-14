@@ -1,17 +1,31 @@
 DevDisplay {
-  justify-content: center;
-  align-items: center;
+  //justify-content: center;
+  //align-items: center;
   font-weight: bold;
   border-radius: 20px;
   position: absolute;
-  left: 0;
-  margin: 20px;
-  opacity: 0.8;
-  bottom: 0;
+  margin: auto;
+  top: 20vh;
+  left: 20px;
+  opacity: 0.9;
+  flex-direction: column;
+  gap: 20px;
+
+  .stats-display {
+    flex-direction: column;
+    background-color: #222;
+    justify-content: center;
+    font-size: 25px;
+    padding: 20px;
+    gap: 20px;
+    font-family: Poppins;
+    color: #fff;
+    border-radius: 20px;
+  }
 
   .mob-display {
     flex-direction: column;
-    background-color: #444;
+    background-color: #222;
     justify-content: center;
     font-size: 25px;
     padding: 20px;

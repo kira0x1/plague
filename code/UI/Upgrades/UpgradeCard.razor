@@ -1,7 +1,9 @@
 ﻿@using Kira
 <root class="upgrade-card" id="card-@CardIndex">
-
     @if (!HasUpgrade) return;
+
+    <div class="card-highlight" style="border-color:@RarityColors[Upgrade.Rarity].Hex">
+    </div>
 
     <div class="card-title">
         @Upgrade.Title
@@ -35,6 +37,11 @@
     {
         UpgradeModal.OnCardClicked(CardIndex);
     }
+
+    public Dictionary<Rarity, Color> RarityColors = new Dictionary<Rarity, Color>()
+    {
+        { Rarity.Common, Color.Gray }, { Rarity.UnCommon, Color.Green }, { Rarity.Rare, Color.Blue }, { Rarity.Epic, Color.Magenta }
+    };
 
     public int CardIndex { get; set; }
 

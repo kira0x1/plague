@@ -19,6 +19,7 @@ public abstract class UpgradeInstance
 {
     public string Title { get; set; }
     public bool IsIconAsset { get; set; }
+    public Rarity Rarity { get; set; }
 
     protected string AmountText => $"{Amount}{(IsPercentage ? "%" : "")}";
 

@@ -9,8 +9,13 @@
         <div class="content">
             @for (int i = 0; i < UpgradesToSpawn.Count; i++)
             {
-                <UpgradeCard Upgrade=@UpgradesToSpawn[i] UpgradeModal=@this @ref="Cards[i]" CardIndex=@i>
-                </UpgradeCard>
+                var card = new UpgradeCard();
+                card.Upgrade = UpgradesToSpawn[i];
+                card.CardIndex = i;
+                SetCard(card, i);
+
+                var tr = GetCard(i);
+                <UpgradeCard @ref=@tr Upgrade=@card.Upgrade CardIndex=@i UpgradeModal=@this></UpgradeCard>
             }
         </div>
     </div>
@@ -23,6 +28,17 @@
 
     public bool ShouldShowUpgrades { get; set; } = false;
     public List<UpgradeInstance> UpgradesToSpawn = new List<UpgradeInstance>();
+
+    private void SetCard(UpgradeCard card, int cardIndex)
+    {
+        Cards[cardIndex] = card;
+    }
+
+    public UpgradeCard GetCard(int cardIndex)
+    {
+        return Cards[cardIndex];
+    }
+
     private UpgradeCard[] Cards { get; set; } = new UpgradeCard[4];
 
     protected override void OnAwake()
@@ -33,15 +49,16 @@
     public void ShowUpgrades(List<UpgradeInstance> upgrades)
     {
         ShouldShowUpgrades = true;
-        // Game.IsPaused = true;
+        Game.IsPaused = true;
         UpgradesToSpawn = upgrades;
     }
 
     public void OnCardClicked(int cardIndex)
     {
+        var c = Cards[cardIndex];
         ShouldShowUpgrades = false;
         Game.IsPaused = false;
-        UpgradeMng.OnUpgradeObtained(Cards[cardIndex].Upgrade);
+        UpgradeMng.OnUpgradeObtained(c.Upgrade);
     }
 
     /// <summary>

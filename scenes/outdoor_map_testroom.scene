@@ -4,8 +4,7 @@
     {
       "__guid": "d018eb32-218a-4c8e-8c6f-9ac606c9ff33",
       "Name": "Camera",
-      "Position": "-591.458,736.6854,82.39067",
-      "Rotation": "0.0000006713215,0.001158724,-0.000579362,0.9999992",
+      "Position": "-591.46,736,81.02",
       "Enabled": true,
       "NetworkMode": 2,
       "Components": [
@@ -122,9 +121,7 @@
           "MaxDistance": 800,
           "MinBodyTurnDifference": 50,
           "MinBodyTurnVelocity": 10,
-          "MinDistance": 180,
-          "RunSpeed": 320,
-          "WalkSpeed": 110
+          "MinDistance": 180
         },
         {
           "__type": "PlayerAbilities",
@@ -219,6 +216,7 @@
         {
           "__type": "PlayerVitals",
           "__guid": "4562819e-807c-4350-a29f-0766a36965b6",
+          "BaseMoveSpeed": 200,
           "Health": 100,
           "MaxHealth": 100
         },
@@ -239,7 +237,7 @@
           "__guid": "96186d36-46c2-4588-8c8a-61b14bd5b3b6",
           "Name": "Model",
           "Position": "0,0,0",
-          "Rotation": "0,0,0.0006276228,-0.9999998",
+          "Rotation": "0,0,0,-1",
           "Enabled": true,
           "NetworkMode": 2,
           "Components": [
@@ -483,18 +481,8 @@
           "ZIndex": 100
         },
         {
-          "__type": "AbilitiesUI",
-          "__guid": "914e2b66-790a-45d7-abb0-485d0a292637",
-          "PlayerAbilities": {
-            "_type": "component",
-            "component_id": "52bdd6bd-92df-4604-8156-2feaf70228b7",
-            "go": "5383b441-55e2-4dbe-b231-4e97fde90162",
-            "component_type": "PlayerAbilities"
-          }
-        },
-        {
           "__type": "PlayerUI",
-          "__guid": "326449f9-0ae3-4aa8-9673-40529c3ba5dd",
+          "__guid": "754419a3-b2e2-4ad6-be19-80f706276d50",
           "Inventory": {
             "_type": "component",
             "component_id": "dd1d2cb7-41bc-4b73-98ad-41b1312a07c7",
@@ -510,12 +498,28 @@
         },
         {
           "__type": "DevDisplay",
-          "__guid": "86c3c066-0905-45c9-b0a6-c792aa9be8cc",
+          "__guid": "d031b9dd-4a43-4237-ad33-a88eac4301a2",
           "Spawner": {
             "_type": "component",
             "component_id": "a993cc47-a3cf-45fb-82cd-875245d32622",
             "go": "474f7b57-1cb1-4b68-8f6b-0f91f294428d",
             "component_type": "MobSpawner"
+          },
+          "Vitals": {
+            "_type": "component",
+            "component_id": "4562819e-807c-4350-a29f-0766a36965b6",
+            "go": "5383b441-55e2-4dbe-b231-4e97fde90162",
+            "component_type": "PlayerVitals"
+          }
+        },
+        {
+          "__type": "AbilitiesUI",
+          "__guid": "ff1da291-fb8b-4c07-92f3-8565959d3323",
+          "PlayerAbilities": {
+            "_type": "component",
+            "component_id": "52bdd6bd-92df-4604-8156-2feaf70228b7",
+            "go": "5383b441-55e2-4dbe-b231-4e97fde90162",
+            "component_type": "PlayerAbilities"
           }
         }
       ]
@@ -536,7 +540,7 @@
         },
         {
           "__type": "UpgradeModalUI",
-          "__guid": "ea269481-71a7-44de-875e-7c0f7fd985d0",
+          "__guid": "775318a1-abb7-4130-803f-123bb1c72c3a",
           "Inventory": {
             "_type": "component",
             "component_id": "dd1d2cb7-41bc-4b73-98ad-41b1312a07c7",
@@ -639,19 +643,19 @@
       "__guid": "36b21eb8-1ff0-4420-8e17-91f6d9c642e9",
       "Name": "Sun",
       "Position": "-432.9104,-553.3989,384",
-      "Rotation": "-0.101662,0.1760837,0.4895557,0.8479354",
+      "Rotation": "-0.2813137,0.08719496,0.833527,0.4674317",
       "Tags": "light_directional,light",
+      "Enabled": true,
       "NetworkMode": 2,
       "Components": [
         {
           "__type": "DirectionalLight",
           "__guid": "ce842739-94df-4037-a3f4-8f306e4421f8",
-          "__enabled": false,
           "FogMode": "Enabled",
           "FogStrength": 1,
-          "LightColor": "0.01947,0.02048,0.02326,1",
+          "LightColor": "0.29767,0.22656,0.20491,1",
           "Shadows": true,
-          "SkyColor": "0.1478,0.23841,0.28372,1"
+          "SkyColor": "0.08783,0.10195,0.13488,1"
         }
       ]
     },
@@ -666,17 +670,38 @@
           "__guid": "8ecf9f52-94ca-4aff-804e-c756b9de5cd9",
           "GlobalUpgrades": [
             {
-              "Title": "Move Speed",
-              "Amount": 5,
-              "Icon": "directions_run",
-              "IsPercentage": true
-            },
-            {
-              "GlobalUpgrade": "MaxHealth",
-              "GlobalUpgradeType": "MaxHealth",
-              "Title": "Health",
-              "Amount": 40,
-              "Icon": "favorite"
+              "Common": {
+                "GlobalUpgrade": "MoveSpeed",
+                "GlobalUpgradeType": "MoveSpeed",
+                "Title": "Move Speed",
+                "Amount": 10,
+                "Icon": "directions_run",
+                "IsPercentage": true
+              },
+              "UnCommon": {
+                "GlobalUpgrade": "MoveSpeed",
+                "GlobalUpgradeType": "MoveSpeed",
+                "Title": "Move Speed",
+                "Amount": 30,
+                "Icon": "directions_run",
+                "IsPercentage": true
+              },
+              "Rare": {
+                "GlobalUpgrade": "MoveSpeed",
+                "GlobalUpgradeType": "MoveSpeed",
+                "Title": "Move Speed",
+                "Amount": 50,
+                "Icon": "directions_run",
+                "IsPercentage": true
+              },
+              "Epic": {
+                "GlobalUpgrade": "MoveSpeed",
+                "GlobalUpgradeType": "MoveSpeed",
+                "Title": "Move Speed",
+                "Amount": 100,
+                "Icon": "directions_run",
+                "IsPercentage": true
+              }
             }
           ]
         }
@@ -706,7 +731,7 @@
   },
   "Title": "outdoor_map_testroom",
   "Description": "",
-  "LastSaved": "2024-03-14T19:01:18.412034\u002B00:00",
+  "LastSaved": "2024-03-14T20:24:14.2197218\u002B00:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": []

@@ -33,7 +33,6 @@ public sealed class PlayerInventory : Component
         }
         else if (LeftOver > 0)
         {
-            Log.Info($"leftover: {LeftOver}");
             OnLevelUp();
             OnExpPickup(LeftOver);
         }

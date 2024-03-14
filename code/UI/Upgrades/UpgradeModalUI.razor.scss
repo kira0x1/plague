@@ -84,6 +84,13 @@ UpgradeModalUI {
     }
   }
 
+  .card-highlight {
+    border-width: 10px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+
   .upgrade-card:hover {
     width: 28%;
     height: 100%;

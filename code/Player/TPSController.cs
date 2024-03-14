@@ -1,5 +1,4 @@
-﻿using System;
-using Sandbox.Citizen;
+﻿using Sandbox.Citizen;
 
 namespace Kira;
 
@@ -9,12 +8,6 @@ public sealed class TPSController : Component, Component.ExecuteInEditor
     [Property] private Vector3 Gravity { get; set; } = new Vector3(0, 0, 800);
     [Property] public GameObject Body { get; set; }
     [Property] public GameObject Eye { get; set; }
-
-    [Property, Group("Movement")]
-    private float RunSpeed { get; set; } = 320f;
-    [Property, Group("Movement")]
-    private float WalkSpeed { get; set; } = 110f;
-
 
     [Property, Group("Turn"), Range(0, 100f)]
     private float MinBodyTurnVelocity { get; set; } = 10f;
@@ -39,6 +32,7 @@ public sealed class TPSController : Component, Component.ExecuteInEditor
     private Vector3 WishVelocity { get; set; }
     private CitizenAnimationHelper AnimationHelper { get; set; }
     private CharacterController Controller { get; set; }
+    private PlayerVitals Vitals { get; set; }
 
     protected override void OnEnabled()
     {
@@ -65,6 +59,7 @@ public sealed class TPSController : Component, Component.ExecuteInEditor
     protected override void OnAwake()
     {
         base.OnAwake();
+        Vitals = Components.Get<PlayerVitals>();
         Controller = Components.Get<CharacterController>();
         AnimationHelper = Components.Get<CitizenAnimationHelper>();
     }
@@ -176,7 +171,7 @@ public sealed class TPSController : Component, Component.ExecuteInEditor
         WishVelocity = WishVelocity.WithZ(0);
 
         if (!WishVelocity.IsNearZeroLength) WishVelocity = WishVelocity.Normal;
-        WishVelocity *= IsRunning ? RunSpeed : WalkSpeed;
+        WishVelocity *= Vitals.CurMoveSpeed;
     }
 
     private void ResetAngles()
