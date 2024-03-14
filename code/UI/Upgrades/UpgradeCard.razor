@@ -36,8 +36,9 @@
         UpgradeModal.OnCardClicked(CardIndex);
     }
 
+    public int CardIndex { get; set; }
+
     private bool HasUpgrade => Upgrade is not null;
     public UpgradeInstance Upgrade { get; set; }
     public UpgradeModalUI UpgradeModal { get; set; }
-    public int CardIndex { get; set; }
 }

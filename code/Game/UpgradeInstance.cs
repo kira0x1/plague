@@ -28,6 +28,8 @@ public abstract class UpgradeInstance
     public string Icon { get; set; }
     public bool IsPercentage { get; set; }
 
+    public virtual GlobalUpgradeType GlobalUpgradeType { get; set; }
+
     [ReadOnly]
     public abstract UpgradeTypes GetUpgradeType();
 }
@@ -35,6 +37,8 @@ public abstract class UpgradeInstance
 public class GlobalUpgradeInstance : UpgradeInstance
 {
     public GlobalUpgradeType GlobalUpgrade { get; set; }
+
+    public override GlobalUpgradeType GlobalUpgradeType => GlobalUpgrade;
 
     public override string Description()
     {
@@ -47,6 +51,9 @@ public class GlobalUpgradeInstance : UpgradeInstance
                 break;
             case GlobalUpgradeType.MoveSpeed:
                 description = $"Run {AmountText} Faster";
+                break;
+            case GlobalUpgradeType.MaxHealth:
+                description = $"Increase Max Health by {AmountText}";
                 break;
         }
 
@@ -65,7 +72,7 @@ public class WeaponUpgradeInstance : UpgradeInstance
 
     public override string Description()
     {
-        string description = "";
+        string description = "wep upgrade";
         switch (WeaponUpgrade)
         {
             case WeaponUpgradeType.FiringSpeed:

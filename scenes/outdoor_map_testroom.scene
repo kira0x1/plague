@@ -1,10 +1,11 @@
 {
-  "Id": "ade22751-3704-4411-a7c3-0a5c18720ab1",
+  "__guid": "ade22751-3704-4411-a7c3-0a5c18720ab1",
   "GameObjects": [
     {
       "__guid": "d018eb32-218a-4c8e-8c6f-9ac606c9ff33",
       "Name": "Camera",
-      "Position": "-591.46,736,81.02",
+      "Position": "-591.458,736.6854,82.39067",
+      "Rotation": "0.0000006713215,0.001158724,-0.000579362,0.9999992",
       "Enabled": true,
       "NetworkMode": 2,
       "Components": [
@@ -75,7 +76,7 @@
       "Name": "Player",
       "Position": "0,736,0",
       "Enabled": true,
-      "NetworkMode": 2,
+      "NetworkMode": 0,
       "Components": [
         {
           "__type": "CharacterController",
@@ -129,7 +130,7 @@
           "__type": "PlayerAbilities",
           "__guid": "52bdd6bd-92df-4604-8156-2feaf70228b7",
           "AbilitiesEnabled": [
-            false,
+            true,
             true,
             true,
             true
@@ -165,7 +166,7 @@
           "StartAbilities": [
             {
               "AbilityName": "Projectile",
-              "Icon": "textures/bow_128.png",
+              "Icon": "double_arrow",
               "CooldownTime": 0.5,
               "ReloadTime": 0.1,
               "MagazineCapacity": 6,
@@ -186,7 +187,7 @@
             },
             {
               "AbilityName": "Orbit",
-              "Icon": "textures/bow_128.png",
+              "Icon": "favorite",
               "CooldownTime": 1,
               "ReloadTime": 14,
               "MagazineCapacity": 1,
@@ -238,7 +239,7 @@
           "__guid": "96186d36-46c2-4588-8c8a-61b14bd5b3b6",
           "Name": "Model",
           "Position": "0,0,0",
-          "Rotation": "0,0,0,-1",
+          "Rotation": "0,0,0.0006276228,-0.9999998",
           "Enabled": true,
           "NetworkMode": 2,
           "Components": [
@@ -640,12 +641,12 @@
       "Position": "-432.9104,-553.3989,384",
       "Rotation": "-0.101662,0.1760837,0.4895557,0.8479354",
       "Tags": "light_directional,light",
-      "Enabled": true,
       "NetworkMode": 2,
       "Components": [
         {
           "__type": "DirectionalLight",
           "__guid": "ce842739-94df-4037-a3f4-8f306e4421f8",
+          "__enabled": false,
           "FogMode": "Enabled",
           "FogStrength": 1,
           "LightColor": "0.01947,0.02048,0.02326,1",
@@ -672,6 +673,7 @@
             },
             {
               "GlobalUpgrade": "MaxHealth",
+              "GlobalUpgradeType": "MaxHealth",
               "Title": "Health",
               "Amount": 40,
               "Icon": "favorite"
@@ -704,6 +706,8 @@
   },
   "Title": "outdoor_map_testroom",
   "Description": "",
-  "LastSaved": "2024-03-14T08:35:28.6756226\u002B00:00",
+  "LastSaved": "2024-03-14T19:01:18.412034\u002B00:00",
+  "ResourceVersion": 1,
+  "__version": 1,
   "__references": []
 }

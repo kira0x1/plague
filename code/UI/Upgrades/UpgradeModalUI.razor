@@ -9,7 +9,7 @@
         <div class="content">
             @for (int i = 0; i < UpgradesToSpawn.Count; i++)
             {
-                <UpgradeCard Upgrade=@UpgradesToSpawn[i] UpgradeModal=@this @ref="Cards[i]">
+                <UpgradeCard Upgrade=@UpgradesToSpawn[i] UpgradeModal=@this @ref="Cards[i]" CardIndex=@i>
                 </UpgradeCard>
             }
         </div>
@@ -33,7 +33,7 @@
     public void ShowUpgrades(List<UpgradeInstance> upgrades)
     {
         ShouldShowUpgrades = true;
-        Game.IsPaused = true;
+        // Game.IsPaused = true;
         UpgradesToSpawn = upgrades;
     }
 

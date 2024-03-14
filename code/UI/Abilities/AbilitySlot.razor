@@ -8,8 +8,9 @@
 
     @if (HasAbility)
     {
-        <div class="slot-icon" style="background: url(@SlotIcon())">
-        </div>
+        @* <div class="slot-icon" style="background: url(@SlotIcon())"> *@
+        @* </div> *@
+        <i class="slot-icon">@SlotIcon()</i>
     }
 
     <div class="slot-text">

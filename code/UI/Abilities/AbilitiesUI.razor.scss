@@ -36,6 +36,11 @@ AbilitiesUI {
     flex-direction: column;
 
     .slot-text {
+      height: 20%;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      justify-content: center;
     }
 
     .slot-cooldown {
@@ -47,11 +52,11 @@ AbilitiesUI {
     }
 
     .slot-icon {
-      width: 100%;
-      height: 100%;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: contain;
+      font-size: 5vh;
+      align-self: center;
+      height: 75%;
+      //background-repeat: no-repeat;
+      //background-size: contain;
     }
   }
 }

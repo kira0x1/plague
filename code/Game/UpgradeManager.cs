@@ -69,6 +69,10 @@ public sealed class UpgradeManager : Component
 
     public void OnUpgradeObtained(UpgradeInstance upgrade)
     {
-        Log.Info($"Obtained upgrade: {upgrade.Title}");
+        if (upgrade.GetUpgradeType() == UpgradeTypes.Global)
+        {
+            Log.Info($"description : {upgrade.Description()}");
+            Log.Info($"Recieved global upgrade of type: {upgrade.GlobalUpgradeType}");
+        }
     }
 }
