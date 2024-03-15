@@ -161,47 +161,8 @@
             "go": "728d5bbd-b0e4-4a6b-9ca5-b59f75822a3e"
           },
           "StartAbilities": [
-            {
-              "AbilityName": "Projectile",
-              "Icon": "double_arrow",
-              "CooldownTime": 0.5,
-              "ReloadTime": 0.1,
-              "MagazineCapacity": 6,
-              "LifeTime": 10,
-              "BaseDamage": 10,
-              "BaseCritChance": 1,
-              "BaseCritDamage": 1,
-              "ProjectilePrefab": {
-                "_type": "gameobject",
-                "prefab": "prefabs/projectile_prefab.prefab"
-              },
-              "ProjectileSpeed": 350,
-              "SpawnNorth": true,
-              "SpawnNorthWest": true,
-              "SpawnNorthEast": true,
-              "OrbitRadius": 30,
-              "OrbitSpeed": 100
-            },
-            {
-              "AbilityName": "Orbit",
-              "Icon": "favorite",
-              "CooldownTime": 1,
-              "ReloadTime": 14,
-              "MagazineCapacity": 1,
-              "LifeTime": 10,
-              "BaseDamage": 10,
-              "BaseCritChance": 1,
-              "BaseCritDamage": 1,
-              "SpellType": "Orbit",
-              "ProjectilePrefab": {
-                "_type": "gameobject",
-                "prefab": "prefabs/orbit_test.prefab"
-              },
-              "ProjectileSpeed": 100,
-              "SpawnNorth": true,
-              "OrbitRadius": 80,
-              "OrbitSpeed": 360
-            }
+            0,
+            1
           ],
           "West": {
             "_type": "gameobject",
@@ -454,7 +415,7 @@
       "__guid": "b6e08098-4b95-4bec-bdc7-adfecb0de9d1",
       "Name": "Map",
       "Enabled": true,
-      "NetworkMode": 2,
+      "NetworkMode": 0,
       "Components": [
         {
           "__type": "MapInstance",
@@ -642,8 +603,8 @@
     {
       "__guid": "36b21eb8-1ff0-4420-8e17-91f6d9c642e9",
       "Name": "Sun",
-      "Position": "-432.9104,-553.3989,384",
-      "Rotation": "-0.2813137,0.08719496,0.833527,0.4674317",
+      "Position": "0,768,192",
+      "Rotation": "0.3693042,-0.4404689,-0.2480956,-0.7797756",
       "Tags": "light_directional,light",
       "Enabled": true,
       "NetworkMode": 2,
@@ -653,9 +614,9 @@
           "__guid": "ce842739-94df-4037-a3f4-8f306e4421f8",
           "FogMode": "Enabled",
           "FogStrength": 1,
-          "LightColor": "0.29767,0.22656,0.20491,1",
-          "Shadows": true,
-          "SkyColor": "0.08783,0.10195,0.13488,1"
+          "LightColor": "0.1433,0.17262,0.22326,1",
+          "Shadows": false,
+          "SkyColor": "0.07275,0.07744,0.08837,1"
         }
       ]
     },
@@ -668,6 +629,43 @@
         {
           "__type": "UpgradeManager",
           "__guid": "8ecf9f52-94ca-4aff-804e-c756b9de5cd9",
+          "GlobalUpgradeDB": {
+            "MovementUpgrades": {
+              "Common": {
+                "GlobalUpgrade": "MoveSpeed",
+                "GlobalUpgradeType": "MoveSpeed",
+                "Title": "Move Speed",
+                "Amount": 10,
+                "Icon": "directions_run",
+                "IsPercentage": true
+              },
+              "UnCommon": {
+                "GlobalUpgrade": "MoveSpeed",
+                "GlobalUpgradeType": "MoveSpeed",
+                "Title": "Move Speed",
+                "Amount": 30,
+                "Icon": "directions_run",
+                "IsPercentage": true
+              },
+              "Rare": {
+                "GlobalUpgrade": "MoveSpeed",
+                "GlobalUpgradeType": "MoveSpeed",
+                "Title": "Move Speed",
+                "Amount": 50,
+                "Icon": "directions_run",
+                "IsPercentage": true
+              },
+              "Epic": {
+                "GlobalUpgrade": "MoveSpeed",
+                "GlobalUpgradeType": "MoveSpeed",
+                "Title": "Move Speed",
+                "Amount": 100,
+                "Icon": "directions_run",
+                "IsPercentage": true
+              }
+            },
+            "MaxHealthUpgrades": {}
+          },
           "GlobalUpgrades": [
             {
               "Common": {
@@ -704,6 +702,51 @@
               }
             }
           ]
+        },
+        {
+          "__type": "AbilityDB",
+          "__guid": "3936f114-19fa-4bc5-a107-761393deb094",
+          "Abilities": [
+            {
+              "AbilityName": "Projectile",
+              "Icon": "double_arrow",
+              "CooldownTime": 0.5,
+              "ReloadTime": 0.1,
+              "MagazineCapacity": 6,
+              "LifeTime": 10,
+              "BaseDamage": 15,
+              "BaseCritChance": 0.3,
+              "BaseCritDamage": 2.5,
+              "ProjectilePrefab": {
+                "_type": "gameobject",
+                "prefab": "prefabs/projectile_prefab.prefab"
+              },
+              "ProjectileSpeed": 350,
+              "SpawnNorth": true,
+              "SpawnNorthWest": true,
+              "SpawnNorthEast": true,
+              "OrbitRadius": 30,
+              "OrbitSpeed": 100
+            },
+            {
+              "AbilityName": "Orbit",
+              "Icon": "favorite",
+              "CooldownTime": 1,
+              "ReloadTime": 14,
+              "MagazineCapacity": 1,
+              "LifeTime": 10,
+              "BaseDamage": 10,
+              "SpellType": "Orbit",
+              "ProjectilePrefab": {
+                "_type": "gameobject",
+                "prefab": "prefabs/orbit_test.prefab"
+              },
+              "ProjectileSpeed": 100,
+              "SpawnNorth": true,
+              "OrbitRadius": 80,
+              "OrbitSpeed": 360
+            }
+          ]
         }
       ]
     }
@@ -731,7 +774,7 @@
   },
   "Title": "outdoor_map_testroom",
   "Description": "",
-  "LastSaved": "2024-03-14T20:24:14.2197218\u002B00:00",
+  "LastSaved": "2024-03-15T00:43:02.4894915\u002B00:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": []

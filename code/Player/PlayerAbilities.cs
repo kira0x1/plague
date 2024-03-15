@@ -15,13 +15,16 @@ public enum SpawnDirection
 [Category("Kira")]
 public class PlayerAbilities : Component
 {
-    [Property]
+    [Property] public List<int> StartAbilities { get; set; } = new List<int>();
+
+    [Property, Group("Abilities Enabled")]
     public List<bool> AbilitiesEnabled { get; set; } = new List<bool> { true, true, true, true };
 
-    [Property]
-    // ReSharper disable once CollectionNeverUpdated.Global
-    public List<AbilityInstance> StartAbilities { get; set; } = new List<AbilityInstance>();
+
     public List<IAbility> Abilities { get; set; } = new List<IAbility>();
+    private AbilityDB AbilityDB { get; set; }
+
+    #region Spawns
 
     [Property, Group("Spawns")] public GameObject North { get; set; }
     [Property, Group("Spawns")] public GameObject NorthWest { get; set; }
@@ -32,7 +35,9 @@ public class PlayerAbilities : Component
     [Property, Group("Spawns")] public GameObject West { get; set; }
     [Property, Group("Spawns")] public GameObject East { get; set; }
 
-    public Dictionary<SpawnDirection, GameObject> SpawnDirections = new Dictionary<SpawnDirection, GameObject>();
+    public readonly Dictionary<SpawnDirection, GameObject> SpawnDirections = new Dictionary<SpawnDirection, GameObject>();
+
+    #endregion
 
     protected override void OnAwake()
     {
@@ -52,10 +57,18 @@ public class PlayerAbilities : Component
     {
         base.OnStart();
 
-        Abilities = new List<IAbility>();
-        foreach (AbilityInstance startAbility in StartAbilities)
+        AbilityDB = Scene.Components.GetAll<AbilityDB>().FirstOrDefault();
+        if (!AbilityDB.IsValid())
         {
-            var instance = startAbility.CreateAbility(this);
+            Log.Warning("AbiltityDB not found");
+            return;
+        }
+
+        Abilities = new List<IAbility>();
+        foreach (int abilityIndex in StartAbilities)
+        {
+            var ability = AbilityDB.Abilities[abilityIndex];
+            var instance = ability.CreateAbility(this);
             Abilities.Add(instance);
         }
 

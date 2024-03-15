@@ -16,6 +16,12 @@ public sealed class PlayerInventory : Component
 
     public Action OnLevelUpEvent;
 
+    protected override void OnStart()
+    {
+        base.OnStart();
+        MaxExp = CalculateMaxExp();
+    }
+
     public void Loot(int xp, int gold)
     {
         if (xp > 0) OnExpPickup(xp);
@@ -41,7 +47,8 @@ public sealed class PlayerInventory : Component
     private int CalculateMaxExp()
     {
         // TODO use exponential xp formula
-        return Level * 10;
+        int nextXp = MathF.Pow(Level / 0.6f, 2).CeilToInt();
+        return nextXp;
     }
 
     private void OnLevelUp()

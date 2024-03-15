@@ -10,7 +10,7 @@ public sealed class Mob : Component
     private float StopDistance { get; set; } = 30f;
 
     public MobVitals Vitals { get; set; }
-    public Action<float> OnHitEvent;
+    public Action<DamageData> OnHitEvent;
 
     private PlayerVitals Player { get; set; }
     private NavMeshAgent Agent { get; set; }
@@ -54,14 +54,14 @@ public sealed class Mob : Component
 
     protected override void OnUpdate()
     {
+        UpdateText();
+
         switch (MobState)
         {
             case MobStates.Chasing:
                 UpdateChase();
-                UpdateText();
                 break;
             case MobStates.Stunned:
-                UpdateText();
                 break;
             case MobStates.Dead:
                 if (!HasRemovedPhys && removePhysTime)
@@ -119,11 +119,13 @@ public sealed class Mob : Component
     public void OnHit(BaseAbility ability)
     {
         if (MobState == MobStates.Dead) return;
+
+        DamageData damage = ability.GetDamageData();
         Anim.ProceduralHitReaction(new DamageInfo(), 150f, -Transform.Local.Forward * 100f);
 
         //TODO: replace this with a better damage text system
-        damageNumbersTest.Add(new DamageNumberText(Transform.Position + Transform.Local.Up * 60, ability.Damage));
-        OnHitEvent?.Invoke(ability.Damage);
+        damageNumbersTest.Add(new DamageNumberText(Transform.Position + Transform.Local.Up * 60, damage));
+        OnHitEvent?.Invoke(damage);
     }
 
     private void OnDeath(GameObject mob)

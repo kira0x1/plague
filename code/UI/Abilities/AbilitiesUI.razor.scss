@@ -38,8 +38,9 @@ AbilitiesUI {
     .slot-text {
       height: 20%;
       position: absolute;
-      bottom: 0;
+      bottom: 5px;
       width: 100%;
+      font-size: 2vh;
       justify-content: center;
     }
 

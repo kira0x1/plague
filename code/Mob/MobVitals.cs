@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sandbox;
+namespace Kira;
 
 [Category("Kira/Mob")]
 public class MobVitals : Component
@@ -11,12 +11,12 @@ public class MobVitals : Component
     public bool IsDead { get; set; } = false;
     public Action<GameObject> OnDeathEvent;
 
-    public void OnHit(float damage)
+    public void OnHit(DamageData damageData)
     {
         if (IsDead)
             return;
 
-        Health -= damage;
+        Health -= damageData.Damage;
 
         if (Health <= 0)
         {

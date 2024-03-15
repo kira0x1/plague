@@ -59,7 +59,7 @@ public sealed class Projectile : Component
                 }
                 else
                 {
-                    HitObjectRecords.Add(tr.GameObject.Id, 5f);
+                    HitObjectRecords.Add(tr.GameObject.Id, 3f);
                     mob.OnHit(Ability);
                 }
             }

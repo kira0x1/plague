@@ -36,7 +36,9 @@ public class MobLoot : Component
                 continue;
             }
 
-            lootData.LootPrefab.Clone(Transform.Position + Transform.Local.Up * 20f);
+            var pos = Transform.Position + Transform.Local.Up * 20f;
+            pos += Vector3.Random * 50f;
+            lootData.LootPrefab.Clone(pos);
         }
     }
 }

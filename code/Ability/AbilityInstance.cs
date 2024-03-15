@@ -13,9 +13,9 @@ public class AbilityInstance
 
     [Group("Damage")]
     public float BaseDamage { get; set; } = 10;
-    [Group("Damage")]
-    public float BaseCritChance { get; set; } = 1f;
-    [Group("Damage")]
+    [Group("Damage"), Range(0, 1)]
+    public float BaseCritChance { get; set; } = 0f;
+    [Group("Damage"), Range(0, 3)]
     public float BaseCritDamage { get; set; } = 1f;
 
     public SpellElementTypes ElementType { get; set; }

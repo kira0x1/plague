@@ -1,4 +1,6 @@
-﻿namespace Kira;
+﻿using System;
+
+namespace Kira;
 
 public abstract class BaseAbility : IAbility
 {
@@ -83,5 +85,18 @@ public abstract class BaseAbility : IAbility
             AmmoCount = MagazineCapacity;
             this.CooldownTimeUntil = 0;
         });
+    }
+
+    public DamageData GetDamageData()
+    {
+        float damageAmount = Data.BaseDamage;
+        float critRng = Random.Shared.Float(0, 1f);
+        bool isCrit = critRng < Data.BaseCritChance;
+        if (isCrit) damageAmount = Data.BaseDamage * Data.BaseCritDamage;
+
+
+        //TODO calculate damage with modifiers
+        DamageData dmg = new DamageData(damageAmount, isCrit);
+        return dmg;
     }
 }

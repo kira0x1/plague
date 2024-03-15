@@ -13,14 +13,6 @@ public enum GlobalUpgradeType
     CritDamage
 }
 
-public class RarityChance<T>
-{
-    public T Value { get; set; }
-
-    [Property, Range(0, 1f)]
-    public float chance { get; set; } = 0.5f;
-}
-
 public enum Rarity
 {
     Common,
@@ -83,6 +75,7 @@ public sealed class UpgradeManager : Component
 
     [Property]
     public List<GlobalUpgradeContainer> GlobalUpgrades { get; set; } = new List<GlobalUpgradeContainer>();
+    [Property] public GlobalUpgradeDB GlobalUpgradeDB { get; set; }
 
     public List<UpgradeInstance> UpgradePool { get; set; } = new List<UpgradeInstance>();
 
