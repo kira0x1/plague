@@ -5,12 +5,13 @@
 
 <root>
     <div class="health">
-        @HealthText
+        <div class="health-fill">
+        </div>
+        <div class="health-text">
+            @HealthText
+        </div>
     </div>
     <div class="level">
-        <div class="level-text">
-            @LevelText
-        </div>
         <div class="xp">
             <div class="xp-bar">
                 <div class="xp-fill" style=@($"width: {ExpFill * 100}%")>
@@ -19,7 +20,12 @@
                     @ExpText
                 </div>
             </div>
+
+
         </div>
+    </div>
+    <div class="level-text">
+        @LevelText
     </div>
 </root>
 
@@ -29,7 +35,8 @@
     [Property] public PlayerInventory Inventory { get; set; }
 
     public string HealthText => $"{Vitals.Health:F0} / {Vitals.MaxHealth:F0}";
-    public string LevelText => $"Level: {Inventory.Level}";
+    public float HealthFill => Vitals.Health * 1f / Vitals.MaxHealth;
+    public string LevelText => $"Level {Inventory.Level}";
     public string ExpText => $"{Inventory.CurExp} / {Inventory.MaxExp}";
     public float ExpFill => Inventory.CurExp * 1f / Inventory.MaxExp;
 

@@ -198,7 +198,7 @@
           "__guid": "96186d36-46c2-4588-8c8a-61b14bd5b3b6",
           "Name": "Model",
           "Position": "0,0,0",
-          "Rotation": "0,0,0,-1",
+          "Rotation": "0,0,-0.0000004694012,-1",
           "Enabled": true,
           "NetworkMode": 2,
           "Components": [
@@ -736,6 +736,7 @@
               "MagazineCapacity": 1,
               "LifeTime": 10,
               "BaseDamage": 10,
+              "BaseCritDamage": 1,
               "SpellType": "Orbit",
               "ProjectilePrefab": {
                 "_type": "gameobject",
@@ -747,6 +748,312 @@
               "OrbitSpeed": 360
             }
           ]
+        }
+      ]
+    },
+    {
+      "__guid": "485ef28a-d908-4259-8e6b-eff826a1e133",
+      "Name": "column",
+      "Position": "351.9996,544.0004,-0.4075191",
+      "Rotation": "0,0,0.3826834,0.9238796",
+      "Tags": "solid",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "__guid": "c1829d18-59de-4c7c-9458-e3dfbf16bdc8",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/mini_arena/column.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "ModelCollider",
+          "__guid": "faafb546-5efd-4c10-95b6-bd2cf936454f",
+          "IsTrigger": false,
+          "Model": "models/mini_arena/column.vmdl",
+          "Static": true
+        }
+      ]
+    },
+    {
+      "__guid": "28134491-c4fb-4fc1-9902-52553c68ccc7",
+      "Name": "column (2)",
+      "Position": "351.9996,544.0004,99.21132",
+      "Rotation": "0,0,0.3826834,0.9238796",
+      "Tags": "solid",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "__guid": "8728cfc6-bfa8-41e5-b00f-160e630fcf10",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/mini_arena/column.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "ModelCollider",
+          "__guid": "2ef5f87a-c74f-42bd-a283-0109e08256d5",
+          "IsTrigger": false,
+          "Model": "models/mini_arena/column.vmdl",
+          "Static": true
+        }
+      ]
+    },
+    {
+      "__guid": "40e3ce33-b37b-403a-95c8-17e97145e7cb",
+      "Name": "border-straight",
+      "Position": "670.0094,1920,0",
+      "Rotation": "0,0,0.7071067,0.7071069",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "__guid": "5dbd19b8-dd28-4526-a631-5e222aeba0cd",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/mini_arena/border-straight.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "ModelCollider",
+          "__guid": "cc92cbb8-1577-4816-84fb-d19afb59c9a4",
+          "IsTrigger": false,
+          "Model": "models/mini_arena/border-straight.vmdl",
+          "Static": true
+        }
+      ]
+    },
+    {
+      "__guid": "661aed1f-a69d-451d-8aeb-642492619d60",
+      "Name": "border-straight (1)",
+      "Position": "576.0004,1920,0",
+      "Rotation": "0,0,-0.7071067,0.7071068",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "__guid": "b0393e6f-4393-473d-b342-66653e446e13",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/mini_arena/border-straight.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "ModelCollider",
+          "__guid": "d41aa387-9c4b-4478-8fcb-cacdcb094217",
+          "IsTrigger": false,
+          "Model": "models/mini_arena/border-straight.vmdl",
+          "Static": true
+        }
+      ]
+    },
+    {
+      "__guid": "10c59d31-8f57-4708-a208-709ae0fb9441",
+      "Name": "column",
+      "Position": "462.5306,1860,12.9789",
+      "Rotation": "0.3758261,0.6509254,0.1707233,0.6371061",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "__guid": "2268c4ac-d1a1-406c-8fca-ed7aa6764c55",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/mini_arena/column.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "ModelCollider",
+          "__guid": "d213ec0d-4c10-412a-9175-e67556f85fc4",
+          "IsTrigger": false,
+          "Model": "models/mini_arena/column.vmdl",
+          "Static": true
+        }
+      ]
+    },
+    {
+      "__guid": "79881426-0e51-424c-82f7-736731054b25",
+      "Name": "border-straight",
+      "Position": "479.9991,1920,0.0003236876",
+      "Rotation": "0.00000005960464,0.00000005960464,-0.7071066,0.7071067",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "__guid": "28a44a82-a4e6-4ae8-885f-facaeea6790b",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/mini_arena/border-straight.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "ModelCollider",
+          "__guid": "aa9e556a-ee0b-43a1-b045-6fa4e9f080e4",
+          "IsTrigger": false,
+          "Model": "models/mini_arena/border-straight.vmdl",
+          "Static": true
+        }
+      ]
+    },
+    {
+      "__guid": "29f041bc-5396-4d74-ae39-1523058eb849",
+      "Name": "border-straight (2)",
+      "Position": "367.9993,1920.003,44.00048",
+      "Rotation": "-0.7071068,0.7071066,-0.00000006705523,0.0000002011657",
+      "Scale": "1.25,1.25,1.25",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "__guid": "a643ffe1-448b-4b6e-959f-7dd35392f7cf",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/mini_arena/border-straight.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "ModelCollider",
+          "__guid": "5905dde6-9abc-4abf-abd0-7ce247ae2dd9",
+          "IsTrigger": false,
+          "Model": "models/mini_arena/border-straight.vmdl",
+          "Static": true
+        }
+      ]
+    },
+    {
+      "__guid": "4ecf035a-c66a-449c-96ca-87e24f74b10e",
+      "Name": "border-straight (3)",
+      "Position": "243.9992,1920.004,44.00044",
+      "Rotation": "-0.7071068,0.7071066,-0.00000006705523,0.0000002011657",
+      "Scale": "1.25,1.25,1.25",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "__guid": "6f9e1822-810f-4513-b5ad-e491cad1fddf",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/mini_arena/border-straight.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "ModelCollider",
+          "__guid": "12ff33b5-1cd7-4e1f-8c18-af71e1d6ac67",
+          "IsTrigger": false,
+          "Model": "models/mini_arena/border-straight.vmdl",
+          "Static": true
+        }
+      ]
+    },
+    {
+      "__guid": "35572f37-061b-4a95-b78d-f824fa974004",
+      "Name": "border-straight (4)",
+      "Position": "119.9989,1920.004,44.00039",
+      "Rotation": "-0.7071068,0.7071066,-0.00000006705523,0.0000002011657",
+      "Scale": "1.25,1.25,1.25",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "__guid": "41200cbb-7a0c-4a76-adb3-88d5c8ed8dc7",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/mini_arena/border-straight.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "ModelCollider",
+          "__guid": "819c2025-999d-4c15-8b65-30cdf54f2cd7",
+          "IsTrigger": false,
+          "Model": "models/mini_arena/border-straight.vmdl",
+          "Static": true
+        }
+      ]
+    },
+    {
+      "__guid": "d50e1833-2a4c-454d-be4f-b0414419643f",
+      "Name": "border-straight (5)",
+      "Position": "-4.001046,1920.004,44.00035",
+      "Rotation": "-0.7071068,0.7071066,-0.00000006705523,0.0000002011657",
+      "Scale": "1.25,1.25,1.25",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "__guid": "5bcea4d9-e535-4c53-be7d-08523a9a531d",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/mini_arena/border-straight.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "ModelCollider",
+          "__guid": "5bd77126-d6ca-4cbc-a427-69876d5a5f5a",
+          "IsTrigger": false,
+          "Model": "models/mini_arena/border-straight.vmdl",
+          "Static": true
+        }
+      ]
+    },
+    {
+      "__guid": "40b452eb-ad08-403f-9114-4ab7cb649c7b",
+      "Name": "column",
+      "Position": "-4.601997,1920.892,44.00036",
+      "Rotation": "-0.0000001596416,0.00000006532774,0.6087613,-0.7933534",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "__guid": "f0b399bf-3f17-487a-bbfa-e6c891b6f5e4",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/mini_arena/column.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "ModelCollider",
+          "__guid": "7ab8e695-a862-4479-a67c-cb0013c8b4d3",
+          "IsTrigger": false,
+          "Model": "models/mini_arena/column.vmdl",
+          "Static": true
+        }
+      ]
+    },
+    {
+      "__guid": "ea65d9b2-1bb1-4259-a860-451f092c6cdb",
+      "Name": "column (1)",
+      "Position": "223.9989,1920.892,44.00043",
+      "Rotation": "-0.0000001596416,0.00000006532774,0.6087613,-0.7933534",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "__guid": "2f5bfb43-defe-492f-9af8-aae4ca43a7f3",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/mini_arena/column.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "ModelCollider",
+          "__guid": "41b25ba1-5196-4e51-b40f-0ca126bacd13",
+          "IsTrigger": false,
+          "Model": "models/mini_arena/column.vmdl",
+          "Static": true
         }
       ]
     }
@@ -774,7 +1081,7 @@
   },
   "Title": "outdoor_map_testroom",
   "Description": "",
-  "LastSaved": "2024-03-15T00:43:02.4894915\u002B00:00",
+  "LastSaved": "2024-03-15T03:53:44.9337089\u002B00:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": []
