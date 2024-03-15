@@ -71,14 +71,11 @@ public class UpgradeModifier
 public sealed class UpgradeManager : Component
 {
     private PlayerInventory Inventory { get; set; }
-    public List<UpgradeInstance> UpgradeDB { get; set; }
 
-    [Property]
-    public List<GlobalUpgradeContainer> GlobalUpgrades { get; set; } = new List<GlobalUpgradeContainer>();
+    public List<UpgradeInstance> UpgradeDB { get; set; }
     [Property] public GlobalUpgradeDB GlobalUpgradeDB { get; set; }
 
     public List<UpgradeInstance> UpgradePool { get; set; } = new List<UpgradeInstance>();
-
     public Action<List<UpgradeInstance>> OnShowUpgradesEvent;
 
     public List<UpgradeInstance> UpgradesObtained = new List<UpgradeInstance>();
@@ -113,9 +110,10 @@ public sealed class UpgradeManager : Component
         UpgradePool.Clear();
 
 
+        PopulateGlobalUpgradePool();
+
         for (int i = 0; i < 3; i++)
         {
-            PopulateGlobalUpgradePool();
             upgrades.Add(Random.Shared.FromList(UpgradePool));
         }
 
@@ -136,10 +134,8 @@ public sealed class UpgradeManager : Component
     /// </summary>
     private void PopulateGlobalUpgradePool()
     {
-        foreach (GlobalUpgradeContainer globalUpg in GlobalUpgrades)
-        {
-            UpgradePool.Add(globalUpg.RollForUpgrade());
-        }
+        UpgradePool.Add(GlobalUpgradeDB.MovementUpgrades.RollForUpgrade());
+        UpgradePool.Add(GlobalUpgradeDB.MaxHealthUpgrades.RollForUpgrade());
     }
 
     public void OnUpgradeObtained(UpgradeInstance upgrade)
@@ -148,17 +144,7 @@ public sealed class UpgradeManager : Component
         {
             UpgradeModifier modifier = new UpgradeModifier(upgrade.Amount, upgrade.IsPercentage, upgrade.GlobalUpgradeType);
             Modifiers.Add(modifier);
-
-            if (modifier.globalUpgrade == GlobalUpgradeType.MoveSpeed)
-            {
-                if (!Vitals.IsValid())
-                {
-                    Log.Warning("Vitals not found");
-                    return;
-                }
-
-                Vitals.AddMoveModifier(modifier);
-            }
+            Vitals.AddModifier(modifier);
         }
     }
 }

@@ -664,44 +664,40 @@
                 "IsPercentage": true
               }
             },
-            "MaxHealthUpgrades": {}
-          },
-          "GlobalUpgrades": [
-            {
+            "MaxHealthUpgrades": {
               "Common": {
-                "GlobalUpgrade": "MoveSpeed",
-                "GlobalUpgradeType": "MoveSpeed",
-                "Title": "Move Speed",
-                "Amount": 10,
-                "Icon": "directions_run",
-                "IsPercentage": true
+                "GlobalUpgrade": "MaxHealth",
+                "GlobalUpgradeType": "MaxHealth",
+                "Title": "MaxHealth",
+                "Amount": 50,
+                "Icon": "favorite"
               },
               "UnCommon": {
-                "GlobalUpgrade": "MoveSpeed",
-                "GlobalUpgradeType": "MoveSpeed",
-                "Title": "Move Speed",
-                "Amount": 30,
-                "Icon": "directions_run",
-                "IsPercentage": true
+                "GlobalUpgrade": "MaxHealth",
+                "GlobalUpgradeType": "MaxHealth",
+                "Title": "Max Health",
+                "Rarity": "UnCommon",
+                "Amount": 100,
+                "Icon": "favorite"
               },
               "Rare": {
-                "GlobalUpgrade": "MoveSpeed",
-                "GlobalUpgradeType": "MoveSpeed",
-                "Title": "Move Speed",
-                "Amount": 50,
-                "Icon": "directions_run",
-                "IsPercentage": true
+                "GlobalUpgrade": "MaxHealth",
+                "GlobalUpgradeType": "MaxHealth",
+                "Title": "Max Health",
+                "Rarity": "Rare",
+                "Amount": 150,
+                "Icon": "favorite"
               },
               "Epic": {
-                "GlobalUpgrade": "MoveSpeed",
-                "GlobalUpgradeType": "MoveSpeed",
-                "Title": "Move Speed",
-                "Amount": 100,
-                "Icon": "directions_run",
-                "IsPercentage": true
+                "GlobalUpgrade": "MaxHealth",
+                "GlobalUpgradeType": "MaxHealth",
+                "Title": "Max Health",
+                "Rarity": "Epic",
+                "Amount": 200,
+                "Icon": "favorite"
               }
             }
-          ]
+          }
         },
         {
           "__type": "AbilityDB",
@@ -1097,7 +1093,7 @@
   },
   "Title": "outdoor_map_testroom",
   "Description": "",
-  "LastSaved": "2024-03-15T17:31:11.054736\u002B00:00",
+  "LastSaved": "2024-03-15T18:13:45.8245593\u002B00:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": []
