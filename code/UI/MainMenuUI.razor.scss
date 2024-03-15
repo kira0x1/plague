@@ -1,0 +1,45 @@
+MainMenuUI {
+  width: 100%;
+  height: 100%;
+  background-color: #444;
+  flex-direction: column;
+  font-family: Poppins;
+  padding: 10px;
+  pointer-events: all;
+
+  .title {
+    justify-content: center;
+    font-weight: bold;
+    font-size: 65px;
+    color: #fff;
+  }
+
+  .button-list {
+    gap: 20px;
+    flex-direction: column;
+    width: 50%;
+    padding: 20px;
+    //background-color: rgba(1, 1, 1, 0.5);
+    margin: auto;
+    //justify-content: center;
+  }
+
+  button {
+    background-color: #5cA8C0;
+
+    width: 50%;
+    padding: 25px 0;
+    color: #fff;
+    font-weight: bolder;
+    font-size: 35px;
+    border-radius: 5px;
+
+    margin: auto;
+    justify-content: center;
+    transition: background-color 150ms linear;
+  }
+
+  button:hover {
+    background-color: #2e6172;
+  }
+}

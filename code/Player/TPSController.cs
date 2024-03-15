@@ -25,9 +25,7 @@ public sealed class TPSController : Component, Component.ExecuteInEditor
     [Property, Group("Camera"), Range(0, 2000)]
     private float MaxDistance { get; set; } = 620f;
 
-    [Sync] public Angles EyeAngles { get; set; }
-    [Sync] public bool IsRunning { get; set; } = true;
-
+    public Angles EyeAngles { get; set; }
     private CameraComponent Cam { get; set; }
     private Vector3 WishVelocity { get; set; }
     private CitizenAnimationHelper AnimationHelper { get; set; }
@@ -95,8 +93,6 @@ public sealed class TPSController : Component, Component.ExecuteInEditor
         var lookDir = EyeAngles.ToRotation();
         Cam.Transform.Position = Transform.Position + lookDir.Backward * DistanceOffset + Vector3.Up * HeightOffset;
         Cam.Transform.Rotation = lookDir;
-
-        if (Input.Pressed("Run")) IsRunning = !IsRunning;
     }
 
     private void UpdateBody()
@@ -127,7 +123,7 @@ public sealed class TPSController : Component, Component.ExecuteInEditor
 
         // AnimationHelper.IsWeaponLowered = false;
         // AnimationHelper.HoldType = CitizenAnimationHelper.HoldTypes.Rifle;
-        AnimationHelper.MoveStyle = IsRunning ? CitizenAnimationHelper.MoveStyles.Run : CitizenAnimationHelper.MoveStyles.Walk;
+        AnimationHelper.MoveStyle = CitizenAnimationHelper.MoveStyles.Run;
     }
 
     protected override void OnFixedUpdate()

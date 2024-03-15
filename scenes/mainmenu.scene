@@ -1,0 +1,53 @@
+{
+  "__guid": "cea224a1-1d69-429f-8fcf-bb1fa97f58d0",
+  "GameObjects": [
+    {
+      "__guid": "f33e48c9-1f65-48a8-9892-13a8f27c3d26",
+      "Name": "UI - Screen",
+      "Position": "149.995,149.995,-212.125",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "ScreenPanel",
+          "__guid": "276e1d08-3fc3-47e0-95fc-3b3fa5753121",
+          "AutoScreenScale": true,
+          "Opacity": 1,
+          "Scale": 1,
+          "ZIndex": 100
+        },
+        {
+          "__type": "MainMenuUI",
+          "__guid": "9f520c90-9fdd-41bb-b62b-c804f3bd7b36"
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "mainmenu",
+  "Description": "",
+  "LastSaved": "2024-03-15T17:30:27.6658319\u002B00:00",
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": []
+}

@@ -7,18 +7,21 @@ public interface IUpgrade
     public int Amount { get; set; }
 }
 
-public class UpgradeData
+[GameResource("Upgrade Data", "upgrade", "Data for Upgrades", Icon = "plus_one")]
+public class UpgradeData : GameResource
 {
     [Property]
     public string Title { get; private set; }
-    [Property]
-    public string Description { get; private set; }
+
     [Property]
     public int Amount { get; private set; }
+
     [Property]
     public string Icon { get; private set; }
+
     [Property]
     public bool IsPercentage { get; private set; }
+
     [Property]
     public UpgradeTypes UpgradeType { get; private set; }
 

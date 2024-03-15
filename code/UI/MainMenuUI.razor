@@ -1,0 +1,25 @@
+@inherits PanelComponent
+@* ReSharper disable CSharpWarnings::CS8974 *@
+
+<root>
+    <div class="title">Plague</div>
+
+    <div class="button-list">
+        <button onclick=@OnPlayClicked>Play</button>
+        @* <button onclick=@OnSettingsClicked>Settings</button> *@
+    </div>
+</root>
+
+@code
+{
+    private void OnPlayClicked()
+    {
+        SceneLoadOptions scl = new SceneLoadOptions() { ShowLoadingScreen = true, IsAdditive = false };
+        scl.SetScene("scenes/outdoor_map_testroom.scene");
+        Scene.Load(scl);
+    }
+
+    private void OnSettingsClicked()
+    {
+    }
+}

@@ -4,24 +4,24 @@ PlayerUI {
   font-weight: bold;
   padding: 10px;
   width: 100%;
+  flex-direction: column;
+
+  gap: 10px;
 
   .health {
-    //padding: 20px;
     width: 20%;
     background-color: rgba(3, 3, 3, 0.8);
-    border-radius: 5px 5px 50px 5px;
-    //border-radius: 25px 5px 25px 5px;
-
+    border-radius: 0 0 50px 0;
     margin: 0;
     font-size: 3vh;
     font-family: Poppins;
     color: #fff;
     height: 90px;
 
-    border-width: 5px;
+    border-width: 3px;
 
     .health-fill {
-      border-radius: 5px 5px 50px 5px;
+      border-radius: 0 0 50px 0;
       width: 100%;
       height: 100%;
       background: linear-gradient(0deg, rgb(230, 130, 150) 0%, rgb(230, 100, 110) 50%, rgb(220, 50, 120) 100%);
@@ -36,31 +36,25 @@ PlayerUI {
   }
 
   .level {
-    padding: 10px;
-    position: absolute;
-    width: 100%;
+    margin: 0;
+    font-size: 3vh;
+    font-family: Poppins;
+    height: 55px;
+    width: 20%;
     color: white;
-    top: 0;
     flex-direction: column;
 
     .xp {
-      width: 60%;
-      justify-content: center;
-      align-self: center;
-      height: 50px;
+      width: 100%;
 
       .xp-bar {
-        //padding: 8px 0;
-        width: 65%;
-        //justify-content: center;
-        //border-radius: 20px;
-        height: 35px;
-        //border-radius: 40px 10px 190px 10px;
-        border-radius: 4px;
+        width: 100%;
+        height: 60px;
+        border-radius: 0 50px 0 0;
         border-width: 3px;
-        padding: 1px;
-        border-color: black;
-        background-color: rgba(30, 30, 30, 0.5);
+        //padding: 1px;
+        //border-color: black;
+        //background-color: rgba(30, 30, 30, 0.5);
       }
 
 
