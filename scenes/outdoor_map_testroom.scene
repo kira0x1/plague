@@ -1192,19 +1192,27 @@
       ]
     },
     {
-      "__guid": "07efca1a-0aa4-451f-b11e-9134da674005",
-      "Name": "sd_prop_brazier_01",
-      "Position": "148.1084,223.7273,-0.00001525879",
-      "Scale": "3,3,3",
+      "__guid": "55d9f7ce-aa89-4934-a8ef-1e394bf10241",
+      "Name": "sd_prop_brazier_01 (1)",
+      "Position": "-488,1240,0",
       "Enabled": true,
       "NetworkMode": 2,
       "__Prefab": "prefabs/brazier_01.prefab"
     },
     {
-      "__guid": "55d9f7ce-aa89-4934-a8ef-1e394bf10241",
-      "Name": "sd_prop_brazier_01 (1)",
-      "Position": "-488,1240,0",
-      "Scale": "3,3,3",
+      "__guid": "7ddfd8da-ee7f-4296-96be-6dbc5c61a502",
+      "Name": "sd_prop_brazier_01 (3)",
+      "Position": "-501.0128,140.2205,0",
+      "Rotation": "0,0,-0.258819,0.9659258",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/brazier_01.prefab"
+    },
+    {
+      "__guid": "86252b07-39b9-4c2c-8aa1-3d9e0736835b",
+      "Name": "sd_prop_brazier_01 (4)",
+      "Position": "520.9016,23.09839,0",
+      "Rotation": "0,0,0.3826834,0.9238796",
       "Enabled": true,
       "NetworkMode": 2,
       "__Prefab": "prefabs/brazier_01.prefab"
@@ -1214,7 +1222,6 @@
       "Name": "sd_prop_brazier_01 (2)",
       "Position": "795.478,905.9771,0.00001525879",
       "Rotation": "0,0,-0.1305262,0.9914449",
-      "Scale": "3,3,3",
       "Enabled": true,
       "NetworkMode": 2,
       "__Prefab": "prefabs/brazier_01.prefab"
@@ -1243,7 +1250,7 @@
   },
   "Title": "outdoor_map_testroom",
   "Description": "",
-  "LastSaved": "2024-03-16T09:09:15.3607012\u002B00:00",
+  "LastSaved": "2024-03-16T10:54:11.7879368\u002B00:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": []

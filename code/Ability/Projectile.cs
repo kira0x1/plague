@@ -5,14 +5,12 @@ namespace Kira;
 public sealed class Projectile : Component
 {
     public float Speed { get; set; } = 20;
-
     public ProjectileAbility Ability { get; set; }
-
     private float lifeTime = 12;
     private TimeSince spawnTimeSince;
 
     public ProjectileDestroyModes projectileDestroyModes;
-    public Dictionary<Guid, TimeUntil> HitObjectRecords = new Dictionary<Guid, TimeUntil>();
+    public readonly Dictionary<Guid, TimeUntil> HitObjectRecords = new Dictionary<Guid, TimeUntil>();
 
     public void Init(AbilityInstance data, ProjectileAbility ability)
     {
@@ -44,6 +42,7 @@ public sealed class Projectile : Component
             if (projectileDestroyModes == ProjectileDestroyModes.DestroyOnHit)
             {
                 mob.OnHit(Ability);
+                Sound.Play("projectile_impact_generic", tr.HitPosition);
                 GameObject.Destroy();
                 // TODO: spawn on hit effect
             }

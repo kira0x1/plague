@@ -17,18 +17,6 @@ public enum ShootDirectionMode
     SixWay
 }
 
-public record AttackRecord
-{
-    public Guid id;
-    public TimeUntil nextAttack;
-
-    public AttackRecord(Guid id, float attackTime = 10f)
-    {
-        this.id = id;
-        this.nextAttack = attackTime;
-    }
-}
-
 public class ProjectileAbility : BaseAbility
 {
     public GameObject ProjectilePrefab { get; set; }

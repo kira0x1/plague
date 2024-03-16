@@ -13,7 +13,7 @@
 						_class = "DefaultMaterialGroup"
 						remaps = [  ]
 						use_global_default = true
-						global_default_material = "models/simple_dungeon/simpledungeon.vmat"
+						global_default_material = "models/simple_dungeon/sd_mat.vmat"
 					},
 				]
 			},

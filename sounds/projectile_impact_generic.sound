@@ -1,0 +1,20 @@
+{
+  "UI": false,
+  "Volume": "1.50,1.00,0",
+  "Pitch": "1.00,1.00,0",
+  "Decibels": 160,
+  "SelectionMode": "Random",
+  "Sounds": [
+    "sounds/impacts/impact-bullet-concrete01.vsnd",
+    "sounds/impacts/impact-bullet-concrete02.vsnd"
+  ],
+  "Occlusion": false,
+  "Reflections": true,
+  "AirAbsorption": true,
+  "Transmission": true,
+  "OcclusionRadius": 37.88,
+  "DistanceAttenuation": true,
+  "ResourceVersion": 0,
+  "__version": 0,
+  "__references": []
+}

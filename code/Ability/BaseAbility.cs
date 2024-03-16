@@ -6,7 +6,6 @@ public abstract class BaseAbility : IAbility
 {
     public float Damage { get; set; }
     public string AbiltiyName { get; set; }
-
     public float CooldownTime { get; set; }
     public RealTimeSince CooldownTimeUntil { get; set; }
 
