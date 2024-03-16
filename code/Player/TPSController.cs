@@ -167,7 +167,7 @@ public sealed class TPSController : Component, Component.ExecuteInEditor
         WishVelocity = WishVelocity.WithZ(0);
 
         if (!WishVelocity.IsNearZeroLength) WishVelocity = WishVelocity.Normal;
-        WishVelocity *= Vitals.CurMoveSpeed;
+        WishVelocity *= Vitals.MoveStat.Value;
     }
 
     private void ResetAngles()

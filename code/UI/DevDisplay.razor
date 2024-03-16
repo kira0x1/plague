@@ -31,11 +31,11 @@
 
     private int MobsAlive => Spawner.CurEnemiesAlive;
     private int TotalMobsSpawned => Spawner.TotalEnemiesSpawned;
-    private float CurMoveSpeed => Vitals.CurMoveSpeed;
-    private float BaseMoveSpeed => Vitals.BaseMoveSpeed;
+    private float CurMoveSpeed => Vitals.MoveStat.Value;
+    private float BaseMoveSpeed => Vitals.MoveStat.BaseValue;
 
     /// <summary>
     /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
     /// </summary>
-    protected override int BuildHash() => System.HashCode.Combine(MobsAlive, TotalMobsSpawned, CurMoveSpeed, BaseMoveSpeed);
+    protected override int BuildHash() => System.HashCode.Combine(MobsAlive, TotalMobsSpawned, Vitals.MoveStat.IsDirty);
 }

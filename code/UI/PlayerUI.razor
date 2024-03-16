@@ -32,8 +32,8 @@
     [Property] public PlayerVitals Vitals { get; set; }
     [Property] public PlayerInventory Inventory { get; set; }
 
-    public string HealthText => $"{Vitals.Health:F0} / {Vitals.MaxHealth:F0}";
-    public float HealthFill => Vitals.Health * 1f / Vitals.MaxHealth;
+    public string HealthText => $"{Vitals.Health:F0} / {Vitals.MaxHealthStat.Value:F0}";
+    public float HealthFill => Vitals.Health * 1f / Vitals.MaxHealthStat.Value;
     public string LevelText => $"Level {Inventory.Level}";
     public string ExpText => $"{Inventory.CurExp} / {Inventory.MaxExp}";
     public float ExpFill => Inventory.CurExp * 1f / Inventory.MaxExp;
@@ -41,5 +41,5 @@
     /// <summary>
     /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
     /// </summary>
-    protected override int BuildHash() => System.HashCode.Combine(Vitals.Health, Vitals.MaxHealth, Inventory.Level, Inventory.CurExp, Inventory.MaxExp);
+    protected override int BuildHash() => System.HashCode.Combine(Vitals.Health, Vitals.MaxHealthStat.IsDirty, Inventory.Level, Inventory.CurExp, Inventory.MaxExp);
 }
