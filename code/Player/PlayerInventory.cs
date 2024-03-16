@@ -10,11 +10,15 @@ public sealed class PlayerInventory : Component
     public int MaxExp { get; set; } = 10;
 
     public bool ShouldShowUpgrades { get; set; }
-
-    [Property]
-    public float LootRadius { get; set; } = 20f;
-
+    private PlayerStats Stats { get; set; }
+    public float LootRadius => Stats.PickupRadiusStat.Value;
     public Action OnLevelUpEvent;
+
+    protected override void OnAwake()
+    {
+        base.OnAwake();
+        Stats = Components.Get<PlayerStats>();
+    }
 
     protected override void OnStart()
     {

@@ -24,6 +24,10 @@ public class PlayerAbilities : Component
     public List<IAbility> Abilities { get; set; } = new List<IAbility>();
     private AbilityDB AbilityDB { get; set; }
 
+    private PlayerStats Stats { get; set; }
+    public float GlobalCritChance => Stats.CritChanceStat.Value;
+    public float GlobalCritDamage => Stats.CritDamageStat.Value;
+
     #region Spawns
 
     [Property, Group("Spawns")] public GameObject North { get; set; }
@@ -42,6 +46,8 @@ public class PlayerAbilities : Component
     protected override void OnAwake()
     {
         base.OnAwake();
+
+        Stats = Components.Get<PlayerStats>();
 
         SpawnDirections[SpawnDirection.North] = North;
         SpawnDirections[SpawnDirection.NorthEast] = NorthEast;

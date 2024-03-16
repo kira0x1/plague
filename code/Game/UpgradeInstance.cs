@@ -56,6 +56,15 @@ public class GlobalUpgradeInstance : UpgradeInstance
             case GlobalUpgradeType.MaxHealth:
                 description = $"Increase Max Health by {AmountText}";
                 break;
+            case GlobalUpgradeType.PickupRadius:
+                description = $"Increase PickUp Radius by {AmountText}";
+                break;
+            case GlobalUpgradeType.CritChance:
+                description = $"Increase Critical Strike Chance by {AmountText}";
+                break;
+            case GlobalUpgradeType.CritDamage:
+                description = $"Increase Critical Strike Damage by {AmountText}";
+                break;
         }
 
         return description;

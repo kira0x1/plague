@@ -30,7 +30,7 @@ public sealed class TPSController : Component, Component.ExecuteInEditor
     private Vector3 WishVelocity { get; set; }
     private CitizenAnimationHelper AnimationHelper { get; set; }
     private CharacterController Controller { get; set; }
-    private PlayerVitals Vitals { get; set; }
+    private PlayerStats Stats { get; set; }
 
     protected override void OnEnabled()
     {
@@ -57,7 +57,7 @@ public sealed class TPSController : Component, Component.ExecuteInEditor
     protected override void OnAwake()
     {
         base.OnAwake();
-        Vitals = Components.Get<PlayerVitals>();
+        Stats = Components.Get<PlayerStats>();
         Controller = Components.Get<CharacterController>();
         AnimationHelper = Components.Get<CitizenAnimationHelper>();
     }
@@ -167,7 +167,7 @@ public sealed class TPSController : Component, Component.ExecuteInEditor
         WishVelocity = WishVelocity.WithZ(0);
 
         if (!WishVelocity.IsNearZeroLength) WishVelocity = WishVelocity.Normal;
-        WishVelocity *= Vitals.MoveStat.Value;
+        WishVelocity *= Stats.MoveStat.Value;
     }
 
     private void ResetAngles()

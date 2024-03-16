@@ -1,9 +1,12 @@
 # sbox-procgen
+
 procedural generation in s&amp;box
 
 # Todo List 🐱
 
 ## General
+
+- [ ] Set player clothing from users avatar
 
 - [ ] Player Vitals
     - [ ] Player Health

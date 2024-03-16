@@ -91,8 +91,8 @@ public abstract class BaseAbility : IAbility
     {
         float damageAmount = Data.BaseDamage;
         float critRng = Random.Shared.Float(0, 1f);
-        bool isCrit = critRng < Data.BaseCritChance;
-        if (isCrit) damageAmount = Data.BaseDamage * Data.BaseCritDamage;
+        bool isCrit = critRng < Data.BaseCritChance + Caster.GlobalCritChance;
+        if (isCrit) damageAmount = Data.BaseDamage * (Data.BaseCritDamage + Caster.GlobalCritDamage);
 
 
         //TODO calculate damage with modifiers

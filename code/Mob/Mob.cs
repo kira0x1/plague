@@ -12,7 +12,7 @@ public sealed class Mob : Component
     public MobVitals Vitals { get; set; }
     public Action<DamageData> OnHitEvent;
 
-    private PlayerVitals Player { get; set; }
+    private PlayerStats Player { get; set; }
     private NavMeshAgent Agent { get; set; }
     private SkinnedModelRenderer Target { get; set; }
     private CitizenAnimationHelper Anim { get; set; }
@@ -44,7 +44,7 @@ public sealed class Mob : Component
         Agent = Components.Get<NavMeshAgent>();
         Target = Components.GetInDescendantsOrSelf<SkinnedModelRenderer>();
         Anim = Components.Get<CitizenAnimationHelper>();
-        Player = Scene.Components.GetAll<PlayerVitals>().FirstOrDefault();
+        Player = Scene.Components.GetAll<PlayerStats>().FirstOrDefault();
 
 
         Vitals = Components.Get<MobVitals>();

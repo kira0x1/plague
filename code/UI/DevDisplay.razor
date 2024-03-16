@@ -6,10 +6,10 @@
 <root>
     <div class="stats-display">
         <div class="display-li">
-            @($"Base Speed: {BaseMoveSpeed}")
+            @($"Base Speed: {BaseMoveSpeed:F0}")
         </div>
         <div class="display-li">
-            @($"Current Speed: {CurMoveSpeed}")
+            @($"Current Speed: {CurMoveSpeed:F1}")
         </div>
     </div>
     <div class="mob-display">
@@ -27,15 +27,15 @@
     [Property]
     private MobSpawner Spawner { get; set; }
     [Property]
-    private PlayerVitals Vitals { get; set; }
+    private PlayerStats Stats { get; set; }
 
     private int MobsAlive => Spawner.CurEnemiesAlive;
     private int TotalMobsSpawned => Spawner.TotalEnemiesSpawned;
-    private float CurMoveSpeed => Vitals.MoveStat.Value;
-    private float BaseMoveSpeed => Vitals.MoveStat.BaseValue;
+    private float CurMoveSpeed => Stats.MoveStat.Value;
+    private float BaseMoveSpeed => Stats.MoveStat.BaseValue;
 
     /// <summary>
     /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
     /// </summary>
-    protected override int BuildHash() => System.HashCode.Combine(MobsAlive, TotalMobsSpawned, Vitals.MoveStat.IsDirty);
+    protected override int BuildHash() => System.HashCode.Combine(MobsAlive, TotalMobsSpawned, Stats.MoveStat.IsDirty);
 }

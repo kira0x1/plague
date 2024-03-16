@@ -10,7 +10,8 @@ public enum GlobalUpgradeType
     Armor,
     Damage,
     CritChance,
-    CritDamage
+    CritDamage,
+    PickupRadius
 }
 
 public enum Rarity
@@ -52,6 +53,11 @@ public class GlobalUpgradeDB
 {
     public GlobalUpgradeContainer MovementUpgrades { get; set; }
     public GlobalUpgradeContainer MaxHealthUpgrades { get; set; }
+    public GlobalUpgradeContainer PickUpRadiusUpgrades { get; set; }
+    public GlobalUpgradeContainer FireRateUpgrades { get; set; }
+    public GlobalUpgradeContainer DamageUpgrades { get; set; }
+    public GlobalUpgradeContainer CritChanceUpgrades { get; set; }
+    public GlobalUpgradeContainer CritDamageUpgrades { get; set; }
 }
 
 public class UpgradeModifier
@@ -77,23 +83,15 @@ public sealed class UpgradeManager : Component
 
     public List<UpgradeInstance> UpgradePool { get; set; } = new List<UpgradeInstance>();
     public Action<List<UpgradeInstance>> OnShowUpgradesEvent;
-
     public List<UpgradeInstance> UpgradesObtained = new List<UpgradeInstance>();
-    public List<UpgradeModifier> Modifiers = new List<UpgradeModifier>();
 
-    private PlayerVitals Vitals { get; set; }
+    private PlayerStats Stats { get; set; }
 
     protected override void OnAwake()
     {
         base.OnAwake();
         Inventory = Scene.Components.GetAll<PlayerInventory>().FirstOrDefault();
-        Vitals = Scene.Components.GetAll<PlayerVitals>().FirstOrDefault();
-
-        // UpgradeDB = new List<UpgradeInstance>();
-        // foreach (GlobalUpgradeContainer globalUpgrade in GlobalUpgrades)
-        // {
-        //     UpgradeDB.Add(globalUpgrade);
-        // }
+        Stats = Scene.Components.GetAll<PlayerStats>().FirstOrDefault();
     }
 
     protected override void OnStart()
@@ -108,7 +106,6 @@ public sealed class UpgradeManager : Component
     {
         List<UpgradeInstance> upgrades = new List<UpgradeInstance>();
         UpgradePool.Clear();
-
 
         PopulateGlobalUpgradePool();
 
@@ -136,6 +133,9 @@ public sealed class UpgradeManager : Component
     {
         UpgradePool.Add(GlobalUpgradeDB.MovementUpgrades.RollForUpgrade());
         UpgradePool.Add(GlobalUpgradeDB.MaxHealthUpgrades.RollForUpgrade());
+        UpgradePool.Add(GlobalUpgradeDB.PickUpRadiusUpgrades.RollForUpgrade());
+        UpgradePool.Add(GlobalUpgradeDB.CritChanceUpgrades.RollForUpgrade());
+        UpgradePool.Add(GlobalUpgradeDB.CritDamageUpgrades.RollForUpgrade());
     }
 
     public void OnUpgradeObtained(UpgradeInstance upgrade)
@@ -143,8 +143,7 @@ public sealed class UpgradeManager : Component
         if (upgrade.GetUpgradeType() == UpgradeTypes.Global)
         {
             UpgradeModifier modifier = new UpgradeModifier(upgrade.Amount, upgrade.IsPercentage, upgrade.GlobalUpgradeType);
-            Modifiers.Add(modifier);
-            Vitals.AddModifier(modifier);
+            Stats.AddModifier(modifier);
         }
     }
 }

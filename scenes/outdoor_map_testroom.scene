@@ -2,6 +2,31 @@
   "__guid": "ade22751-3704-4411-a7c3-0a5c18720ab1",
   "GameObjects": [
     {
+      "__guid": "caf10739-3aee-4297-9f2a-c3c1c890daf5",
+      "Name": "bricks",
+      "Position": "-160.1224,1216,-0.000007629395",
+      "Rotation": "0,0,-0.5,0.8660254",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "__guid": "0486f705-fb2b-4bfd-95de-e8e15fa7c13a",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/mini_arena/bricks.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "ModelCollider",
+          "__guid": "211bae15-0e7a-4e14-b23d-ecf801618af4",
+          "IsTrigger": false,
+          "Model": "models/mini_arena/bricks.vmdl",
+          "Static": false
+        }
+      ]
+    },
+    {
       "__guid": "d018eb32-218a-4c8e-8c6f-9ac606c9ff33",
       "Name": "Camera",
       "Position": "-591.46,736,81.02",
@@ -171,12 +196,7 @@
         },
         {
           "__type": "PlayerInventory",
-          "__guid": "dd1d2cb7-41bc-4b73-98ad-41b1312a07c7",
-          "LootRadius": 200
-        },
-        {
-          "__type": "PlayerVitals",
-          "__guid": "4562819e-807c-4350-a29f-0766a36965b6"
+          "__guid": "dd1d2cb7-41bc-4b73-98ad-41b1312a07c7"
         },
         {
           "__type": "CharacterFootsteps",
@@ -188,6 +208,10 @@
             "component_type": "SkinnedModelRenderer"
           },
           "VolumeBoost": 1
+        },
+        {
+          "__type": "PlayerStats",
+          "__guid": "e2ae1588-ccb0-4369-9bd2-fa01913ced2b"
         }
       ],
       "Children": [
@@ -447,11 +471,11 @@
             "go": "5383b441-55e2-4dbe-b231-4e97fde90162",
             "component_type": "PlayerInventory"
           },
-          "Vitals": {
+          "Stats": {
             "_type": "component",
-            "component_id": "4562819e-807c-4350-a29f-0766a36965b6",
+            "component_id": "e2ae1588-ccb0-4369-9bd2-fa01913ced2b",
             "go": "5383b441-55e2-4dbe-b231-4e97fde90162",
-            "component_type": "PlayerVitals"
+            "component_type": "PlayerStats"
           }
         },
         {
@@ -463,11 +487,11 @@
             "go": "474f7b57-1cb1-4b68-8f6b-0f91f294428d",
             "component_type": "MobSpawner"
           },
-          "Vitals": {
+          "Stats": {
             "_type": "component",
-            "component_id": "4562819e-807c-4350-a29f-0766a36965b6",
+            "component_id": "e2ae1588-ccb0-4369-9bd2-fa01913ced2b",
             "go": "5383b441-55e2-4dbe-b231-4e97fde90162",
-            "component_type": "PlayerVitals"
+            "component_type": "PlayerStats"
           }
         },
         {
@@ -632,7 +656,7 @@
                 "GlobalUpgrade": "MoveSpeed",
                 "GlobalUpgradeType": "MoveSpeed",
                 "Title": "Move Speed",
-                "Amount": 10,
+                "Amount": 5,
                 "Icon": "directions_run",
                 "IsPercentage": true
               },
@@ -640,7 +664,8 @@
                 "GlobalUpgrade": "MoveSpeed",
                 "GlobalUpgradeType": "MoveSpeed",
                 "Title": "Move Speed",
-                "Amount": 30,
+                "Rarity": "UnCommon",
+                "Amount": 10,
                 "Icon": "directions_run",
                 "IsPercentage": true
               },
@@ -648,7 +673,7 @@
                 "GlobalUpgrade": "MoveSpeed",
                 "GlobalUpgradeType": "MoveSpeed",
                 "Title": "Move Speed",
-                "Amount": 50,
+                "Amount": 25,
                 "Icon": "directions_run",
                 "IsPercentage": true
               },
@@ -656,7 +681,7 @@
                 "GlobalUpgrade": "MoveSpeed",
                 "GlobalUpgradeType": "MoveSpeed",
                 "Title": "Move Speed",
-                "Amount": 100,
+                "Amount": 45,
                 "Icon": "directions_run",
                 "IsPercentage": true
               }
@@ -692,6 +717,106 @@
                 "Rarity": "Epic",
                 "Amount": 200,
                 "Icon": "favorite"
+              }
+            },
+            "PickUpRadiusUpgrades": {
+              "Common": {
+                "GlobalUpgrade": "PickupRadius",
+                "GlobalUpgradeType": "PickupRadius",
+                "Title": "PickUp Radius",
+                "Amount": 30,
+                "Icon": "crisis_alert"
+              },
+              "UnCommon": {
+                "GlobalUpgrade": "PickupRadius",
+                "GlobalUpgradeType": "PickupRadius",
+                "Title": "PickUp Radius",
+                "Amount": 60,
+                "Icon": "crisis_alert"
+              },
+              "Rare": {
+                "GlobalUpgrade": "PickupRadius",
+                "GlobalUpgradeType": "PickupRadius",
+                "Title": "PickUp Radius",
+                "Amount": 120,
+                "Icon": "crisis_alert"
+              },
+              "Epic": {
+                "GlobalUpgrade": "PickupRadius",
+                "GlobalUpgradeType": "PickupRadius",
+                "Title": "PickUp Radius",
+                "Amount": 200,
+                "Icon": "crisis_alert"
+              }
+            },
+            "FireRateUpgrades": {},
+            "DamageUpgrades": {},
+            "CritChanceUpgrades": {
+              "Common": {
+                "GlobalUpgrade": "CritChance",
+                "GlobalUpgradeType": "CritChance",
+                "Title": "Crit Chance",
+                "Amount": 2,
+                "Icon": "ads_click",
+                "IsPercentage": true
+              },
+              "UnCommon": {
+                "GlobalUpgrade": "CritChance",
+                "GlobalUpgradeType": "CritChance",
+                "Title": "Crit Chance",
+                "Amount": 6,
+                "Icon": "ads_click",
+                "IsPercentage": true
+              },
+              "Rare": {
+                "GlobalUpgrade": "CritChance",
+                "GlobalUpgradeType": "CritChance",
+                "Title": "Crit Chance",
+                "Amount": 12,
+                "Icon": "ads_click",
+                "IsPercentage": true
+              },
+              "Epic": {
+                "GlobalUpgrade": "CritChance",
+                "GlobalUpgradeType": "CritChance",
+                "Title": "Crit Chance",
+                "Amount": 18,
+                "Icon": "ads_click",
+                "IsPercentage": true
+              }
+            },
+            "CritDamageUpgrades": {
+              "Common": {
+                "GlobalUpgrade": "CritDamage",
+                "GlobalUpgradeType": "CritDamage",
+                "Title": "Crit Damage",
+                "Amount": 20,
+                "Icon": "crisis_alert",
+                "IsPercentage": true
+              },
+              "UnCommon": {
+                "GlobalUpgrade": "CritDamage",
+                "GlobalUpgradeType": "CritDamage",
+                "Title": "Crit Damage",
+                "Amount": 40,
+                "Icon": "crisis_alert",
+                "IsPercentage": true
+              },
+              "Rare": {
+                "GlobalUpgrade": "CritDamage",
+                "GlobalUpgradeType": "CritDamage",
+                "Title": "Crit Damage",
+                "Amount": 60,
+                "Icon": "crisis_alert",
+                "IsPercentage": true
+              },
+              "Epic": {
+                "GlobalUpgrade": "CritDamage",
+                "GlobalUpgradeType": "CritDamage",
+                "Title": "Crit Damage",
+                "Amount": 80,
+                "Icon": "crisis_alert",
+                "IsPercentage": true
               }
             }
           }
@@ -1065,6 +1190,34 @@
           ]
         }
       ]
+    },
+    {
+      "__guid": "07efca1a-0aa4-451f-b11e-9134da674005",
+      "Name": "sd_prop_brazier_01",
+      "Position": "148.1084,223.7273,-0.00001525879",
+      "Scale": "3,3,3",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/brazier_01.prefab"
+    },
+    {
+      "__guid": "55d9f7ce-aa89-4934-a8ef-1e394bf10241",
+      "Name": "sd_prop_brazier_01 (1)",
+      "Position": "-488,1240,0",
+      "Scale": "3,3,3",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/brazier_01.prefab"
+    },
+    {
+      "__guid": "589ae84d-f1ec-4cfc-831e-978bd090856c",
+      "Name": "sd_prop_brazier_01 (2)",
+      "Position": "795.478,905.9771,0.00001525879",
+      "Rotation": "0,0,-0.1305262,0.9914449",
+      "Scale": "3,3,3",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/brazier_01.prefab"
     }
   ],
   "SceneProperties": {
@@ -1090,7 +1243,7 @@
   },
   "Title": "outdoor_map_testroom",
   "Description": "",
-  "LastSaved": "2024-03-16T05:29:36.7213753\u002B00:00",
+  "LastSaved": "2024-03-16T09:09:15.3607012\u002B00:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": []
