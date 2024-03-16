@@ -652,6 +652,7 @@
           "__guid": "8ecf9f52-94ca-4aff-804e-c756b9de5cd9",
           "GlobalUpgradeDB": {
             "MovementUpgrades": {
+              "Icon": "directions_run",
               "Common": {
                 "GlobalUpgrade": "MoveSpeed",
                 "GlobalUpgradeType": "MoveSpeed",
@@ -687,6 +688,7 @@
               }
             },
             "MaxHealthUpgrades": {
+              "Icon": "favorite",
               "Common": {
                 "GlobalUpgrade": "MaxHealth",
                 "GlobalUpgradeType": "MaxHealth",
@@ -720,38 +722,43 @@
               }
             },
             "PickUpRadiusUpgrades": {
+              "Icon": "radio_button_checked",
               "Common": {
                 "GlobalUpgrade": "PickupRadius",
                 "GlobalUpgradeType": "PickupRadius",
                 "Title": "PickUp Radius",
-                "Amount": 30,
+                "Amount": 10,
                 "Icon": "crisis_alert"
               },
               "UnCommon": {
                 "GlobalUpgrade": "PickupRadius",
                 "GlobalUpgradeType": "PickupRadius",
                 "Title": "PickUp Radius",
-                "Amount": 60,
+                "Rarity": "UnCommon",
+                "Amount": 20,
                 "Icon": "crisis_alert"
               },
               "Rare": {
                 "GlobalUpgrade": "PickupRadius",
                 "GlobalUpgradeType": "PickupRadius",
                 "Title": "PickUp Radius",
-                "Amount": 120,
+                "Rarity": "Rare",
+                "Amount": 35,
                 "Icon": "crisis_alert"
               },
               "Epic": {
                 "GlobalUpgrade": "PickupRadius",
                 "GlobalUpgradeType": "PickupRadius",
                 "Title": "PickUp Radius",
-                "Amount": 200,
+                "Rarity": "Epic",
+                "Amount": 50,
                 "Icon": "crisis_alert"
               }
             },
             "FireRateUpgrades": {},
             "DamageUpgrades": {},
             "CritChanceUpgrades": {
+              "Icon": "ads_click",
               "Common": {
                 "GlobalUpgrade": "CritChance",
                 "GlobalUpgradeType": "CritChance",
@@ -786,6 +793,7 @@
               }
             },
             "CritDamageUpgrades": {
+              "Icon": "crisis_alert",
               "Common": {
                 "GlobalUpgrade": "CritDamage",
                 "GlobalUpgradeType": "CritDamage",
@@ -1188,43 +1196,51 @@
               ]
             }
           ]
+        },
+        {
+          "__guid": "4ad9c05e-b2a3-4b2e-ab10-5dbd292dfd6b",
+          "Name": "Braziers",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Children": [
+            {
+              "__guid": "55d9f7ce-aa89-4934-a8ef-1e394bf10241",
+              "Name": "sd_prop_brazier_01 (1)",
+              "Position": "-488,1240,0",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "__Prefab": "prefabs/brazier_01.prefab"
+            },
+            {
+              "__guid": "7ddfd8da-ee7f-4296-96be-6dbc5c61a502",
+              "Name": "sd_prop_brazier_01 (3)",
+              "Position": "-501.0128,140.2205,0",
+              "Rotation": "0,0,-0.258819,0.9659258",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "__Prefab": "prefabs/brazier_01.prefab"
+            },
+            {
+              "__guid": "86252b07-39b9-4c2c-8aa1-3d9e0736835b",
+              "Name": "sd_prop_brazier_01 (4)",
+              "Position": "520.9016,23.09839,0",
+              "Rotation": "0,0,0.3826834,0.9238796",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "__Prefab": "prefabs/brazier_01.prefab"
+            },
+            {
+              "__guid": "589ae84d-f1ec-4cfc-831e-978bd090856c",
+              "Name": "sd_prop_brazier_01 (2)",
+              "Position": "795.478,905.9771,0.00001525879",
+              "Rotation": "0,0,-0.1305262,0.9914449",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "__Prefab": "prefabs/brazier_01.prefab"
+            }
+          ]
         }
       ]
-    },
-    {
-      "__guid": "55d9f7ce-aa89-4934-a8ef-1e394bf10241",
-      "Name": "sd_prop_brazier_01 (1)",
-      "Position": "-488,1240,0",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "__Prefab": "prefabs/brazier_01.prefab"
-    },
-    {
-      "__guid": "7ddfd8da-ee7f-4296-96be-6dbc5c61a502",
-      "Name": "sd_prop_brazier_01 (3)",
-      "Position": "-501.0128,140.2205,0",
-      "Rotation": "0,0,-0.258819,0.9659258",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "__Prefab": "prefabs/brazier_01.prefab"
-    },
-    {
-      "__guid": "86252b07-39b9-4c2c-8aa1-3d9e0736835b",
-      "Name": "sd_prop_brazier_01 (4)",
-      "Position": "520.9016,23.09839,0",
-      "Rotation": "0,0,0.3826834,0.9238796",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "__Prefab": "prefabs/brazier_01.prefab"
-    },
-    {
-      "__guid": "589ae84d-f1ec-4cfc-831e-978bd090856c",
-      "Name": "sd_prop_brazier_01 (2)",
-      "Position": "795.478,905.9771,0.00001525879",
-      "Rotation": "0,0,-0.1305262,0.9914449",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "__Prefab": "prefabs/brazier_01.prefab"
     }
   ],
   "SceneProperties": {
@@ -1250,7 +1266,7 @@
   },
   "Title": "outdoor_map_testroom",
   "Description": "",
-  "LastSaved": "2024-03-16T10:54:11.7879368\u002B00:00",
+  "LastSaved": "2024-03-16T19:09:32.1670192\u002B00:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": []

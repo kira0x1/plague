@@ -24,6 +24,7 @@ public enum Rarity
 
 public class GlobalUpgradeContainer
 {
+    public string Icon { get; set; }
     public const float UnCommonChance = 0.35f;
     public const float RareChance = 0.18f;
     public const float EpicChance = 0.08f;
@@ -33,14 +34,27 @@ public class GlobalUpgradeContainer
     public GlobalUpgradeInstance Rare { get; set; }
     public GlobalUpgradeInstance Epic { get; set; }
 
+    private bool IsDirty = true;
+
     public GlobalUpgradeInstance RollForUpgrade()
     {
         float rng = Random.Shared.Float(0, 1);
 
-        Common.Rarity = Rarity.Common;
-        UnCommon.Rarity = Rarity.UnCommon;
-        Rare.Rarity = Rarity.Rare;
-        Epic.Rarity = Rarity.Epic;
+        if (IsDirty)
+        {
+            Common.Icon = Icon;
+            Common.Rarity = Rarity.Common;
+
+            UnCommon.Icon = Icon;
+            UnCommon.Rarity = Rarity.UnCommon;
+
+            Rare.Icon = Icon;
+            Rare.Rarity = Rarity.Rare;
+
+            Epic.Icon = Icon;
+            Epic.Rarity = Rarity.Epic;
+            IsDirty = false;
+        }
 
         if (rng <= EpicChance) return Epic;
         if (rng <= RareChance) return Rare;
@@ -111,11 +125,14 @@ public sealed class UpgradeManager : Component
 
         for (int i = 0; i < 3; i++)
         {
-            upgrades.Add(Random.Shared.FromList(UpgradePool));
+            var randomUpgrade = Random.Shared.FromList(UpgradePool);
+            UpgradePool.Remove(randomUpgrade);
+            upgrades.Add(randomUpgrade);
         }
 
         OnShowUpgradesEvent?.Invoke(upgrades);
     }
+
 
     private void OnLevelUp()
     {

@@ -1,4 +1,6 @@
-﻿namespace Kira;
+﻿using System.Text.Json.Nodes;
+
+namespace Kira;
 
 public enum SpawnDirection
 {
@@ -13,7 +15,7 @@ public enum SpawnDirection
 }
 
 [Category("Kira")]
-public class PlayerAbilities : Component
+public sealed class PlayerAbilities : Component
 {
     [Property] public List<int> StartAbilities { get; set; } = new List<int>();
 

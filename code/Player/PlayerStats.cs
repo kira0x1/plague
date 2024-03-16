@@ -7,6 +7,7 @@ public class PlayerStats : Component
     public readonly Stat MoveStat = new Stat(200);
     public readonly Stat MaxHealthStat = new Stat(100);
     public readonly Stat PickupRadiusStat = new Stat(120f);
+
     public readonly Stat CritChanceStat = new Stat(0.1f);
     public readonly Stat CritDamageStat = new Stat(2);
 
@@ -25,6 +26,12 @@ public class PlayerStats : Component
                 break;
             case GlobalUpgradeType.PickupRadius:
                 PickupRadiusStat.AddModifier(modifier);
+                break;
+            case GlobalUpgradeType.CritChance:
+                CritChanceStat.AddModifier(modifier);
+                break;
+            case GlobalUpgradeType.CritDamage:
+                CritDamageStat.AddModifier(modifier);
                 break;
         }
     }
