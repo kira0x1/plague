@@ -1,0 +1,20 @@
+@using Kira
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+
+<root>
+    <div class="stage-time">@StageTime</div>
+</root>
+
+@code
+{
+
+    [Property] private StageManager StageMng { get; set; }
+    private string StageTime => $"Time: {StageMng.StageTime}";
+
+    /// <summary>
+    /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+    /// </summary>
+    protected override int BuildHash() => System.HashCode.Combine(StageMng.StageTime);
+}

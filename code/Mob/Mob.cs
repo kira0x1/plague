@@ -4,7 +4,7 @@ namespace Kira;
 
 using Sandbox.Citizen;
 
-public sealed class Mob : Component
+public partial class Mob : Component
 {
     [Property]
     private float StopDistance { get; set; } = 30f;
@@ -24,10 +24,11 @@ public sealed class Mob : Component
     private bool HasRemovedBodyPhys { get; set; }
     private TimeUntil removePhysTime;
     private TimeUntil removeBodyPhysTime;
+    private float TargetDistance { get; set; }
 
     public enum MobStates
     {
-        Chasing,
+        Cobmat,
         Stunned,
         Dead,
     }
@@ -58,8 +59,9 @@ public sealed class Mob : Component
 
         switch (MobState)
         {
-            case MobStates.Chasing:
+            case MobStates.Cobmat:
                 UpdateChase();
+                UpdateCombat();
                 break;
             case MobStates.Stunned:
                 break;
@@ -89,9 +91,9 @@ public sealed class Mob : Component
 
         Anim.HoldType = CitizenAnimationHelper.HoldTypes.Swing;
 
-        float distance = Vector3.DistanceBetween(Transform.Position, Player.Transform.Position);
+        TargetDistance = Vector3.DistanceBetween(Transform.Position, Player.Transform.Position);
 
-        if (distance > StopDistance)
+        if (TargetDistance > StopDistance)
         {
             Agent.MoveTo(Player.Transform.Position);
         }

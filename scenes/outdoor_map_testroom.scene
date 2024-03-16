@@ -151,6 +151,7 @@
         {
           "__type": "PlayerAbilities",
           "__guid": "52bdd6bd-92df-4604-8156-2feaf70228b7",
+          "__version": 1,
           "AbilitiesEnabled": [
             true,
             true,
@@ -231,6 +232,33 @@
               "Model": "models/citizen/citizen.vmdl",
               "RenderType": "On",
               "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "ModelPhysics",
+              "__guid": "2d1bd159-1466-4024-8d43-ec251aed96fb",
+              "__enabled": false,
+              "Locking": {},
+              "Model": "models/citizen/citizen.vmdl",
+              "Renderer": {
+                "_type": "component",
+                "component_id": "10832111-4472-46fc-ab34-ce534f426c37",
+                "go": "96186d36-46c2-4588-8c8a-61b14bd5b3b6",
+                "component_type": "SkinnedModelRenderer"
+              },
+              "RigidbodyFlags": "DisableCollisionSounds"
+            },
+            {
+              "__type": "Rigidbody",
+              "__guid": "c926c2db-8269-42a9-b32f-ea421e16ff40",
+              "__enabled": false,
+              "AngularDamping": 0,
+              "Gravity": true,
+              "LinearDamping": 0,
+              "Locking": {},
+              "MassOverride": 0,
+              "MotionEnabled": true,
+              "RigidbodyFlags": "DisableCollisionSounds",
+              "StartAsleep": false
             }
           ],
           "Children": [
@@ -502,6 +530,16 @@
             "component_id": "52bdd6bd-92df-4604-8156-2feaf70228b7",
             "go": "5383b441-55e2-4dbe-b231-4e97fde90162",
             "component_type": "PlayerAbilities"
+          }
+        },
+        {
+          "__type": "StageUI",
+          "__guid": "1006f901-1fa8-4db8-a22f-e1d2f6ddba11",
+          "StageMng": {
+            "_type": "component",
+            "component_id": "11b98472-84a7-41b8-9b7f-94c8150b5d54",
+            "go": "bfbc6d00-0264-4102-b13f-85172feb62e4",
+            "component_type": "StageManager"
           }
         }
       ]
@@ -874,6 +912,10 @@
               "OrbitSpeed": 360
             }
           ]
+        },
+        {
+          "__type": "StageManager",
+          "__guid": "11b98472-84a7-41b8-9b7f-94c8150b5d54"
         }
       ]
     },
@@ -1266,7 +1308,7 @@
   },
   "Title": "outdoor_map_testroom",
   "Description": "",
-  "LastSaved": "2024-03-16T19:09:32.1670192\u002B00:00",
+  "LastSaved": "2024-03-16T19:55:14.8851029\u002B00:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": []

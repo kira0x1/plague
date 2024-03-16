@@ -30,6 +30,15 @@ public sealed class PlayerAbilities : Component
     public float GlobalCritChance => Stats.CritChanceStat.Value;
     public float GlobalCritDamage => Stats.CritDamageStat.Value;
 
+    public override int ComponentVersion => 1;
+
+    [JsonUpgrader(typeof(PlayerAbilities), 1)]
+    private static void StringPropertyUpgrader(JsonObject json)
+    {
+        json.Remove("StartAbilities", out var newNode);
+        json["StartAbilities"] = newNode;
+    }
+
     #region Spawns
 
     [Property, Group("Spawns")] public GameObject North { get; set; }

@@ -1,0 +1,23 @@
+StageUI {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  //align-items: center;
+  font-weight: bold;
+  width: 100%;
+
+  .stage-time {
+    position: absolute;
+    width: 10%;
+    border-radius: 5px;
+    background-color: rgba(#333, 0.9);
+    font-size: 25px;
+    font-family: Poppins;
+    color: #fff;
+    align-content: center;
+    justify-content: center;
+  }
+}

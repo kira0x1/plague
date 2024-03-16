@@ -31,6 +31,8 @@ public sealed class TPSController : Component, Component.ExecuteInEditor
     private CitizenAnimationHelper AnimationHelper { get; set; }
     private CharacterController Controller { get; set; }
     private PlayerStats Stats { get; set; }
+    private Rigidbody RgBody { get; set; }
+    private ModelPhysics ModelPhys { get; set; }
 
     protected override void OnEnabled()
     {
@@ -50,7 +52,6 @@ public sealed class TPSController : Component, Component.ExecuteInEditor
         }
 
         UpdateLook();
-
         ResetAngles();
     }
 
@@ -60,6 +61,11 @@ public sealed class TPSController : Component, Component.ExecuteInEditor
         Stats = Components.Get<PlayerStats>();
         Controller = Components.Get<CharacterController>();
         AnimationHelper = Components.Get<CitizenAnimationHelper>();
+
+        RgBody = Components.GetInDescendants<Rigidbody>(true);
+        ModelPhys = Components.GetInDescendants<ModelPhysics>(true);
+
+        Stats.OnDeathEvent += OnDeath;
     }
 
     protected override void OnUpdate()
@@ -82,7 +88,7 @@ public sealed class TPSController : Component, Component.ExecuteInEditor
 
     private void UpdateLook()
     {
-        if (IsProxy) return;
+        if (Stats.IsDead) return;
 
         var ee = EyeAngles;
         ee += Input.AnalogLook * 0.5f;
@@ -111,10 +117,18 @@ public sealed class TPSController : Component, Component.ExecuteInEditor
     {
         if (AnimationHelper is null) return;
 
+        if (Stats.IsDead)
+        {
+            AnimationHelper.WithVelocity(Vector3.Zero);
+            AnimationHelper.WithWishVelocity(Vector3.Zero);
+            return;
+        }
+
         AnimationHelper.WithVelocity(Controller.Velocity);
         AnimationHelper.WithWishVelocity(WishVelocity);
         AnimationHelper.IsGrounded = Controller.IsOnGround;
         AnimationHelper.FootShuffle = rotDiff;
+
 
         //TODO: fix
         var lookFwd = EyeAngles.Forward.EulerAngles;
@@ -129,6 +143,8 @@ public sealed class TPSController : Component, Component.ExecuteInEditor
     protected override void OnFixedUpdate()
     {
         if (IsProxy) return;
+        if (Stats.IsDead) return;
+
 
         BuildWishVelocity();
 
@@ -175,5 +191,11 @@ public sealed class TPSController : Component, Component.ExecuteInEditor
         var ee = Cam.Transform.Rotation.Angles();
         ee.roll = 0;
         EyeAngles = ee;
+    }
+
+    private void OnDeath()
+    {
+        ModelPhys.Enabled = true;
+        RgBody.Enabled = true;
     }
 }
